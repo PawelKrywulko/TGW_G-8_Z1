@@ -1,16 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://resources/graphics/player/player.png" type="Texture" id=2]
-[ext_resource path="res://resources/graphics/player/player_right.png" type="Texture" id=3]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": false,
-"name": "turn",
-"speed": 3.0
-} ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 95.8167, 61.8212 )
@@ -21,12 +12,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-speed = 300
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 2.72083, 0 )
-frames = SubResource( 1 )
-animation = "turn"
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.8006, 4.78073 )
@@ -37,4 +25,9 @@ position = Vector2( 6.47546, -534.399 )
 current = true
 limit_left = 0
 limit_right = 1920
-[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+
+[node name="FuelTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
+[connection signal="player_destroyed" from="." to="." method="_on_Player_player_destroyed"]
+[connection signal="timeout" from="FuelTimer" to="." method="_on_FuelTimer_timeout"]
