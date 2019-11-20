@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://resources/graphics/player/player.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/graphics/player/player.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 95.8167, 61.8212 )
 
 [node name="Player" type="Area2D"]
@@ -12,13 +13,14 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+Projectile = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.8006, 4.78073 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 6.47546, -534.399 )

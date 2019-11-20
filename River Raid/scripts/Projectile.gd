@@ -4,7 +4,6 @@ export var speed = 400
 var velocity
 
 func _ready():
-	add_to_group("projectile")
 	velocity = Vector2(0, -1)
 
 func _process(delta):
