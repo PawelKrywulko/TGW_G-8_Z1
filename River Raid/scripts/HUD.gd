@@ -2,7 +2,7 @@ extends CanvasLayer
 
 onready var lives_panel : Label = $Lives
 onready var fuel_panel : Label = $Fuel
-onready score_panel : Label= $Score
+onready var score_panel : Label= $Score
 
 func _ready():
 	connect("lives_left", self, "_on_lives_changed")

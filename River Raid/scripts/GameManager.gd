@@ -11,7 +11,6 @@ var starting_point : Vector2
 func _ready():
 	player = $Player
 	starting_point = $StartingPoint.position
-	connect("ready_to_go", player, "_on_ready_to_go")
 	yield(gameloop(), "completed")
 
 func gameloop():
@@ -42,7 +41,7 @@ func reset_game():
 			break
 
 func game_running():
-	yield(player, "no_more_lives")
+	yield(player, "out_of_lives")
 
 func gameover():
 	yield(get_tree(),"idle_frame")
