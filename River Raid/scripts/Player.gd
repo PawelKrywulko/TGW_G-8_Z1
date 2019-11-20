@@ -16,17 +16,20 @@ var fuel_amount
 var speed
 var screen_size
 var velocity
+var can_fly = false;
 
 func _ready():
 	fuel_amount = fuel_capacity
 	screen_size = get_viewport_rect().size
 	position = Vector2(screen_size.x / 2, 960)
-	emit_signal("lives_left", lives)
-
+	
 func _process(delta):
+	if can_fly:
+		move(delta)
 	shoot(position)
-	move(delta)
+	
 	fuel_monitor()
+	live_monitor()
 
 func move(delta):
 	velocity = Vector2()
@@ -47,6 +50,8 @@ func move(delta):
 
 func fuel_monitor():
 	emit_signal("fuel_left", fuel_amount)
+func live_monitor():
+	emit_signal("lives_left", lives)
 
 func shoot(pos):
 	if Input.is_action_pressed("ui_select") && can_shoot():
@@ -66,7 +71,9 @@ func _on_Player_area_entered(area):
 		return
 	else:
 		print("player_destroyed")
+		can_fly = false
 		emit_signal("player_destroyed")
+		
 		hide()
 
 func _on_FuelTimer_timeout():
@@ -75,7 +82,9 @@ func _on_FuelTimer_timeout():
 		print("out_of_fuel")
 		emit_signal("out_of_fuel")
 		print("player_destroyed")
+		can_fly = false
 		emit_signal("player_destroyed")
+		
 		hide()
 
 func _on_Player_player_destroyed():
@@ -84,3 +93,6 @@ func _on_Player_player_destroyed():
 		emit_signal("lives_left", lives)
 	if(lives == 0):
 		emit_signal("out_of_lives")
+
+func _on_ready_to_go():
+	can_fly = true;

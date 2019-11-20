@@ -37,6 +37,7 @@ func reset_game():
 		yield(get_tree(),"idle_frame")
 		if player.position.y <= starting_point.y:
 			player.show()
+			yield(get_tree().create_timer(2), "timeout")
 			emit_signal("ready_to_go")
 			break
 

@@ -18,16 +18,18 @@ max_prestart_position_y = -500
 min_reset_position_y = 1600
 
 [node name="StartingPoint" type="Node2D" parent="."]
-position = Vector2( 960, 806.749 )
+position = Vector2( 920.249, 499.345 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 918.473, 766.684 )
+position = Vector2( 918.473, 805.737 )
+fuel_capacity = 64
+
+[node name="Camera2D" parent="Player" index="2"]
+offset = Vector2( 0, -270 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
@@ -61,6 +63,9 @@ margin_bottom = 1026.0
 custom_fonts/font = SubResource( 1 )
 text = "Fuel 0"
 align = 1
-[connection signal="ready_to_go" from="." to="Player" method="_on_GameManager_ready_to_go"]
+[connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
+[connection signal="fuel_left" from="Player" to="HUD" method="_on_fuel_change"]
+[connection signal="lives_left" from="Player" to="HUD" method="_on_lives_changed"]
+[connection signal="player_destroyed" from="Player" to="." method="reset_game"]
 
 [editable path="Player"]
