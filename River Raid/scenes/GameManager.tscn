@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/HUD.gd" type="Script" id=4]
+[ext_resource path="res://resources/graphics/quad.png" type="Texture" id=5]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 6 )
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,7 +18,7 @@ max_prestart_position_y = -500
 min_reset_position_y = 1600
 
 [node name="StartingPoint" type="Node2D" parent="."]
-position = Vector2( 960, 960 )
+position = Vector2( 960, 806.749 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
@@ -24,5 +31,40 @@ position = Vector2( 0, 0 )
 offset = Vector2( 0, -950 )
 anchor_mode = 0
 smoothing_speed = 0.0
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="HUD"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 990, 1000 )
+scale = Vector2( 10, 1 )
+texture = ExtResource( 5 )
+
+[node name="Lives" type="Label" parent="HUD"]
+margin_left = 106.0
+margin_top = 939.0
+margin_right = 488.0
+margin_bottom = 1026.0
+custom_fonts/font = SubResource( 1 )
+text = "Lives 0"
+
+[node name="Score" type="Label" parent="HUD"]
+margin_left = 1297.85
+margin_top = 943.0
+margin_right = 1878.85
+margin_bottom = 1021.0
+custom_fonts/font = SubResource( 1 )
+text = "Score 0"
+align = 1
+
+[node name="Fuel" type="Label" parent="HUD"]
+margin_left = 548.0
+margin_top = 939.0
+margin_right = 1312.0
+margin_bottom = 1026.0
+custom_fonts/font = SubResource( 1 )
+text = "Fuel 0"
+align = 1
 
 [editable path="Player"]
