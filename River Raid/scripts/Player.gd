@@ -3,6 +3,8 @@ extends Area2D
 signal player_destroyed
 signal out_of_fuel
 signal out_of_lives
+signal lives_left
+signal fuel_left
 
 export (PackedScene) var Projectile
 export (float) var base_speed = 500
@@ -19,9 +21,14 @@ func _ready():
 	fuel_amount = fuel_capacity
 	screen_size = get_viewport_rect().size
 	position = Vector2(screen_size.x / 2, 960)
+	emit_signal("lives_left", lives)
 
 func _process(delta):
 	shoot(position)
+	move(delta)
+	fuel_monitor()
+
+func move(delta):
 	velocity = Vector2()
 	speed = base_speed
 	if Input.is_action_pressed("ui_right"):
@@ -37,7 +44,10 @@ func _process(delta):
 	var pos = position + velocity * delta
 	pos.x = clamp(pos.x, 0, screen_size.x)
 	position = pos
-	
+
+func fuel_monitor():
+	emit_signal("fuel_left", fuel_amount)
+
 func shoot(pos):
 	if Input.is_action_pressed("ui_select") && can_shoot():
 		projectile = Projectile.instance()
@@ -69,6 +79,8 @@ func _on_FuelTimer_timeout():
 		hide()
 
 func _on_Player_player_destroyed():
-	lives -= 1
+	if(lives > 0):
+		lives -= 1
+		emit_signal("lives_left", lives)
 	if(lives == 0):
 		emit_signal("out_of_lives")

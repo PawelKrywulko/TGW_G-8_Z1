@@ -11,4 +11,4 @@ func _on_FuelTank_area_entered(area):
 	if area_name == "Projectile":
 		queue_free()
 		print("fuel_tank_destroyed")
-		emit_signal("fuel_tank_destroyed")
+		emit_signal("fuel_tank_destroyed", 50)
