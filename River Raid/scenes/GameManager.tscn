@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=4]
 [ext_resource path="res://resources/graphics/quad.png" type="Texture" id=5]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -24,6 +26,7 @@ position = Vector2( 917.751, 920.541 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 918.473, 805.737 )
+base_speed = 300.0
 fuel_capacity = 64
 
 [node name="Camera2D" parent="Player" index="2"]
@@ -63,6 +66,21 @@ margin_bottom = 1026.0
 custom_fonts/font = SubResource( 1 )
 text = "Fuel 0"
 align = 1
+
+[node name="FuelTank" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1104.7, 88.202 )
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1281.43, -567.447 )
+scale = Vector2( 2, 2 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1394.96, -1378.96 )
+scale = Vector2( 2, 2 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 583.445, -1332.71 )
+scale = Vector2( 2, 2 )
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_fuel_change"]
 [connection signal="lives_left" from="Player" to="HUD" method="_on_lives_changed"]
