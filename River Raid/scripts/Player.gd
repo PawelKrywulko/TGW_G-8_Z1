@@ -72,7 +72,11 @@ func _on_Player_area_entered(area):
 	else:
 		print("player_destroyed")
 		can_fly = false
-		emit_signal("player_destroyed")
+		is_any_button_pressed = false
+		if lives == 1:
+			_on_Player_player_destroyed()
+		else:
+			emit_signal("player_destroyed")
 		hide()
 
 func _on_FuelTimer_timeout():
@@ -94,6 +98,7 @@ func _on_Player_player_destroyed():
 		lives -= 1
 		emit_signal("lives_left", lives)
 	if(lives == 0):
+		lives = 3;
 		emit_signal("out_of_lives")
 
 func _on_ready_to_go():

@@ -11,17 +11,18 @@ var starting_point : Vector2
 func _ready():
 	player = $Player
 	starting_point = $StartingPoint.position
-	yield(gameloop(), "completed")
+	gameloop()
 
 func gameloop():
 	yield(start_game(),"completed")
 	yield(game_running(),"completed")
-	yield(gameover(),"completed")
+	gameover()
 
 func start_game():
 	player.hide()
 	while true:
 		auto_move()
+		print("start")
 		yield(get_tree(),"idle_frame")
 		if player.position.y <= max_prestart_position_y:
 			#black screen animation fade and continue after finished
@@ -29,11 +30,13 @@ func start_game():
 			break
 
 func reset_game():
+	
 	player.position.x = starting_point.x
 	player.position.y = min_reset_position_y
 
 	while true:
 		auto_move()
+		print("reset")
 		yield(get_tree(),"idle_frame")
 		if player.position.y <= starting_point.y:
 			player.show()
@@ -42,9 +45,8 @@ func reset_game():
 
 func game_running():
 	yield(player, "out_of_lives")
-
+	print("game+stoprunning")
 func gameover():
-	yield(get_tree(),"idle_frame")
 	gameloop()
 
 func auto_move():
