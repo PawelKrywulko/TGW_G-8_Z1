@@ -13,4 +13,4 @@ func _on_lives_changed(value):
 
 func _on_score_change(value):
 	score += value
-	score_panel.text = "Score: " + str(value)
+	score_panel.text = "Score: " + str(score)

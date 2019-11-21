@@ -1,7 +1,7 @@
 extends Node2D
 
 signal ready_to_go
-
+signal reset
 export var prestart_speed: float
 export var max_prestart_position_y: int
 export var min_reset_position_y: int
@@ -31,6 +31,7 @@ func start_game():
 
 func reset_game():
 	
+	emit_signal("reset")
 	player.position.x = starting_point.x
 	player.position.y = min_reset_position_y
 

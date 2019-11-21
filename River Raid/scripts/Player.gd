@@ -19,6 +19,8 @@ var velocity
 var can_fly = false
 var is_any_button_pressed = false
 
+func _ready():
+	get_parent().connect("reset", self, "reset")
 func _input(event):
 	if event is InputEventKey && event.pressed && can_fly && !is_any_button_pressed:
 		is_any_button_pressed = true
@@ -71,8 +73,7 @@ func _on_Player_area_entered(area):
 		return
 	else:
 		print("player_destroyed")
-		can_fly = false
-		is_any_button_pressed = false
+		reset()
 		if lives == 1:
 			_on_Player_player_destroyed()
 		else:
@@ -86,9 +87,7 @@ func _on_FuelTimer_timeout():
 		print("out_of_fuel")
 		emit_signal("out_of_fuel")
 		print("player_destroyed")
-		can_fly = false
-		is_any_button_pressed = false
-		fuel_amount = fuel_capacity
+		reset()
 		$FuelTimer.stop()
 		emit_signal("player_destroyed")
 		hide()
@@ -98,10 +97,16 @@ func _on_Player_player_destroyed():
 		lives -= 1
 		emit_signal("lives_left", lives)
 	if(lives == 0):
-		lives = 3;
+		lives = 3
 		emit_signal("out_of_lives")
 
 func _on_ready_to_go():
 	screen_size = get_viewport_rect().size
 	position = Vector2(screen_size.x / 2, 960)
 	can_fly = true
+	
+func reset():
+	$FuelTimer.stop()
+	can_fly = false
+	is_any_button_pressed = false
+	fuel_amount = fuel_capacity
