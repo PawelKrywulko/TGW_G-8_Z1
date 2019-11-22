@@ -84,7 +84,7 @@ func _on_FuelTimer_timeout():
 
 func _on_Player_player_destroyed():
 	hide()
-	reset()
+	$CollisionShape2D.set_deferred("disabled", true)
 	if(lives > 0):
 		lives -= 1
 		emit_signal("lives_left", lives)
@@ -94,7 +94,8 @@ func _on_Player_player_destroyed():
 func wait_for_pressing_key():
 	while true:
 		yield(get_tree(),"idle_frame")
-		if Input.is_action_pressed("interact"): #jakiś przycisk którego nie będziemy przyciskać :P
+		if Input.is_action_pressed("interact"):
+			$CollisionShape2D.set_deferred("disabled", false)
 			break
 
 func _on_ready_to_go():
