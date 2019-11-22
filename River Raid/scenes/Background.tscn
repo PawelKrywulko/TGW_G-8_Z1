@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/graphics/quad.png" type="Texture" id=1]
+[ext_resource path="res://resources/graphics/background/background2.png" type="Texture" id=2]
+[ext_resource path="res://resources/graphics/background/BGtop.png" type="Texture" id=3]
+
+[node name="Background" type="Node2D"]
+
+[node name="River" type="Sprite" parent="."]
+modulate = Color( 0.0784314, 0.666667, 0.92549, 1 )
+position = Vector2( 988.668, -8774.25 )
+scale = Vector2( 10, 100 )
+texture = ExtResource( 1 )
+
+[node name="backgroundImage" type="Sprite" parent="."]
+visible = false
+position = Vector2( 954.794, -7882.16 )
+scale = Vector2( 5, 4 )
+texture = ExtResource( 2 )
+
+[node name="Ground" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Ground"]
+position = Vector2( 959.466, -8515.65 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2( 133.383, -8833.22 )
+scale = Vector2( 10, 10 )
+polygon = PoolVector2Array( 65.428, 987.331, 54.7121, 900.175, 3.98991, 815.876, 18.2778, 793.015, 6.84747, 665.138, 3.2755, 658.709, 2.5611, 598.7, 23.2786, 590.127, 40.4241, 572.981, 38.9953, 552.978, -11.7268, 554.407, -9.58364, 988.046 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground"]
+polygon = PoolVector2Array( 1916.41, 1082.95, 1894.98, -3339.16, 1494.92, -3346.31, 1559.21, -3103.41, 1580.64, -2424.73, 1630.65, -1974.66, 1673.52, -1688.91, 1744.96, -503.007, 1409.19, 197.102, 1166.29, 632.884, 1152.01, 1054.38 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2( 7.14404, 0 )
+polygon = PoolVector2Array( 1037.7, -717.326, 1166.29, -767.334, 1187.73, -1317.42, 1109.14, -1503.16, 1087.71, -2474.74, 930.543, -2539.04, 801.951, -2481.89, 751.944, -2174.7, 730.511, -1653.19, 809.095, -1510.31, 873.391, -1131.68, 894.823, -753.046 )

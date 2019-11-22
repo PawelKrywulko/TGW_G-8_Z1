@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-6ca58f6718b563374f5d4a69d872e69c.stex"
+path="res://.import/fuel.png-746ad2f50015d6eed8082baa78f75277.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/graphics/player/player.png"
-dest_files=[ "res://.import/player.png-6ca58f6718b563374f5d4a69d872e69c.stex" ]
+source_file="res://resources/graphics/fuelTank/fuel.png"
+dest_files=[ "res://.import/fuel.png-746ad2f50015d6eed8082baa78f75277.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
