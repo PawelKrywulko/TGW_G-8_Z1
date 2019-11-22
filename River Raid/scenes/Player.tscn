@@ -33,5 +33,6 @@ limit_right = 1920
 [node name="FuelTimer" type="Timer" parent="."]
 autostart = true
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
+[connection signal="out_of_lives" from="." to="." method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="." to="." method="_on_Player_player_destroyed"]
 [connection signal="timeout" from="FuelTimer" to="." method="_on_FuelTimer_timeout"]

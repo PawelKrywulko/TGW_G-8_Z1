@@ -5,12 +5,16 @@ onready var fuel_panel : Label = $Fuel
 onready var score_panel : Label= $Score
 var score = 0
 
-func _on_fuel_change(value):
-	fuel_panel.text = "Fuel: " + str(value)
+func _on_score_changed(value):
+	score += value
+	score_panel.text = "Score: " + str(score)
 
-func _on_lives_changed(value):
+func _on_Player_lives_left(value):
 	lives_panel.text = "Lives: " + str(value)
 
-func _on_score_change(value):
-	score += value
+func _on_Player_fuel_left(value):
+	fuel_panel.text = "Fuel: " + str(value)
+
+func _on_Player_out_of_lives():
+	score = 0
 	score_panel.text = "Score: " + str(score)

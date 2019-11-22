@@ -22,7 +22,6 @@ func start_game():
 	player.hide()
 	while true:
 		auto_move()
-		print("start")
 		yield(get_tree(),"idle_frame")
 		if player.position.y <= max_prestart_position_y:
 			#black screen animation fade and continue after finished
@@ -37,7 +36,6 @@ func reset_game():
 
 	while true:
 		auto_move()
-		print("reset")
 		yield(get_tree(),"idle_frame")
 		if player.position.y <= starting_point.y:
 			player.show()

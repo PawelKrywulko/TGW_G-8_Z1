@@ -9,22 +9,16 @@ signal fuel_left
 export (PackedScene) var Projectile
 export (float) var base_speed = 500
 export (int) var fuel_capacity = 64
-export (int) var lives = 3
+export (int) var base_lives = 3
 
 var projectile = null
-var fuel_amount = fuel_capacity
 var speed
+var fuel_amount = fuel_capacity
+var lives = base_lives
 var screen_size
 var velocity
 var can_fly = false
 var is_any_button_pressed = false
-
-func _ready():
-	get_parent().connect("reset", self, "reset")
-func _input(event):
-	if event is InputEventKey && event.pressed && can_fly && !is_any_button_pressed:
-		is_any_button_pressed = true
-		$FuelTimer.start()
 	
 func _process(delta):
 	move(delta)
@@ -78,7 +72,6 @@ func _on_Player_area_entered(area):
 			_on_Player_player_destroyed()
 		else:
 			emit_signal("player_destroyed")
-		hide()
 
 func _on_FuelTimer_timeout():
 	if fuel_amount > 0:
@@ -87,26 +80,44 @@ func _on_FuelTimer_timeout():
 		print("out_of_fuel")
 		emit_signal("out_of_fuel")
 		print("player_destroyed")
-		reset()
-		$FuelTimer.stop()
 		emit_signal("player_destroyed")
-		hide()
 
 func _on_Player_player_destroyed():
+	hide()
+	reset()
 	if(lives > 0):
 		lives -= 1
 		emit_signal("lives_left", lives)
 	if(lives == 0):
-		lives = 3
 		emit_signal("out_of_lives")
 
+func wait_for_pressing_key():
+	while true:
+		yield(get_tree(),"idle_frame")
+		if Input.is_action_pressed("interact"): #jakiś przycisk którego nie będziemy przyciskać :P
+			break
+
 func _on_ready_to_go():
+	yield(wait_for_pressing_key(), "completed")
+	prepare_to_fly()
+
+func prepare_to_fly():
 	screen_size = get_viewport_rect().size
 	position = Vector2(screen_size.x / 2, 960)
 	can_fly = true
+	is_any_button_pressed = true
+	$FuelTimer.start()
 	
 func reset():
 	$FuelTimer.stop()
 	can_fly = false
 	is_any_button_pressed = false
 	fuel_amount = fuel_capacity
+
+func _on_GameManager_reset():
+	reset()
+
+func _on_Player_out_of_lives():
+	#na razie tylko tak
+	yield(get_tree().create_timer(3.0), "timeout")
+	lives = base_lives
