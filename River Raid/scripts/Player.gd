@@ -19,7 +19,10 @@ var screen_size
 var velocity
 var can_fly = false
 var is_any_button_pressed = false
-	
+
+func _ready():
+	screen_size = get_viewport_rect().size
+
 func _process(delta):
 	move(delta)
 	shoot(position)
@@ -103,8 +106,6 @@ func _on_ready_to_go():
 	prepare_to_fly()
 
 func prepare_to_fly():
-	screen_size = get_viewport_rect().size
-	position = Vector2(screen_size.x / 2, 960)
 	can_fly = true
 	is_any_button_pressed = true
 	$FuelTimer.start()
