@@ -9,7 +9,6 @@ var score = 0
 func _ready():
 	var game_manager = get_parent()
 	game_manager.connect("fade", self, "_fade")
-	fade_anim.play("Idle")
 
 func _on_score_changed(value):
 	score += value
