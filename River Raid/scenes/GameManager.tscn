@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -13,11 +13,73 @@
 size = 64
 font_data = ExtResource( 5 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "BlackScreen"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
 prestart_speed = 300.0
 max_prestart_position_y = -500
 min_reset_position_y = 1600
+fade_anim_offset = 400
 
 [node name="StartingPoint" type="Position2D" parent="."]
 position = Vector2( 960, 920.541 )
@@ -25,7 +87,6 @@ position = Vector2( 960, 920.541 )
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
@@ -59,6 +120,20 @@ margin_bottom = 1026.0
 custom_fonts/font = SubResource( 1 )
 text = "Fuel 0"
 align = 1
+
+[node name="Fader" type="Node" parent="HUD"]
+
+[node name="Sprite" type="Sprite" parent="HUD/Fader"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 960, 540 )
+scale = Vector2( 10, 6 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fader"]
+anims/BlackScreen = SubResource( 5 )
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+anims/Idle = SubResource( 4 )
 
 [node name="FuelTank" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1104.7, 88.202 )

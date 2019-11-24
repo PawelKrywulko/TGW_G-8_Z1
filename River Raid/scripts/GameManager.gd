@@ -2,9 +2,13 @@ extends Node2D
 
 signal ready_to_go
 signal reset
+signal fade
+
 export var prestart_speed: float
 export var max_prestart_position_y: int
 export var min_reset_position_y: int
+export var fade_anim_offset : int
+var fade_anim_played : bool = false
 var player: Node2D
 var starting_point : Vector2
 
@@ -19,12 +23,16 @@ func gameloop():
 	gameover()
 
 func start_game():
+	fade_anim_played = false
 	player.hide()
 	while true:
 		auto_move()
 		yield(get_tree(),"idle_frame")
+		#black screen animation fade in and out
+		if player.position.y <= max_prestart_position_y + fade_anim_offset && !fade_anim_played:
+			fade_anim_played = true
+			emit_signal("fade")
 		if player.position.y <= max_prestart_position_y:
-			#black screen animation fade and continue after finished
 			reset_game()
 			break
 
