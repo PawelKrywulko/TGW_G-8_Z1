@@ -52,6 +52,9 @@ func reset_game():
 
 func game_running():
 	yield(player, "out_of_lives")
+	#prepere to connect to end panel
+	#yield(endpanel,"gameover")
+	#get_tree().change_scene("res://scenes/StartScreen.tscn")
 	print("game+stoprunning")
 func gameover():
 	gameloop()
