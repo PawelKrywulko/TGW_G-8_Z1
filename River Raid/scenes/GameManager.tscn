@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -6,8 +6,13 @@
 [ext_resource path="res://resources/graphics/quad.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Boat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Baloon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Chopper.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Jet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Ship.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Tank.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -82,8 +87,19 @@ fade_anim_offset = 400
 position = Vector2( 960, 920.541 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+
+[node name="CollisionPolygon2D" parent="Background/Ground" index="2"]
+visible = true
+
+[node name="CollisionPolygon2D2" parent="Background/Ground" index="3"]
+visible = true
+
+[node name="CollisionPolygon2D3" parent="Background/Ground" index="4"]
+visible = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
@@ -119,6 +135,7 @@ text = "Fuel 0"
 align = 1
 
 [node name="Fader" type="Node" parent="HUD"]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="HUD/Fader"]
 modulate = Color( 0, 0, 0, 0 )
@@ -135,22 +152,34 @@ anims/Idle = SubResource( 5 )
 [node name="FuelTank" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1104.7, 88.202 )
 
-[node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1281.43, -567.447 )
+[node name="Boat" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1385.45, -600.732 )
 scale = Vector2( 2, 2 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1394.96, -1378.96 )
+[node name="Baloon" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1324.5, -1981.24 )
+scale = Vector2( 3, 3 )
+
+[node name="Chopper" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1335.1, -1072.44 )
+scale = Vector2( 3, 3 )
+
+[node name="Jet" parent="." instance=ExtResource( 10 )]
+position = Vector2( 267.138, -2294.11 )
 scale = Vector2( 2, 2 )
 
-[node name="Enemy3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 583.445, -1332.71 )
+[node name="Ship" parent="." instance=ExtResource( 11 )]
+position = Vector2( 627.543, -219.127 )
+scale = Vector2( 3, 3 )
+
+[node name="Tank" parent="." instance=ExtResource( 12 )]
+position = Vector2( 691.144, -1249.99 )
 scale = Vector2( 2, 2 )
 
-[node name="Player" parent="." instance=ExtResource( 8 )]
+[node name="Player" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 position = Vector2( 918.473, 805.737 )
-base_speed = 300.0
+base_speed = 200.0
 
 [node name="Camera2D" parent="Player" index="2"]
 offset = Vector2( 0, -270 )
@@ -163,5 +192,7 @@ autostart = false
 [connection signal="lives_left" from="Player" to="HUD" method="_on_Player_lives_left"]
 [connection signal="out_of_lives" from="Player" to="HUD" method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="Player" to="." method="reset_game"]
+
+[editable path="Background"]
 
 [editable path="Player"]
