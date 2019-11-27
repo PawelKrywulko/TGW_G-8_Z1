@@ -19,5 +19,6 @@ rotation = 1.5708
 position = Vector2( 90, 0 )
 enabled = true
 cast_to = Vector2( 20, 0 )
+collision_mask = 2
 collide_with_areas = true
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
