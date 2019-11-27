@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://resources/graphics/enemy/boat.png" type="Texture" id=2]
-
-
-[sub_resource type="CapsuleShape2D" id=1]
-height = 158.243
 
 [node name="Enemy" type="Area2D"]
 position = Vector2( 974.698, 491.082 )
@@ -15,10 +10,14 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.970596, 7.11774 )
 rotation = 1.5708
-shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 90, 0 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collide_with_areas = true
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]

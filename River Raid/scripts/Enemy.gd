@@ -2,18 +2,27 @@ extends Area2D
 
 signal enemy_destroyed
 
-export (int) var points = 20
+export var points: int = 20
+export var startDirection: int = 1 #1 = right ; -1 = left
+export var speed: int = 100
 
-onready var hud
-onready var game_manager
+onready var hud = get_node("../HUD")
+onready var game_manager = get_node("../../GameManager")
+onready var raycast = get_node("RayCast2D")
 
 func _ready():
 	show()
-	hud = get_node("../HUD")
 	connect("enemy_destroyed", hud, "_on_score_changed")
-	game_manager = get_node("../../GameManager")
 	if is_instance_valid(game_manager):
 		game_manager.connect("reset", self, "_on_game_reseted")
+		
+func _process(delta):
+	if raycast.is_colliding():
+		transform.x *= -1
+		startDirection *= -1
+	
+	position.x += startDirection * delta * speed
+
 
 func _on_Enemy_area_entered(area):
 	var area_name = area.get_name()

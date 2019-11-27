@@ -22,6 +22,7 @@ var is_any_button_pressed: bool = false
 var debugging: bool = false #true tylko jeśli debugujemy
 
 func _ready() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
 	screen_size = get_viewport_rect().size
 	#służy tylko do debugowania żeby samolot leciał
 	if debugging:
