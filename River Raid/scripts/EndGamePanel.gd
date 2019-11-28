@@ -1,14 +1,23 @@
 extends CanvasLayer
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal panel_closed
 
-# Called when the node enters the scene tree for the first time.
+onready var timer: Timer
+onready var info_message : Label
+
+export var waiting_time : int
+
 func _ready():
-	_wait()
+	timer = $WaitTimer
+	timer.start()
+	info_message = $Info
+	info_message.text = "Press any key or wait " + str(waiting_time) + " sec..."
+	wait()
 
-func _wait():
-	yield(get_tre
+func wait():
 	while true:
-		yield(get_tree(),"idle_frame")
+		yield($WaitTimer, "timeout")
+		waiting_time -= 1
+		info_message.text = "Press any key or wait " + str(waiting_time) + " sec..."
+		if waiting_time <= 0 :
+			get_tree().change_scene("res://scenes/StartScreen.tscn")
