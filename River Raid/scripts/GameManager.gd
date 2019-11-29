@@ -12,17 +12,17 @@ var fade_anim_played : bool = false
 var player: Node2D
 var starting_point : Vector2
 
-func _ready():
+func _ready() -> void:
 	player = $Player
 	starting_point = $StartingPoint.position
 	gameloop()
 
-func gameloop():
+func gameloop() -> void:
 	yield(start_game(),"completed")
 	yield(game_running(),"completed")
 	gameover()
 
-func start_game():
+func start_game() -> void:
 	fade_anim_played = false
 	player.hide()
 	while true:
@@ -57,7 +57,9 @@ func game_running():
 	#get_tree().change_scene("res://scenes/StartScreen.tscn")
 	print("game+stoprunning")
 func gameover():
-	gameloop()
+	var game_over_panel: PackedScene = load("res://scenes/EndGamePanel.tscn")
+	add_child(game_over_panel.instance())
+	set_process(false)
 
 func auto_move():
 	player.position += Vector2(0,-1) * prestart_speed * get_process_delta_time()
