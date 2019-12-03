@@ -6,23 +6,27 @@ export var points: int = 20
 export var startDirection: int = 1 #1 = right ; -1 = left
 export var speed: int = 100
 
-onready var hud = get_node("../HUD")
+onready var hud := get_node("../HUD")
 onready var game_manager = get_node("../../GameManager")
 onready var raycast = get_node("RayCast2D")
 
 func _ready():
+	on_ready()
+
+func on_ready() -> void:
 	show()
 	connect("enemy_destroyed", hud, "_on_score_changed")
 	if is_instance_valid(game_manager):
 		game_manager.connect("reset", self, "_on_game_reseted")
 		
-func _process(delta):
+func _process(delta: float):
+	on_process(delta)
+
+func on_process(delta: float) -> void:
 	if raycast.is_colliding():
 		transform.x *= -1
 		startDirection *= -1
-	
 	position.x += startDirection * delta * speed
-
 
 func _on_Enemy_area_entered(area):
 	var area_name = area.get_name()
