@@ -7,9 +7,9 @@
 [sub_resource type="CapsuleShape2D" id=1]
 height = 161.372
 
-[node name="Boat" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="Boat" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+direction = 1
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

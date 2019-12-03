@@ -1,3 +1,4 @@
+tool 
 extends "res://scripts/Enemy.gd"
 
 # Declare member variables here. Examples:
