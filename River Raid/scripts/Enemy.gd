@@ -14,7 +14,6 @@ onready var game_manager := get_node("../../GameManager")
 onready var raycast := get_node("RayCast2D")
 
 func _ready() -> void:
-	set_direction(choose_direction)
 	on_ready()
 		
 func on_ready():
@@ -24,9 +23,8 @@ func on_ready():
 		game_manager.connect("reset", self, "_on_game_reseted")
 
 func _process(delta: float) -> void:
-	if Engine.editor_hint:
-		return
-	on_process(delta)
+	if not Engine.editor_hint:
+		on_process(delta)
 	
 func on_process(delta: float) -> void:
 	if raycast.is_colliding():
@@ -50,10 +48,8 @@ func _on_game_reseted():
 func set_direction(new_direction) -> void:
 	choose_direction = new_direction
 	if choose_direction == "right":
-		choose_direction = "right"
 		start_direction = 1
-		self.scale.x = 1
+		scale.x = 1
 	else:
-		choose_direction = "left"
 		start_direction = -1
-		self.scale.x = -1
+		scale.x = -1
