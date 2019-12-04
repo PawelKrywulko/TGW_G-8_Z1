@@ -8,17 +8,23 @@ extents = Vector2( 10, 114.515 )
 [node name="EnemyTest" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1154.66, 460.052 )
+
+[node name="CollisionShape2D" parent="Enemy" index="1"]
+light_mask = 2
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1180.78, 478.548 )
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 762.297, 484.22 )
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource( 1 )

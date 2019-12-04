@@ -3,11 +3,12 @@
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 
 [node name="Enemy" type="Area2D"]
-position = Vector2( 974.698, 491.082 )
+position = Vector2( 564.956, 324.029 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+choose_direction = "right"
 
 [node name="Sprite" type="Sprite" parent="."]
 
