@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BGtop.png-fcc153e0b42e159c1c8bb0d4134574b3.stex"
+path="res://.import/background.png-4ca6e084065ded50e95ddd6f6519b506.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/graphics/background/BGtop.png"
-dest_files=[ "res://.import/BGtop.png-fcc153e0b42e159c1c8bb0d4134574b3.stex" ]
+source_file="res://graphics/background/background.png"
+dest_files=[ "res://.import/background.png-4ca6e084065ded50e95ddd6f6519b506.stex" ]
 
 [params]
 

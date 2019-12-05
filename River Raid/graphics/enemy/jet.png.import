@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chopper.png-b3870835a91ce394cda192a7cbd3a77c.stex"
+path="res://.import/jet.png-e3882b43e54d4bb0e0a5d583157b8f3e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/graphics/enemy/chopper.png"
-dest_files=[ "res://.import/chopper.png-b3870835a91ce394cda192a7cbd3a77c.stex" ]
+source_file="res://graphics/enemy/jet.png"
+dest_files=[ "res://.import/jet.png-e3882b43e54d4bb0e0a5d583157b8f3e.stex" ]
 
 [params]
 

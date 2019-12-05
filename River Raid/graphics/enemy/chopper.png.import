@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baloon.png-e06ef6b90ddf2cc57c6173548d78a753.stex"
+path="res://.import/chopper.png-56f2a65c952a146b0931364afe513a91.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/graphics/enemy/baloon.png"
-dest_files=[ "res://.import/baloon.png-e06ef6b90ddf2cc57c6173548d78a753.stex" ]
+source_file="res://graphics/enemy/chopper.png"
+dest_files=[ "res://.import/chopper.png-56f2a65c952a146b0931364afe513a91.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/quad.png-7f7333dc8d1a384df182996d36d78533.stex"
+path="res://.import/ship.png-e5e300c80417e6bda0f2105b05d46372.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/graphics/quad.png"
-dest_files=[ "res://.import/quad.png-7f7333dc8d1a384df182996d36d78533.stex" ]
+source_file="res://graphics/enemy/ship.png"
+dest_files=[ "res://.import/ship.png-e5e300c80417e6bda0f2105b05d46372.stex" ]
 
 [params]
 
