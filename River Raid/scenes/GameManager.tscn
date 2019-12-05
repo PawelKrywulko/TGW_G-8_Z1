@@ -160,18 +160,25 @@ offset = Vector2( 0, -270 )
 autostart = false
 
 [node name="Jet" parent="." instance=ExtResource( 7 )]
-position = Vector2( 768.048, -185.329 )
+position = Vector2( 505.065, 323.106 )
+speed = 1000
+
+[node name="Jet2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1716.74, 210.12 )
+scale = Vector2( -1, 1 )
+choose_direction = "left"
+speed = 1000
 
 [node name="Tank" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 1618.04, 318.254 )
+position = Vector2( 1830.37, 594.874 )
 scale = Vector2( -1, 1 )
 choose_direction = "left"
-speed = 25
+speed = 75
 firerate = 2.0
 
 [node name="Boat" parent="." instance=ExtResource( 9 )]
-position = Vector2( 934.679, 93.8942 )
+position = Vector2( 905.459, 436.747 )
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_Player_fuel_left"]
