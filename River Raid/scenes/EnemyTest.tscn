@@ -8,7 +8,9 @@ extents = Vector2( 10, 114.515 )
 [node name="EnemyTest" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1154.66, 460.052 )
+position = Vector2( 1139.15, 457.467 )
+scale = Vector2( -1, 1 )
+choose_direction = "left"
 
 [node name="CollisionShape2D" parent="Enemy" index="1"]
 light_mask = 2
