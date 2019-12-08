@@ -7,8 +7,8 @@
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Jet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Tank.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Boat.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Boat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Tank.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -161,24 +161,23 @@ autostart = false
 
 [node name="Jet" parent="." instance=ExtResource( 7 )]
 position = Vector2( 505.065, 323.106 )
+points = 20
 speed = 1000
 
 [node name="Jet2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1716.74, 210.12 )
 scale = Vector2( -1, 1 )
+points = 20
 choose_direction = "left"
 speed = 1000
 
-[node name="Tank" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 1830.37, 594.874 )
-scale = Vector2( -1, 1 )
-choose_direction = "left"
-speed = 75
-firerate = 2.0
-
-[node name="Boat" parent="." instance=ExtResource( 9 )]
+[node name="Boat" parent="." instance=ExtResource( 8 )]
 position = Vector2( 905.459, 436.747 )
+points = 20
+speed = 100
+
+[node name="Tank" parent="." instance=ExtResource( 9 )]
+position = Vector2( 419.971, 625.831 )
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_Player_fuel_left"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/GroundEnemy.gd" type="Script" id=1]
-[ext_resource path="res://graphics/enemy/tank.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Shell.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/enemy/tank.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.194
@@ -10,23 +11,32 @@ height = 72.636
 [sub_resource type="CircleShape2D" id=2]
 
 [node name="Tank" type="Area2D"]
+position = Vector2( 611.089, 555.026 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 choose_direction = "right"
+shell_scene = ExtResource( 2 )
 firerate = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( -0.25, 0.25 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="GroundChecker" type="Area2D" parent="."]
+editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundChecker"]
 position = Vector2( 92.0396, 0.814545 )
 shape = SubResource( 2 )
+
+[node name="Spawner" type="Position2D" parent="."]
+position = Vector2( 100.914, -14.0158 )
+
+[node name="ShotSpot" type="Position2D" parent="."]
+position = Vector2( 563.436, 11.2126 )
