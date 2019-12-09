@@ -89,15 +89,7 @@ position = Vector2( 960, 920.541 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
-
-[node name="CollisionPolygon2D" parent="Background/Ground" index="2"]
-visible = true
-
-[node name="CollisionPolygon2D2" parent="Background/Ground" index="3"]
-visible = true
-
-[node name="CollisionPolygon2D3" parent="Background/Ground" index="4"]
-visible = true
+position = Vector2( -50, 1000 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
@@ -154,7 +146,7 @@ anims/Idle = SubResource( 5 )
 position = Vector2( 1104.7, 88.202 )
 
 [node name="Boat" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1385.45, -600.732 )
+position = Vector2( 1494.16, -526.188 )
 scale = Vector2( 2, 2 )
 
 [node name="Baloon" parent="." instance=ExtResource( 8 )]
@@ -162,7 +154,7 @@ position = Vector2( 1324.5, -1981.24 )
 scale = Vector2( 3, 3 )
 
 [node name="Chopper" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1335.1, -1072.44 )
+position = Vector2( 1518.35, -1122.14 )
 scale = Vector2( 3, 3 )
 
 [node name="Jet" parent="." instance=ExtResource( 10 )]
@@ -174,7 +166,7 @@ position = Vector2( 627.543, -219.127 )
 scale = Vector2( 3, 3 )
 
 [node name="Tank" parent="." instance=ExtResource( 12 )]
-position = Vector2( 691.144, -1249.99 )
+position = Vector2( 498.572, -1144.39 )
 scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
