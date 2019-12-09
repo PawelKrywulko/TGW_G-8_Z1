@@ -1,34 +1,68 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Enemy/Boat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 114.515 )
+extents = Vector2( 10, 321.455 )
 
 [node name="EnemyTest" type="Node2D"]
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1139.15, 457.467 )
-scale = Vector2( -1, 1 )
-choose_direction = "left"
+[node name="Boat" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 894.21, 441.938 )
 
-[node name="CollisionShape2D" parent="Enemy" index="1"]
-light_mask = 2
+[node name="RayCast2D" parent="Boat" index="2"]
+collision_mask = 3
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1180.78, 478.548 )
+scale = Vector2( -2.32, 1 )
 collision_layer = 2
 collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2( 762.297, 484.22 )
+editor/display_folded = true
+position = Vector2( 414.667, 473.637 )
+scale = Vector2( -10.4, 1 )
 collision_layer = 2
 collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource( 1 )
 
-[editable path="Enemy"]
+[node name="Chopper" parent="." instance=ExtResource( 2 )]
+position = Vector2( 915.266, 362.432 )
+
+[node name="Ship" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 943.922, 523.641 )
+
+[node name="Baloon" parent="." instance=ExtResource( 4 )]
+position = Vector2( 926.948, 234.499 )
+
+[node name="Tank" parent="." instance=ExtResource( 5 )]
+position = Vector2( 244.321, 756.292 )
+
+[node name="Jet" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1253.53, 279.926 )
+scale = Vector2( -1, 1 )
+choose_direction = "left"
+
+[editable path="Boat"]
+
+[editable path="Ship"]
