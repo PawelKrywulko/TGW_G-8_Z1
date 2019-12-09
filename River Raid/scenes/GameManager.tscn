@@ -88,7 +88,6 @@ fade_anim_offset = 400
 position = Vector2( 960, 920.541 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 position = Vector2( -50, 1000 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
