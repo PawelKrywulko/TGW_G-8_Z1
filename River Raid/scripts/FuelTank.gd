@@ -20,6 +20,7 @@ func _on_FuelTank_area_entered(area):
 	var area_name = area.get_name()
 	if area_name == "Player":
 		print("player_refueled")
+		$CollisionShape2D.set_deferred("disabled", true)
 		emit_signal("player_refueled")
 	if area_name == "Projectile":
 		hide()
