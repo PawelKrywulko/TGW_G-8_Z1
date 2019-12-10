@@ -81,7 +81,7 @@ min_reset_position_y = 1600
 fade_anim_offset = 400
 
 [node name="StartingPoint" type="Position2D" parent="."]
-position = Vector2( 960, 920.541 )
+position = Vector2( 983.013, 802.208 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
@@ -99,7 +99,6 @@ visible = true
 visible = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
@@ -151,6 +150,7 @@ anims/Idle = SubResource( 5 )
 [node name="Player" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 918.473, 805.737 )
+scale = Vector2( 0.5, 0.5 )
 base_speed = 200.0
 
 [node name="Camera2D" parent="Player" index="2"]
@@ -179,6 +179,8 @@ firerate = 2.0
 
 [node name="Boat" parent="." instance=ExtResource( 9 )]
 position = Vector2( 905.459, 436.747 )
+points = 20
+speed = 100
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_Player_fuel_left"]
