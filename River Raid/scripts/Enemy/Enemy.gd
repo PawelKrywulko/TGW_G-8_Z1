@@ -5,6 +5,7 @@ signal enemy_destroyed
 
 export var points: int = 20
 export var is_static: bool = false
+export var distance_to_player: float = 500
 export (String, "right", "left") var choose_direction setget set_direction
 export var speed: int = 100
 
@@ -12,6 +13,7 @@ var start_direction: int
 var screen_size: Vector2
 
 onready var hud := get_node("../HUD")
+onready var player := get_node("../Player")
 onready var game_manager := get_node("../../GameManager")
 
 func _ready() -> void:
@@ -25,8 +27,9 @@ func on_ready():
 		game_manager.connect("reset", self, "_on_game_reseted")
 
 func _process(delta: float) -> void:
-	if not Engine.editor_hint && !is_static:
-		on_process(delta)
+	if not Engine.editor_hint:
+		if !is_static && is_player_in_range():
+			on_process(delta)
 	
 func on_process(delta: float) -> void:
 	vehicle_action()
@@ -38,10 +41,13 @@ func vehicle_action() -> void:
 func _on_Enemy_area_entered(area):
 	var area_name = area.get_name()
 	if area_name == "Projectile":
-		hide()
-		$CollisionShape2D.set_deferred("disabled", true)
-		print("enemy_destroyed; points: %s" % points)
-		emit_signal("enemy_destroyed", points)
+		destroy_enemy()
+
+func destroy_enemy() -> void:
+	hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+	print("enemy_destroyed; points: %s" % points)
+	emit_signal("enemy_destroyed", points)
 
 func _on_game_reseted():
 	show()
@@ -55,3 +61,7 @@ func set_direction(new_direction) -> void:
 	else:
 		start_direction = -1
 		scale.x = -1
+
+func is_player_in_range() -> bool:
+	var current_distance: float = (player.position - position).length()
+	return current_distance <= distance_to_player && !player.get_node("CollisionShape2D").disabled

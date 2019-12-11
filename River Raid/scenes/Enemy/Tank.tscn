@@ -15,8 +15,13 @@ radius = 6.68447
 [node name="Tank" instance=ExtResource( 1 )]
 position = Vector2( 174.813, 118.026 )
 script = ExtResource( 2 )
+<<<<<<< HEAD
 shell_scene = ExtResource( 3 )
 firerate = 1.0
+=======
+points = 0
+distance_to_player = 100.0
+>>>>>>> e83b1cd4f9498d2b5f73fab4f52998e2ced25276
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( -0.25, 0.25 )
@@ -40,4 +45,3 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2( 83.6241, 0.440125 )
 shape = SubResource( 2 )
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
