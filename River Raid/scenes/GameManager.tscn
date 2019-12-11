@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -183,6 +184,11 @@ choose_direction = "left"
 
 [node name="Jet" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1897.18, -1467.76 )
+scale = Vector2( -1, 1 )
+choose_direction = "left"
+
+[node name="Tank" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1390.92, 473.371 )
 scale = Vector2( -1, 1 )
 choose_direction = "left"
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
