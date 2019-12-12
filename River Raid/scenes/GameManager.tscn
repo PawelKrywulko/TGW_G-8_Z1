@@ -170,39 +170,24 @@ autostart = false
 [node name="Boat" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 984.032, -128.869 )
-points = 20
-is_static = false
-distance_to_player = 500.0
-speed = 100
 
 [node name="Ship" parent="." instance=ExtResource( 9 )]
 position = Vector2( 483.201, -1682.12 )
-points = 20
-is_static = false
 distance_to_player = 100.0
-speed = 100
 
 [node name="Baloon" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1297.24, -1115.93 )
-points = 20
-is_static = false
 distance_to_player = 100.0
-speed = 100
 
 [node name="Chopper" parent="." instance=ExtResource( 11 )]
 position = Vector2( 565.269, -1263.03 )
 scale = Vector2( -1, 1 )
-points = 20
-is_static = false
 distance_to_player = 100.0
 choose_direction = "left"
-speed = 100
 
 [node name="Jet" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1897.18, -1467.76 )
 scale = Vector2( -1, 1 )
-points = 20
-is_static = false
 distance_to_player = 100.0
 choose_direction = "left"
 

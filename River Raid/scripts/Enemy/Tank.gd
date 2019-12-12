@@ -6,12 +6,8 @@ export var firerate: float
 onready var shot_cooldown: float
 var elapsed_time: float = 0
 
-onready var bridge
-
 func on_ready() -> void:
 	.on_ready()
-	bridge = get_node("../Bridge")
-	bridge.connect("bridge_destroyed", self, "_on_bridge_destroyed")
 
 func vehicle_action() -> void:
 	if $Area2D.get_overlapping_areas().size() == 0:
@@ -21,7 +17,8 @@ func vehicle_action() -> void:
 			if elapsed_time > 100:
 				elapsed_time = 0
 			Shoot()
-			speed = 0
+	else:
+		.vehicle_action()
 
 func Shoot() -> void:
 		var shell = shell_scene.instance()
@@ -30,5 +27,10 @@ func Shoot() -> void:
 		shell.set_flying_time(firerate)
 		shell.set_target($ShotSpot.position)
 
-func _on_bridge_destroyed(points: int) -> void:
-	destroy_enemy()
+func destroy_enemy() -> void:
+	.destroy_enemy()
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+
+func _on_game_reseted():
+	._on_game_reseted()
+	$Area2D/CollisionShape2D.set_deferred("disabled", false)

@@ -12,6 +12,8 @@ export var speed: int = 100
 var start_direction: int
 var screen_size: Vector2
 
+onready var start_position: Vector2 = position
+
 onready var hud := get_node("../HUD")
 onready var player := get_node("../Player")
 onready var game_manager := get_node("../../GameManager")
@@ -33,10 +35,10 @@ func _process(delta: float) -> void:
 	
 func on_process(delta: float) -> void:
 	vehicle_action()
-	position.x += start_direction * delta * speed
+	
 	
 func vehicle_action() -> void:
-	return
+	position.x += start_direction * get_process_delta_time() * speed
 
 func _on_Enemy_area_entered(area):
 	var area_name = area.get_name()
@@ -50,6 +52,7 @@ func destroy_enemy() -> void:
 	emit_signal("enemy_destroyed", points)
 
 func _on_game_reseted():
+	position = start_position
 	show()
 	$CollisionShape2D.set_deferred("disabled", false)
 	

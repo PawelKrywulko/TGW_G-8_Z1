@@ -18,17 +18,18 @@ func _ready():
 func _on_Bridge_area_entered(area):
 	var area_name: String = area.get_name()
 	if area_name.begins_with("Tank"):
-		points += 50
+		connect("bridge_destroyed", area, "destroy_enemy")
 	if area_name == "Projectile":
 		hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		print("bridge_destroyed; points: %s" % points)
 		emit_signal("bridge_destroyed", points)
+		emit_signal("bridge_destroyed")
 
 func _on_Bridge_area_exited(area):
 	var area_name = area.get_name()
 	if area_name.begins_with("Tank"):
-		points -= 50
+		disconnect("bridge_destroyed", area, "destroy_enemy")
 
 func _on_game_reseted():
 	show()
