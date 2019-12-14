@@ -1,22 +1,23 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/HUD.gd" type="Script" id=3]
-[ext_resource path="res://resources/graphics/quad.png" type="Texture" id=4]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Boat.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Baloon.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Chopper.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Jet.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/Ship.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Tank.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://maps/pre_level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=4]
+[ext_resource path="res://resources/graphics/quad.png" type="Texture" id=5]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Boat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Baloon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Chopper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Jet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Ship.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Tank.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "BlackScreen"
@@ -85,20 +86,28 @@ min_reset_position_y = 1600
 fade_anim_offset = 400
 
 [node name="StartingPoint" type="Position2D" parent="."]
-position = Vector2( 960, 920.541 )
+position = Vector2( 960, 810 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+visible = false
 position = Vector2( -50, 1000 )
+
+[node name="River" parent="Background" index="0"]
+modulate = Color( 0.0784314, 0.666667, 0.92549, 1 )
+
+[node name="pre_level" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -4950 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 990, 1000 )
-scale = Vector2( 10, 1 )
-texture = ExtResource( 4 )
+position = Vector2( 990, 1012 )
+scale = Vector2( 10, 2 )
+texture = ExtResource( 5 )
 
 [node name="Lives" type="Label" parent="HUD"]
 margin_left = 106.0
@@ -133,7 +142,7 @@ editor/display_folded = true
 modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 960, 540 )
 scale = Vector2( 10, 6 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fader"]
 anims/BlackScreen = SubResource( 2 )
@@ -141,36 +150,36 @@ anims/FadeIn = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
-[node name="FuelTank" parent="." instance=ExtResource( 6 )]
+[node name="FuelTank" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1104.7, 88.202 )
 
-[node name="Boat" parent="." instance=ExtResource( 7 )]
+[node name="Boat" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1494.16, -526.188 )
 scale = Vector2( 2, 2 )
 
-[node name="Baloon" parent="." instance=ExtResource( 8 )]
+[node name="Baloon" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1324.5, -1981.24 )
 scale = Vector2( 3, 3 )
 
-[node name="Chopper" parent="." instance=ExtResource( 9 )]
+[node name="Chopper" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1518.35, -1122.14 )
 scale = Vector2( 3, 3 )
 
-[node name="Jet" parent="." instance=ExtResource( 10 )]
+[node name="Jet" parent="." instance=ExtResource( 11 )]
 position = Vector2( 267.138, -2294.11 )
 scale = Vector2( 2, 2 )
 
-[node name="Ship" parent="." instance=ExtResource( 11 )]
+[node name="Ship" parent="." instance=ExtResource( 12 )]
 position = Vector2( 627.543, -219.127 )
 scale = Vector2( 3, 3 )
 
-[node name="Tank" parent="." instance=ExtResource( 12 )]
+[node name="Tank" parent="." instance=ExtResource( 13 )]
 position = Vector2( 498.572, -1144.39 )
 scale = Vector2( 2, 2 )
 
-[node name="Player" parent="." instance=ExtResource( 13 )]
+[node name="Player" parent="." instance=ExtResource( 14 )]
 editor/display_folded = true
-position = Vector2( 918.473, 805.737 )
+position = Vector2( 960, 714 )
 base_speed = 200.0
 
 [node name="Camera2D" parent="Player" index="2"]
