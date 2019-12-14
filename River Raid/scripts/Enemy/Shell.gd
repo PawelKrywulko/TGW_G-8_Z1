@@ -1,5 +1,6 @@
 extends Node2D
 
+export var explosion_scene : PackedScene
 var start_vector: Vector2
 var target_vector: Vector2
 var flying_time: float = 10
@@ -12,6 +13,9 @@ func move(delta) -> void:
 	time_elapsed += delta
 	var t = time_elapsed / flying_time
 	if t > 1:
+		var explosion = explosion_scene.instance()
+		get_parent().add_child(explosion)
+		explosion.position = position
 		queue_free()
 	else:
 		position = start_vector.linear_interpolate(target_vector,t)

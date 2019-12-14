@@ -31,7 +31,7 @@ shape = SubResource( 1 )
 position = Vector2( 90.8972, -15.5884 )
 
 [node name="ShotSpot" type="Position2D" parent="." index="3"]
-position = Vector2( 523.324, -3.34036 )
+position = Vector2( 456.517, 1.11347 )
 
 [node name="Area2D" type="Area2D" parent="." index="4"]
 collision_layer = 3
