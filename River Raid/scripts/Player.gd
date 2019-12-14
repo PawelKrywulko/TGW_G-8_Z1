@@ -8,16 +8,18 @@ signal fuel_left
 
 export var Projectile: PackedScene
 export var base_speed: float = 500
-export var fuel_capacity: int = 64
+export var fuel_capacity: float = 34
+export var refueling_speed: float = 0.025
 export var base_lives: int = 3
 
 var projectile = null
 var speed: float
-var fuel_amount: int = fuel_capacity
+var fuel_amount: float = fuel_capacity
 var lives: int = base_lives
 var screen_size: Vector2
 var can_fly: bool = false
 var is_any_button_pressed: bool = false
+var is_refueling: bool = false
 
 var debugging: bool = false #true tylko jeśli debugujemy
 
@@ -36,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	shoot(position)
 	fuel_monitor()
 	live_monitor()
+	refueling()
 
 func turn(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
@@ -82,9 +85,10 @@ func can_shoot() -> bool:
 
 func _on_Player_area_entered(area) -> void:
 	var area_name: String = area.get_name()
-	if area_name == "FuelTank":
-		print("fuel restored!")
-		fuel_amount = fuel_capacity
+	if area_name.begins_with("FuelTank"):
+		print("refueling_started")
+		$FuelTimer.stop()
+		is_refueling = true
 	elif area_name == "Projectile":
 		return
 	else:
@@ -94,6 +98,17 @@ func _on_Player_area_entered(area) -> void:
 			_on_Player_player_destroyed()
 		else:
 			emit_signal("player_destroyed")
+
+func _on_Player_area_exited(area) -> void:
+	var area_name: String = area.get_name()
+	if area_name.begins_with("FuelTank"):
+		print("refueling_stopped")
+		$FuelTimer.start()
+		is_refueling = false
+
+func refueling() -> void:
+	if is_refueling && fuel_amount <= fuel_capacity:
+		fuel_amount += refueling_speed
 
 func _on_FuelTimer_timeout() -> void:
 	if fuel_amount > 0:
