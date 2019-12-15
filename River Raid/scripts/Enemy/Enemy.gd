@@ -42,7 +42,7 @@ func vehicle_action() -> void:
 
 func _on_Enemy_area_entered(area):
 	var area_name = area.get_name()
-	if area_name == "Projectile":
+	if area_name == "Projectile" || area_name == "Player":
 		destroy_enemy()
 
 func destroy_enemy() -> void:
