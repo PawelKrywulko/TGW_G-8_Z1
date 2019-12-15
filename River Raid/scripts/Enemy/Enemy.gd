@@ -3,7 +3,7 @@ extends Area2D
 
 signal enemy_destroyed
 
-export var points: int = 20
+export var points: int = 0
 export var is_static: bool = false
 export var distance_to_player: float = 500
 export (String, "right", "left") var choose_direction setget set_direction

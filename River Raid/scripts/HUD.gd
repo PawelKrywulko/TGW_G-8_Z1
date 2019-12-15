@@ -1,10 +1,14 @@
 extends CanvasLayer
 
+signal bonus_score_reached
+
 onready var lives_panel : Label = $Lives
 onready var fuel_panel : Label = $Fuel
 onready var score_panel : Label= $Score
 onready var fade_anim : AnimationPlayer = $Fader/AnimationPlayer
-var score = 0
+
+var bonus_score: int = 10000
+var score: int = 0
 
 func _ready():
 	var game_manager = get_parent()
@@ -12,6 +16,10 @@ func _ready():
 
 func _on_score_changed(value):
 	score += value
+	if score > bonus_score:
+		print("bonus_score_reached")
+		emit_signal("bonus_score_reached")
+		bonus_score += 10000
 	score_panel.text = "Score: " + str(score)
 
 func _on_Player_lives_left(value):

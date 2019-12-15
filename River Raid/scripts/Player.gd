@@ -156,3 +156,6 @@ func _on_GameManager_reset() -> void:
 func _on_Player_out_of_lives() -> void:
 	#na razie tylko tak
 	lives = base_lives
+
+func _on_HUD_bonus_score_reached():
+	lives += 1

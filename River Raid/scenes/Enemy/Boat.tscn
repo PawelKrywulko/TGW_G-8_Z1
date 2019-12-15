@@ -10,6 +10,7 @@ height = 162.471
 [node name="Boat" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
+points = 30
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

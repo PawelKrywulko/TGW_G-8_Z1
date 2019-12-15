@@ -12,9 +12,10 @@ height = 83.8207
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.68447
 
-[node name="Tank" index="0" instance=ExtResource( 1 )]
+[node name="Tank" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
+points = 250
 shell_scene = ExtResource( 3 )
 firerate = 1.0
 

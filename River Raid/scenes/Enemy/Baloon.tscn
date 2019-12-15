@@ -10,6 +10,7 @@ radius = 35.7033
 [node name="Baloon" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
+points = 60
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.5, 0.5 )

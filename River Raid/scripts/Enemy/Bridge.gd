@@ -2,7 +2,7 @@ extends Area2D
 
 signal bridge_destroyed
 
-export var points: int = 100
+export var points: int = 500
 
 onready var hud
 onready var game_manager
