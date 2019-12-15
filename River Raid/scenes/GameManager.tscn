@@ -147,7 +147,7 @@ position = Vector2( 1005.41, 234.978 )
 [node name="Player" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
 position = Vector2( 960, 745 )
-scale = Vector2( 0.45, 0.45 )
+scale = Vector2( 0.75, 0.75 )
 base_speed = 200.0
 
 [node name="Camera2D" parent="Player" index="2"]
