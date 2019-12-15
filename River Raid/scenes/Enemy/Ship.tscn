@@ -8,7 +8,7 @@
 radius = 19.2493
 height = 223.639
 
-[node name="Ship" index="0" instance=ExtResource( 1 )]
+[node name="Ship" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
 points = 30

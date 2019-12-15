@@ -2,7 +2,7 @@ extends Area2D
 
 signal fuel_tank_destroyed
 
-export var points: int = 50
+export var points: int = 80
 
 onready var hud
 onready var game_manager
