@@ -1,24 +1,24 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/HUD.gd" type="Script" id=3]
-[ext_resource path="res://graphics/quad.png" type="Texture" id=4]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Enemy/Boat.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/maps/Premap.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=4]
+[ext_resource path="res://graphics/quad.png" type="Texture" id=5]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Enemy/Boat.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "BlackScreen"
@@ -86,10 +86,13 @@ max_prestart_position_y = -500
 min_reset_position_y = 1600
 fade_anim_offset = 400
 
+[node name="Level1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -4949 )
+
 [node name="StartingPoint" type="Position2D" parent="."]
 position = Vector2( 960, 920.541 )
 
-[node name="Background" parent="." instance=ExtResource( 2 )]
+[node name="Background" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 visible = false
 
@@ -106,14 +109,13 @@ visible = true
 visible = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 990, 1000 )
-scale = Vector2( 10, 1 )
-texture = ExtResource( 4 )
+position = Vector2( 990, 1013 )
+scale = Vector2( 10, 2 )
+texture = ExtResource( 5 )
 
 [node name="Lives" type="Label" parent="HUD"]
 margin_left = 106.0
@@ -142,12 +144,13 @@ text = "Fuel 0"
 align = 1
 
 [node name="Fader" type="Node" parent="HUD"]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="HUD/Fader"]
 modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 960, 540 )
 scale = Vector2( 10, 6 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fader"]
 anims/BlackScreen = SubResource( 2 )
@@ -155,12 +158,13 @@ anims/FadeIn = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
-[node name="FuelTank" parent="." instance=ExtResource( 6 )]
+[node name="FuelTank" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1005.41, 234.978 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
+[node name="Player" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 918.473, 805.737 )
+position = Vector2( 960, 745 )
+scale = Vector2( 0.45, 0.45 )
 base_speed = 200.0
 
 [node name="Camera2D" parent="Player" index="2"]
@@ -169,7 +173,7 @@ offset = Vector2( 0, -270 )
 [node name="FuelTimer" parent="Player" index="3"]
 autostart = false
 
-[node name="Boat" parent="." instance=ExtResource( 8 )]
+[node name="Boat" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 984.032, -128.869 )
 points = 20
@@ -177,21 +181,21 @@ is_static = false
 distance_to_player = 500.0
 speed = 100
 
-[node name="Ship" parent="." instance=ExtResource( 9 )]
+[node name="Ship" parent="." instance=ExtResource( 10 )]
 position = Vector2( 483.201, -1682.12 )
 points = 20
 is_static = false
 distance_to_player = 100.0
 speed = 100
 
-[node name="Baloon" parent="." instance=ExtResource( 10 )]
+[node name="Baloon" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1297.24, -1115.93 )
 points = 20
 is_static = false
 distance_to_player = 100.0
 speed = 100
 
-[node name="Chopper" parent="." instance=ExtResource( 11 )]
+[node name="Chopper" parent="." instance=ExtResource( 12 )]
 position = Vector2( 565.269, -1263.03 )
 scale = Vector2( -1, 1 )
 points = 20
@@ -200,7 +204,7 @@ distance_to_player = 100.0
 choose_direction = "left"
 speed = 100
 
-[node name="Jet" parent="." instance=ExtResource( 12 )]
+[node name="Jet" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1897.18, -1467.76 )
 scale = Vector2( -1, 1 )
 points = 20
@@ -208,24 +212,24 @@ is_static = false
 distance_to_player = 100.0
 choose_direction = "left"
 
-[node name="Bridge" parent="." instance=ExtResource( 13 )]
+[node name="Bridge" parent="." instance=ExtResource( 14 )]
 editor/display_folded = true
 position = Vector2( 1447.67, -817.071 )
 scale = Vector2( 1.3, 1 )
 
-[node name="Bridge2" parent="." instance=ExtResource( 13 )]
+[node name="Bridge2" parent="." instance=ExtResource( 14 )]
 editor/display_folded = true
 position = Vector2( 593.85, -960.57 )
 scale = Vector2( 1.5, 1 )
 
-[node name="Tank" parent="." instance=ExtResource( 14 )]
+[node name="Tank" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1014.09, -834.63 )
 points = 20
 is_static = false
 distance_to_player = 1000.0
 speed = 25
 
-[node name="Tank2" parent="." instance=ExtResource( 14 )]
+[node name="Tank2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1298.36, 569.578 )
 scale = Vector2( -1, 1 )
 points = 20
@@ -234,18 +238,12 @@ distance_to_player = 500.0
 choose_direction = "left"
 speed = 100
 
-[node name="Tank3" parent="." instance=ExtResource( 14 )]
+[node name="Tank3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 215.797, -968.397 )
 points = 20
 is_static = false
 distance_to_player = 1000.0
 speed = 100
-
-[node name="Premap" parent="." instance=ExtResource( 15 )]
-position = Vector2( 0, -4860 )
-
-[node name="Premap2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 0, -10620 )
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_Player_fuel_left"]
