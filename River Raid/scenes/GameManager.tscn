@@ -78,13 +78,28 @@ position = Vector2( -1, 0 )
 script = ExtResource( 1 )
 prestart_speed = 300.0
 max_prestart_position_y = -500
-min_reset_position_y = 1600
+min_reset_position_y = 500
 fade_anim_offset = 400
 
 [node name="Checkpoints" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Checkpoint0" type="Position2D" parent="Checkpoints"]
+position = Vector2( 960, 738 )
+
+[node name="Checkpoint1" type="Position2D" parent="Checkpoints"]
+position = Vector2( 960, -5022 )
+
+[node name="Checkpoint2" type="Position2D" parent="Checkpoints"]
+position = Vector2( 960, -10782 )
+
+[node name="Checkpoint3" type="Position2D" parent="Checkpoints"]
+position = Vector2( 960, -16542 )
+
+[node name="Checkpoint4" type="Position2D" parent="Checkpoints"]
+position = Vector2( 960, -22302 )
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 position = Vector2( -1, -4949 )
@@ -102,7 +117,7 @@ position = Vector2( 0, -22229 )
 position = Vector2( 0, -27989 )
 
 [node name="StartingPoint" type="Position2D" parent="."]
-position = Vector2( 960, 920.541 )
+position = Vector2( 960, 738 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
@@ -156,13 +171,9 @@ anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
-position = Vector2( 960, 745 )
 scale = Vector2( 0.75, 0.75 )
+z_index = 2
 base_speed = 250.0
-
-[node name="Camera2D" parent="Player" index="2"]
-offset = Vector2( 0, -270 )
 
 [node name="FuelTimer" parent="Player" index="3"]
 autostart = false

@@ -8,7 +8,7 @@
 extents = Vector2( 55.6555, 45.6323 )
 
 [node name="Player" type="Area2D"]
-position = Vector2( 960, 960 )
+position = Vector2( 960, 738 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 6.47546, -534.399 )
-offset = Vector2( 0, -500 )
+offset = Vector2( 0, -335 )
 anchor_mode = 0
 current = true
 limit_left = 0

@@ -9,11 +9,10 @@ export var max_prestart_position_y: int
 export var min_reset_position_y: int
 export var fade_anim_offset : int
 var fade_anim_played : bool = false
-var player: Node2D
+onready var player := $Player
 var starting_point : Vector2
 
 func _ready() -> void:
-	player = $Player
 	starting_point = $StartingPoint.position
 	gameloop()
 
@@ -40,11 +39,12 @@ func reset_game():
 	
 	emit_signal("reset")
 	player.position.x = starting_point.x
-	player.position.y = min_reset_position_y
+	player.position.y = starting_point.y + min_reset_position_y
 
 	while true:
 		auto_move()
 		yield(get_tree(),"idle_frame")
+		print(player.position.y)
 		if player.position.y <= starting_point.y:
 			player.show()
 			emit_signal("ready_to_go")
