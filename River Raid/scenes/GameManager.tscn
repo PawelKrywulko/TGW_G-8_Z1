@@ -76,6 +76,7 @@ tracks/0/keys = {
 [node name="GameManager" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 1 )
+checkpoints = [ 738, -5022, -10782, -16542, -22302 ]
 prestart_speed = 300.0
 max_prestart_position_y = -500
 min_reset_position_y = 500
@@ -100,6 +101,7 @@ position = Vector2( 960, -16542 )
 position = Vector2( 960, -22302 )
 
 [node name="Levels" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 position = Vector2( -1, -4949 )
@@ -171,6 +173,7 @@ anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 z_index = 2
 base_speed = 250.0

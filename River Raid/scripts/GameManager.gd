@@ -4,6 +4,7 @@ signal ready_to_go
 signal reset
 signal fade
 
+export (Array, int) var checkpoints
 export var prestart_speed: float
 export var max_prestart_position_y: int
 export var min_reset_position_y: int
@@ -38,8 +39,9 @@ func start_game() -> void:
 func reset_game():
 	
 	emit_signal("reset")
-	player.position.x = starting_point.x
-	player.position.y = starting_point.y + min_reset_position_y
+	player.position.x = 960
+	player.position.y = checkpoints[3] + min_reset_position_y
+	starting_point.y = checkpoints[3]
 
 	while true:
 		auto_move()
