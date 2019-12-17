@@ -1,19 +1,17 @@
 extends Area2D
 
 signal bridge_destroyed
+signal bridge_destroyed_hud
 
 export var points: int = 500
 
-onready var hud
-onready var game_manager
+onready var hud := get_tree().get_root().get_node("GameManager/HUD")
+onready var game_manager := get_tree().get_root().get_node("GameManager")
 
 func _ready():
 	show()
-	hud = get_node("../HUD")
-	connect("bridge_destroyed", hud, "_on_score_changed")
-	game_manager = get_node("../../GameManager")
-	if is_instance_valid(game_manager):
-		game_manager.connect("reset", self, "_on_game_reseted")
+	connect("bridge_destroyed_hud", hud, "_on_score_changed")
+	game_manager.connect("reset", self, "_on_game_reseted")
 
 func _on_Bridge_area_entered(area):
 	var area_name: String = area.get_name()
@@ -23,7 +21,8 @@ func _on_Bridge_area_entered(area):
 		hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		print("bridge_destroyed; points: %s" % points)
-		emit_signal("bridge_destroyed", points)
+		emit_signal("bridge_destroyed_hud", points)
+		emit_signal("bridge_destroyed")
 
 func _on_Bridge_area_exited(area):
 	var area_name = area.get_name()

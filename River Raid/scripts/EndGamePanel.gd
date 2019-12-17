@@ -5,15 +5,14 @@ signal panel_closed
 onready var timer: Timer
 onready var score_info: Label
 onready var info_message : Label
+onready var score = get_tree().get_root().get_node("GameManager/HUD").score
 
 export var waiting_time : int
 var anykey_pressed: bool
 
 func _ready() -> void:
 	anykey_pressed = false
-	
 	score_info = $ScoreInfo
-	var score = get_parent().get_node("HUD").score
 	score_info.text = "Your final score is : " + str(score)
 	
 	info_message = $Info
