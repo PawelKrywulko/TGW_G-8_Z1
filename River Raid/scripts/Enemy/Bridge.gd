@@ -24,7 +24,6 @@ func _on_Bridge_area_entered(area):
 		$CollisionShape2D.set_deferred("disabled", true)
 		print("bridge_destroyed; points: %s" % points)
 		emit_signal("bridge_destroyed", points)
-		emit_signal("bridge_destroyed")
 
 func _on_Bridge_area_exited(area):
 	var area_name = area.get_name()
