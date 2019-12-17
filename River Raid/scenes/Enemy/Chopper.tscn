@@ -10,6 +10,7 @@ height = 97.2525
 
 [node name="Chopper" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
+z_index = 1
 script = ExtResource( 2 )
 points = 60
 

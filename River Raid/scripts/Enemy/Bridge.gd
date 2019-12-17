@@ -11,7 +11,7 @@ onready var game_manager := get_tree().get_root().get_node("GameManager")
 func _ready():
 	show()
 	connect("bridge_destroyed_hud", hud, "_on_score_changed")
-	game_manager.connect("reset", self, "_on_game_reseted")
+	connect("bridge_destroyed", game_manager, "_on_bridge_destroyed")
 
 func _on_Bridge_area_entered(area):
 	var area_name: String = area.get_name()
@@ -28,7 +28,3 @@ func _on_Bridge_area_exited(area):
 	var area_name = area.get_name()
 	if area_name.begins_with("Tank"):
 		disconnect("bridge_destroyed", area, "destroy_enemy")
-
-func _on_game_reseted():
-	show()
-	$CollisionShape2D.set_deferred("disabled", false)

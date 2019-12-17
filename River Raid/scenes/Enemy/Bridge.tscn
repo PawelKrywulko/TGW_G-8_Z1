@@ -7,6 +7,7 @@
 extents = Vector2( 221.053, 58.9544 )
 
 [node name="Bridge" type="Area2D"]
+z_index = 1
 collision_layer = 3
 script = ExtResource( 1 )
 __meta__ = {

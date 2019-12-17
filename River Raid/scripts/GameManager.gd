@@ -5,6 +5,7 @@ signal reset
 signal fade
 
 export (Array, int) var checkpoints
+var bridge_destroyed: int = 0
 export var prestart_speed: float
 export var max_prestart_position_y: int
 export var min_reset_position_y: int
@@ -12,6 +13,7 @@ export var fade_anim_offset : int
 var fade_anim_played : bool = false
 onready var player := $Player
 var starting_point : Vector2
+var reset_point: Vector2
 
 func _ready() -> void:
 	starting_point = $StartingPoint.position
@@ -39,15 +41,15 @@ func start_game() -> void:
 func reset_game():
 	
 	emit_signal("reset")
-	player.position.x = 960
-	player.position.y = checkpoints[3] + min_reset_position_y
-	starting_point.y = checkpoints[3]
+	reset_point.y = starting_point.y - 5760 * bridge_destroyed
+	player.position.x = starting_point.x
+	player.position.y = reset_point.y + min_reset_position_y
 
 	while true:
 		auto_move()
 		yield(get_tree(),"idle_frame")
 		print(player.position.y)
-		if player.position.y <= starting_point.y:
+		if player.position.y <= reset_point.y:
 			player.show()
 			emit_signal("ready_to_go")
 			break
@@ -66,3 +68,5 @@ func gameover():
 func auto_move():
 	player.position += Vector2(0,-1) * prestart_speed * get_process_delta_time()
 
+func _on_bridge_destroyed():
+	bridge_destroyed += 1
