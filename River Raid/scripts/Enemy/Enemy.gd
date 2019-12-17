@@ -3,7 +3,7 @@ extends Area2D
 
 signal enemy_destroyed
 
-export var points: int = 20
+export var points: int = 0
 export var is_static: bool = false
 export var distance_to_player: float = 500
 export (String, "right", "left") var choose_direction setget set_direction
@@ -42,7 +42,7 @@ func vehicle_action() -> void:
 
 func _on_Enemy_area_entered(area):
 	var area_name = area.get_name()
-	if area_name == "Projectile":
+	if area_name == "Projectile" || area_name == "Player":
 		destroy_enemy()
 
 func destroy_enemy() -> void:

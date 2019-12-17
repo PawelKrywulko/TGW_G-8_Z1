@@ -8,6 +8,7 @@ var elapsed_time: float = 0
 
 func on_ready() -> void:
 	.on_ready()
+	points = 250
 
 func vehicle_action() -> void:
 	if $Area2D.get_overlapping_areas().size() == 0:

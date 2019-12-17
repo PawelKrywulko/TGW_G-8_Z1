@@ -2,7 +2,7 @@ extends Area2D
 
 signal bridge_destroyed
 
-export var points: int = 100
+export var points: int = 500
 
 onready var hud
 onready var game_manager
@@ -19,7 +19,7 @@ func _on_Bridge_area_entered(area):
 	var area_name: String = area.get_name()
 	if area_name.begins_with("Tank"):
 		connect("bridge_destroyed", area, "destroy_enemy")
-	if area_name == "Projectile":
+	if area_name == "Projectile" || area_name == "Player":
 		hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		print("bridge_destroyed; points: %s" % points)

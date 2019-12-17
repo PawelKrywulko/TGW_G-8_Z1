@@ -4,7 +4,6 @@
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://graphics/player/player.png" type="Texture" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 95.8167, 61.8212 )
 
@@ -32,8 +31,10 @@ limit_left = 0
 limit_right = 1920
 
 [node name="FuelTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Player_area_exited"]
 [connection signal="out_of_lives" from="." to="." method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="." to="." method="_on_Player_player_destroyed"]
 [connection signal="timeout" from="FuelTimer" to="." method="_on_FuelTimer_timeout"]
