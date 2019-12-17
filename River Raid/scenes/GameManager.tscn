@@ -1,21 +1,19 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
-[ext_resource path="res://scenes/maps/Level2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Enemy/Boat.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/HUD.gd" type="Script" id=9]
-[ext_resource path="res://graphics/quad.png" type="Texture" id=10]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/maps/Level2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/maps/Level3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=7]
+[ext_resource path="res://graphics/quad.png" type="Texture" id=8]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 11 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "BlackScreen"
@@ -83,40 +81,38 @@ max_prestart_position_y = -500
 min_reset_position_y = 1600
 fade_anim_offset = 400
 
-[node name="Level2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -10700 )
+[node name="Checkpoints" type="Node" parent="."]
 
-[node name="Level1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -4949 )
+[node name="Levels" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="Baloon" parent="Level1" instance=ExtResource( 4 )]
-position = Vector2( 734.57, 4569.99 )
+[node name="Level1" parent="Levels" instance=ExtResource( 2 )]
+position = Vector2( -1, -4949 )
 
-[node name="Boat" parent="Level1" instance=ExtResource( 5 )]
-position = Vector2( 1222.28, 5190.16 )
-distance_to_player = 1000.0
+[node name="Level2" parent="Levels" instance=ExtResource( 3 )]
+position = Vector2( 0, -10709 )
 
-[node name="FuelTank" parent="Level1" instance=ExtResource( 6 )]
-position = Vector2( 1422.74, 3525.89 )
+[node name="Level3" parent="Levels" instance=ExtResource( 4 )]
+position = Vector2( 0, -16469 )
 
-[node name="Bridge" parent="Level1" instance=ExtResource( 7 )]
-position = Vector2( 889.707, 3955.23 )
+[node name="Level4" parent="Levels" instance=ExtResource( 5 )]
+position = Vector2( 0, -22229 )
 
-[node name="Tank" parent="Level1" instance=ExtResource( 8 )]
-position = Vector2( 741.563, 3950.03 )
+[node name="Level5" parent="Levels" instance=ExtResource( 6 )]
+position = Vector2( 0, -27989 )
 
 [node name="StartingPoint" type="Position2D" parent="."]
 position = Vector2( 960, 920.541 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 990, 1013 )
 scale = Vector2( 10, 2 )
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 
 [node name="Lives" type="Label" parent="HUD"]
 margin_left = 106.0
@@ -151,7 +147,7 @@ editor/display_folded = true
 modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 960, 540 )
 scale = Vector2( 10, 6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fader"]
 anims/BlackScreen = SubResource( 2 )
@@ -159,7 +155,7 @@ anims/FadeIn = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
-[node name="Player" parent="." instance=ExtResource( 12 )]
+[node name="Player" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 960, 745 )
 scale = Vector2( 0.75, 0.75 )
@@ -177,7 +173,5 @@ autostart = false
 [connection signal="lives_left" from="Player" to="HUD" method="_on_Player_lives_left"]
 [connection signal="out_of_lives" from="Player" to="HUD" method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="Player" to="." method="reset_game"]
-
-[editable path="Level1"]
 
 [editable path="Player"]
