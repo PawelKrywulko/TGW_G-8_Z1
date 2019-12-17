@@ -278,7 +278,7 @@
 27/texture = ExtResource( 2 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
-27/region = Rect2( 528, 384, 48, 48 )
+27/region = Rect2( 528, 432, 48, 48 )
 27/tile_mode = 0
 27/occluder_offset = Vector2( 0, 0 )
 27/navigation_offset = Vector2( 0, 0 )
@@ -444,3 +444,13 @@
 44/navigation_offset = Vector2( 0, 0 )
 44/shapes = [  ]
 44/z_index = 0
+45/name = "tilesetBASE48.png 45"
+45/texture = ExtResource( 2 )
+45/tex_offset = Vector2( 0, 0 )
+45/modulate = Color( 1, 1, 1, 1 )
+45/region = Rect2( 528, 96, 48, 48 )
+45/tile_mode = 0
+45/occluder_offset = Vector2( 0, 0 )
+45/navigation_offset = Vector2( 0, 0 )
+45/shapes = [  ]
+45/z_index = 0
