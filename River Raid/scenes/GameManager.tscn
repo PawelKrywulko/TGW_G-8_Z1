@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=3]
 [ext_resource path="res://graphics/quad.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
@@ -85,32 +85,19 @@ max_prestart_position_y = -500
 min_reset_position_y = 1600
 fade_anim_offset = 400
 
+[node name="Level1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -4949 )
+
 [node name="StartingPoint" type="Position2D" parent="."]
 position = Vector2( 960, 920.541 )
 
-[node name="Background" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-
-[node name="Ground" parent="Background" index="2"]
-editor/display_folded = true
-
-[node name="CollisionPolygon2D" parent="Background/Ground" index="2"]
-visible = true
-
-[node name="CollisionPolygon2D2" parent="Background/Ground" index="3"]
-visible = true
-
-[node name="CollisionPolygon2D3" parent="Background/Ground" index="4"]
-visible = true
-
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 990, 1000 )
-scale = Vector2( 10, 1 )
+position = Vector2( 990, 1013 )
+scale = Vector2( 10, 2 )
 texture = ExtResource( 4 )
 
 [node name="Lives" type="Label" parent="HUD"]
@@ -140,6 +127,7 @@ text = "Fuel 0"
 align = 1
 
 [node name="Fader" type="Node" parent="HUD"]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="HUD/Fader"]
 modulate = Color( 0, 0, 0, 0 )
@@ -158,8 +146,9 @@ position = Vector2( 1424.7, -2150.9 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( 918.473, 805.737 )
-base_speed = 200.0
+position = Vector2( 960, 745 )
+scale = Vector2( 0.75, 0.75 )
+base_speed = 250.0
 
 [node name="Camera2D" parent="Player" index="2"]
 offset = Vector2( 0, -270 )
@@ -170,24 +159,39 @@ autostart = false
 [node name="Boat" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 984.032, -128.869 )
+points = 20
+is_static = false
+distance_to_player = 500.0
+speed = 100
 
 [node name="Ship" parent="." instance=ExtResource( 9 )]
 position = Vector2( 483.201, -1682.12 )
+points = 20
+is_static = false
 distance_to_player = 100.0
+speed = 100
 
 [node name="Baloon" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1297.24, -1115.93 )
+points = 20
+is_static = false
 distance_to_player = 100.0
+speed = 100
 
 [node name="Chopper" parent="." instance=ExtResource( 11 )]
 position = Vector2( 565.269, -1263.03 )
 scale = Vector2( -1, 1 )
+points = 20
+is_static = false
 distance_to_player = 100.0
 choose_direction = "left"
+speed = 100
 
 [node name="Jet" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1897.18, -1467.76 )
 scale = Vector2( -1, 1 )
+points = 20
+is_static = false
 distance_to_player = 100.0
 choose_direction = "left"
 
@@ -203,17 +207,26 @@ scale = Vector2( 1.5, 1 )
 
 [node name="Tank" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1014.09, -834.63 )
+points = 20
+is_static = false
 distance_to_player = 1000.0
 speed = 25
 
 [node name="Tank2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1298.36, 569.578 )
 scale = Vector2( -1, 1 )
+points = 20
+is_static = false
+distance_to_player = 500.0
 choose_direction = "left"
+speed = 100
 
 [node name="Tank3" parent="." instance=ExtResource( 14 )]
 position = Vector2( 215.797, -968.397 )
+points = 20
+is_static = false
 distance_to_player = 1000.0
+speed = 100
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
@@ -221,8 +234,6 @@ distance_to_player = 1000.0
 [connection signal="lives_left" from="Player" to="HUD" method="_on_Player_lives_left"]
 [connection signal="out_of_lives" from="Player" to="HUD" method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="Player" to="." method="reset_game"]
-
-[editable path="Background"]
 
 [editable path="Player"]
 
