@@ -82,6 +82,9 @@ max_prestart_position_y = -500
 min_reset_position_y = 500
 fade_anim_offset = 400
 
+[node name="StartingPoint" type="Position2D" parent="."]
+position = Vector2( 960, 738 )
+
 [node name="Levels" type="Node" parent="."]
 editor/display_folded = true
 
@@ -99,9 +102,6 @@ position = Vector2( 0, -22229 )
 
 [node name="Level5" parent="Levels" instance=ExtResource( 6 )]
 position = Vector2( 0, -27989 )
-
-[node name="StartingPoint" type="Position2D" parent="."]
-position = Vector2( 960, 738 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 editor/display_folded = true
