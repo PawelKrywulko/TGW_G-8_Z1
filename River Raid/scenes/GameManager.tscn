@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
@@ -10,9 +10,6 @@
 [ext_resource path="res://graphics/quad.png" type="Texture" id=8]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -84,24 +81,6 @@ prestart_speed = 300.0
 max_prestart_position_y = -500
 min_reset_position_y = 500
 fade_anim_offset = 400
-
-[node name="Checkpoints" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="Checkpoint0" type="Position2D" parent="Checkpoints"]
-position = Vector2( 960, 738 )
-
-[node name="Checkpoint1" type="Position2D" parent="Checkpoints"]
-position = Vector2( 960, -5022 )
-
-[node name="Checkpoint2" type="Position2D" parent="Checkpoints"]
-position = Vector2( 960, -10782 )
-
-[node name="Checkpoint3" type="Position2D" parent="Checkpoints"]
-position = Vector2( 960, -16542 )
-
-[node name="Checkpoint4" type="Position2D" parent="Checkpoints"]
-position = Vector2( 960, -22302 )
 
 [node name="Levels" type="Node" parent="."]
 editor/display_folded = true
@@ -183,27 +162,6 @@ base_speed = 250.0
 
 [node name="FuelTimer" parent="Player" index="3"]
 autostart = false
-
-[node name="Bridge2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 946.858, -10735.5 )
-
-[node name="Bridge" parent="." instance=ExtResource( 11 )]
-position = Vector2( 933.342, -5035.27 )
-
-[node name="Bridge3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 973.89, -16504.5 )
-
-[node name="Chopper" parent="." instance=ExtResource( 12 )]
-position = Vector2( 973.89, -10950.7 )
-is_static = true
-
-[node name="Chopper2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 956.853, -5311.44 )
-is_static = true
-
-[node name="Baloon" parent="." instance=ExtResource( 13 )]
-position = Vector2( 960.374, -16720.8 )
-is_static = true
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
