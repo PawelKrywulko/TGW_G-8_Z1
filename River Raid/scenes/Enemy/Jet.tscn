@@ -2,22 +2,23 @@
 
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Enemy/Jet.gd" type="Script" id=2]
-[ext_resource path="res://graphics/enemy/jet.png" type="Texture" id=3]
+[ext_resource path="res://graphics/enemy/jetresized.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 27.543
+radius = 15.7689
 height = 70.4741
 
 [node name="Jet" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
 points = 100
-speed = 300
+distance_to_player = 1250.0
+speed = 500
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( -0.25, 0.25 )
+z_index = 1
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -11.3794, 2.36774 )
+position = Vector2( -1.9014, 6.79079 )
 shape = SubResource( 1 )

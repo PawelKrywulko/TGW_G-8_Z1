@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Enemy/Chopper.gd" type="Script" id=2]
-[ext_resource path="res://graphics/enemy/chopper.png" type="Texture" id=3]
+[ext_resource path="res://graphics/enemy/Heli01.png" type="Texture" id=3]
+[ext_resource path="res://graphics/enemy/Heli02.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.20223
-height = 97.2525
+radius = 31.6228
+height = 52.7961
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+} ]
 
 [node name="Chopper" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
@@ -15,19 +24,27 @@ script = ExtResource( 2 )
 points = 60
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( -0.25, 0.25 )
+visible = false
+scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -13.6597, 5.16703 )
+position = Vector2( 0.45381, 3.32614 )
 scale = Vector2( -1, 1 )
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
-position = Vector2( 36.5757, 8.2905 )
+position = Vector2( 61.7345, -0.300321 )
 scale = Vector2( -1, 1 )
 enabled = true
 cast_to = Vector2( -20, 0 )
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
+scale = Vector2( -1, 1 )
+frames = SubResource( 2 )
+animation = "Idle"
+frame = 1
+playing = true
