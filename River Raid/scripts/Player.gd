@@ -113,8 +113,11 @@ func _on_Player_area_exited(area) -> void:
 
 func refueling() -> void:
 	if is_refueling && fuel_amount <= fuel_capacity:
-		$Refueling.play()
+		if !$Refueling.playing:
+			$Refueling.play()
 		fuel_amount += refueling_speed
+		if fuel_amount >= fuel_capacity:
+			$Refueled.play()
 
 func _on_FuelTimer_timeout() -> void:
 	if fuel_amount > 0:

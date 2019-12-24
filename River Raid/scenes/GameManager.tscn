@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sounds/explosion.wav" type="AudioStream" id=14]
 [ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -216,6 +217,10 @@ position = Vector2( 1760.31, -756.362 )
 scale = Vector2( -1, 1 )
 is_static = false
 choose_direction = "left"
+
+[node name="FuelTank" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1021.74, -862.032 )
+z_index = 1
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
