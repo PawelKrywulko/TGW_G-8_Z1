@@ -57,12 +57,16 @@ func turn(delta: float) -> void:
 func move(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
 		var velocity: Vector2 = Vector2()
+		$Engine.set_pitch_scale(1)
 		speed = base_speed
 		velocity.y -= 1
 		if Input.is_action_pressed("ui_up"):
 			speed = base_speed * 1.5
+			$Engine.set_pitch_scale(1.5)
 		if Input.is_action_pressed("ui_down"):
 			speed = base_speed * 0.7
+			$Engine.set_pitch_scale(0.7)
+			
 			
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
@@ -92,6 +96,7 @@ func _on_Player_area_entered(area) -> void:
 	elif area_name == "Projectile":
 		return
 	else:
+		$DeathSound.play()
 		print("player_destroyed")
 		reset()
 		if lives == 1:
@@ -108,6 +113,7 @@ func _on_Player_area_exited(area) -> void:
 
 func refueling() -> void:
 	if is_refueling && fuel_amount <= fuel_capacity:
+		$Refueling.play()
 		fuel_amount += refueling_speed
 
 func _on_FuelTimer_timeout() -> void:
@@ -122,6 +128,7 @@ func _on_FuelTimer_timeout() -> void:
 func _on_Player_player_destroyed() -> void:
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
+	$Engine.stop()
 	if(lives > 0):
 		lives -= 1
 		emit_signal("lives_left", lives)
@@ -133,6 +140,7 @@ func wait_for_pressing_key() -> void:
 		yield(get_tree(),"idle_frame")
 		if Input.is_action_pressed("interact"):
 			$CollisionShape2D.set_deferred("disabled", false)
+			$Engine.play()
 			break
 
 func _on_ready_to_go() -> void:

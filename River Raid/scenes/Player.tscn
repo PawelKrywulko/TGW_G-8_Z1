@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://graphics/player/plane001.png" type="Texture" id=3]
+[ext_resource path="res://sounds/engine4.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/explosion3.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/refueling.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55.6555, 45.6323 )
@@ -33,6 +36,15 @@ limit_right = 1920
 [node name="FuelTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Engine" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Refueling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Player_area_exited"]
 [connection signal="out_of_lives" from="." to="." method="_on_Player_out_of_lives"]
