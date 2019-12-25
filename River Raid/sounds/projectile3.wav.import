@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/refueling.wav-fed3d6d062b8f73f5159e50ed944a18e.sample"
+path="res://.import/projectile3.wav-ce236bf273ac81dcb718d87a6fee8be2.sample"
 
 [deps]
 
-source_file="res://sounds/refueling.wav"
-dest_files=[ "res://.import/refueling.wav-fed3d6d062b8f73f5159e50ed944a18e.sample" ]
+source_file="res://sounds/projectile3.wav"
+dest_files=[ "res://.import/projectile3.wav-ce236bf273ac81dcb718d87a6fee8be2.sample" ]
 
 [params]
 
