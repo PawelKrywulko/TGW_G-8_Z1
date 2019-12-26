@@ -164,7 +164,6 @@ editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 z_index = 2
 base_speed = 250.0
-fuel_capacity = 12.0
 
 [node name="FuelTimer" parent="Player" index="3"]
 autostart = false
@@ -200,9 +199,7 @@ speed = 100
 [node name="Tank" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 position = Vector2( 191.284, 72.4706 )
-is_static = false
 distance_to_player = 1200.0
-speed = 100
 
 [node name="ShotSpot" parent="Tank" index="3"]
 position = Vector2( 1026.7, 13.5086 )
