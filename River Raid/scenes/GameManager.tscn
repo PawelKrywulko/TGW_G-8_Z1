@@ -91,7 +91,6 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 position = Vector2( -1, -4949 )

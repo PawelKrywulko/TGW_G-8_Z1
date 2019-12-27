@@ -9,9 +9,6 @@
 [ext_resource path="res://sounds/refuelled.wav" type="AudioStream" id=7]
 [ext_resource path="res://sounds/out_of_fuel.wav" type="AudioStream" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 55.6555, 45.6323 )
-
 [node name="Player" type="Area2D"]
 position = Vector2( 960, 738 )
 script = ExtResource( 1 )
@@ -22,10 +19,6 @@ Projectile = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.37274, -4.73929 )
-shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 6.47546, -534.399 )
@@ -56,6 +49,10 @@ volume_db = -8.0
 [node name="LowFuel" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 volume_db = -13.665
+=======
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4.57874, -47.1605, -0.704529, -49.8725, 3.16968, -48.5165, 7.4314, -39.9932, 7.4314, -33.0196, 20.0226, -32.8259, 26.415, -25.2711, 48.6919, -23.5277, 55.4718, -19.8472, 55.4718, -15.0044, 51.0165, -8.22449, 24.478, -1.63831, 23.1219, 2.2359, 20.0226, 3.97931, 6.65649, 3.01074, 4.13824, 25.8687, 22.3472, 29.1618, 24.571, 31.4829, 25.7102, 33.4764, 25.1406, 38.3179, 5.63239, 40.4539, -7.75281, 40.5963, -24.9827, 38.1755, -26.1218, 33.4764, -23.8435, 29.0622, -13.0214, 26.3567, -5.0473, 25.3599, -6.89844, 3.43091, -21.138, 4.42773, -24.4131, -0.983337, -49.6172, -7.10632, -55.0282, -12.5174, -55.8826, -18.3556, -55.5978, -20.4916, -50.0443, -23.4819, -24.2707, -26.1874, -19.5717, -33.1648, -8.46478, -33.1648, -8.0376, -40.5693 )
+
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Player_area_exited"]
 [connection signal="out_of_lives" from="." to="." method="_on_Player_out_of_lives"]
