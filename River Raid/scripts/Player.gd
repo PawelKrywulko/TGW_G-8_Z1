@@ -80,6 +80,8 @@ func fuel_monitor() -> void:
 	if fuel_amount < 5:
 		if !$LowFuel.playing:
 			$LowFuel.play()
+	else:
+		$LowFuel.stop()
 	emit_signal("fuel_left", fuel_amount)
 func live_monitor() -> void:
 	emit_signal("lives_left", lives)

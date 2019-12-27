@@ -48,7 +48,6 @@ func destroy_enemy() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	print("enemy_destroyed; points: %s" % points)
 	emit_signal("enemy_destroyed", points)
-	get_node("Explosion").play()
 
 func _on_game_reseted():
 	position = start_position

@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.6228
-height = 52.7961
+height = 48.0838
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -29,12 +29,12 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0.45381, 3.32614 )
+position = Vector2( -7.786, 3.326 )
 scale = Vector2( -1, 1 )
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
-position = Vector2( 61.7345, -0.300321 )
+position = Vector2( 43.985, -0.3 )
 scale = Vector2( -1, 1 )
 enabled = true
 cast_to = Vector2( -20, 0 )
@@ -46,5 +46,4 @@ collide_with_bodies = false
 scale = Vector2( -1, 1 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 1
 playing = true

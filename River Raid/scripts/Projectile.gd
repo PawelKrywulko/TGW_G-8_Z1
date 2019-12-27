@@ -14,4 +14,8 @@ func _on_Visibility_screen_exited():
 
 func _on_Projectile_area_entered(area):
 	if(area.get_name() != "Player"):
+		get_tree().get_root().get_node("Projectile").hide()
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Explosion.play()
+		yield(get_tree().create_timer(0.56), "timeout")
 		queue_free()
