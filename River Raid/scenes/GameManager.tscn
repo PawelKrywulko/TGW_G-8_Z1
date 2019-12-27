@@ -224,7 +224,6 @@ anims/Idle = SubResource( 5 )
 editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
-fuel_capacity = 10.0
 
 [node name="FuelTimer" parent="Player" index="2"]
 autostart = false
