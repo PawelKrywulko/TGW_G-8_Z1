@@ -29,6 +29,7 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [node name="Particles2D" type="Particles2D"]
+visible = false
 show_behind_parent = true
 position = Vector2( 0.21582, 22.3618 )
 scale = Vector2( 0.1, 0.1 )

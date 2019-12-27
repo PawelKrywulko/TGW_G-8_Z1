@@ -1,24 +1,28 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Projectile.gd" type="Script" id=1]
-[ext_resource path="res://graphics/projectile/projectile.png" type="Texture" id=2]
+[ext_resource path="res://graphics/projectile/misile_icon_red_white.png" type="Texture" id=2]
 [ext_resource path="res://sounds/projectile3.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/particles/Smoke.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 5.85101
-height = 67.8383
+radius = 5.60016
+height = 61.249
 
 [node name="Projectile" type="Area2D"]
-position = Vector2( 979.256, 72.0817 )
+position = Vector2( 978.329, 72.0817 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
 speed = 1000
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -1.85315, 3.24316 )
+rotation = 1.5708
+scale = Vector2( 0.17, 0.11 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.54593, 4.06529 )
+position = Vector2( -2.08261, 4.52858 )
 shape = SubResource( 1 )
 
 [node name="Visibility" type="VisibilityNotifier2D" parent="."]
@@ -26,5 +30,9 @@ shape = SubResource( 1 )
 [node name="Launch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+
+[node name="Particles2D" parent="." instance=ExtResource( 4 )]
+visible = true
+position = Vector2( -1.55566, 44.5063 )
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]
