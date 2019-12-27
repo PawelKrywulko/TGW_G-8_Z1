@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Projectile.gd" type="Script" id=1]
 [ext_resource path="res://graphics/projectile/projectile.png" type="Texture" id=2]
+[ext_resource path="res://sounds/projectile3.wav" type="AudioStream" id=3]
 
-
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 5.85101
 height = 67.8383
 
@@ -19,8 +19,12 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.54593, 4.06529 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Visibility" type="VisibilityNotifier2D" parent="."]
+
+[node name="Launch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]

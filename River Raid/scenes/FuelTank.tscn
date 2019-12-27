@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/FuelTank.gd" type="Script" id=1]
 [ext_resource path="res://graphics/fuelTank/fuel.png" type="Texture" id=2]
+[ext_resource path="res://sounds/explosion4.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 51.7218
@@ -17,5 +18,8 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.05121, -11.6504 )
 shape = SubResource( 1 )
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_FuelTank_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_FuelTank_body_entered"]

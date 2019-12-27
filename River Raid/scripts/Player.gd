@@ -11,6 +11,7 @@ export var base_speed: float = 500
 export var fuel_capacity: float = 34
 export var refueling_speed: float = 0.025
 export var base_lives: int = 3
+export var fuel_decreaser: float = 1
 
 var projectile = null
 var speed: float
@@ -57,12 +58,18 @@ func turn(delta: float) -> void:
 func move(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
 		var velocity: Vector2 = Vector2()
+		$Engine.set_pitch_scale(1)
+		fuel_decreaser = 1
 		speed = base_speed
 		velocity.y -= 1
 		if Input.is_action_pressed("ui_up"):
 			speed = base_speed * 1.5
+			$Engine.set_pitch_scale(1.5)
+			fuel_decreaser = 1.5
 		if Input.is_action_pressed("ui_down"):
 			speed = base_speed * 0.7
+			$Engine.set_pitch_scale(0.7)
+			fuel_decreaser = 0.7
 			
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
@@ -70,6 +77,9 @@ func move(delta: float) -> void:
 		position += velocity * delta
 
 func fuel_monitor() -> void:
+	if fuel_amount < 5:
+		if !$LowFuel.playing:
+			$LowFuel.play()
 	emit_signal("fuel_left", fuel_amount)
 func live_monitor() -> void:
 	emit_signal("lives_left", lives)
@@ -108,20 +118,27 @@ func _on_Player_area_exited(area) -> void:
 
 func refueling() -> void:
 	if is_refueling && fuel_amount <= fuel_capacity:
+		if !$Refueling.playing:
+			$Refueling.play()
 		fuel_amount += refueling_speed
+		if fuel_amount >= fuel_capacity:
+			$Refueled.play()
 
 func _on_FuelTimer_timeout() -> void:
 	if fuel_amount > 0:
-		fuel_amount -= 1
-	if fuel_amount == 0:
+		fuel_amount -= fuel_decreaser
+	if fuel_amount <= 0:
 		print("out_of_fuel")
 		emit_signal("out_of_fuel")
 		print("player_destroyed")
 		emit_signal("player_destroyed")
 
 func _on_Player_player_destroyed() -> void:
+	$DeathSound.play()
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
+	$LowFuel.stop()
+	$Engine.stop()
 	if(lives > 0):
 		lives -= 1
 		emit_signal("lives_left", lives)
@@ -133,6 +150,7 @@ func wait_for_pressing_key() -> void:
 		yield(get_tree(),"idle_frame")
 		if Input.is_action_pressed("interact"):
 			$CollisionShape2D.set_deferred("disabled", false)
+			$Engine.play()
 			break
 
 func _on_ready_to_go() -> void:

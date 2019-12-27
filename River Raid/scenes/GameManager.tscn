@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
@@ -13,7 +13,8 @@
 [ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sounds/explosion.wav" type="AudioStream" id=14]
+[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -169,19 +170,31 @@ autostart = false
 
 [node name="Ship" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1238.68, 208.818 )
+is_static = false
+distance_to_player = 500.0
+speed = 100
 
 [node name="Ship2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 873.02, 345.165 )
 scale = Vector2( -1, 1 )
+is_static = false
+distance_to_player = 500.0
 choose_direction = "left"
+speed = 100
 
 [node name="Chopper" parent="." instance=ExtResource( 12 )]
 position = Vector2( 498.065, -265.298 )
+is_static = false
+distance_to_player = 500.0
+speed = 100
 
 [node name="Chopper2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1317.18, -648.577 )
 scale = Vector2( -1, 1 )
+is_static = false
+distance_to_player = 500.0
 choose_direction = "left"
+speed = 100
 
 [node name="Tank" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
@@ -191,12 +204,17 @@ distance_to_player = 1200.0
 [node name="ShotSpot" parent="Tank" index="3"]
 position = Vector2( 1026.7, 13.5086 )
 
-[node name="Jet" parent="." instance=ExtResource( 14 )]
-position = Vector2( 94.3599, -160.504 )
+[node name="Explosion" parent="Tank" index="5"]
+stream = ExtResource( 14 )
 
-[node name="Jet2" parent="." instance=ExtResource( 14 )]
+[node name="Jet" parent="." instance=ExtResource( 15 )]
+position = Vector2( 94.3599, -160.504 )
+is_static = false
+
+[node name="Jet2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1760.31, -756.362 )
 scale = Vector2( -1, 1 )
+is_static = false
 choose_direction = "left"
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]

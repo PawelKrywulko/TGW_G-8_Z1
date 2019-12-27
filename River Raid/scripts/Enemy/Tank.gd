@@ -22,11 +22,12 @@ func vehicle_action() -> void:
 		.vehicle_action()
 
 func Shoot() -> void:
-		var shell = shell_scene.instance()
-		add_child(shell)
-		shell.set_position($Spawner.position)
-		shell.set_flying_time(firerate)
-		shell.set_target($ShotSpot.position)
+	var shell = shell_scene.instance()
+	add_child(shell)
+	$Shoot.play()
+	shell.set_position($Spawner.position)
+	shell.set_flying_time(firerate)
+	shell.set_target($ShotSpot.position)
 
 func destroy_enemy() -> void:
 	.destroy_enemy()
