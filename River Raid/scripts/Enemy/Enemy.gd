@@ -68,4 +68,4 @@ func is_player_in_range() -> bool:
 	var player_position: Vector2 = player.get_global_transform().get_origin()
 	var my_position: Vector2 = get_global_transform().get_origin()
 	var current_distance: float = (player_position - my_position).length() 
-	return current_distance <= distance_to_player && !player.get_node("CollisionShape2D").disabled
+	return current_distance <= distance_to_player && !player.get_node("CollisionPolygon2D").disabled

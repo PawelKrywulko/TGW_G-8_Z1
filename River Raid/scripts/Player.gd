@@ -25,7 +25,7 @@ var is_refueling: bool = false
 var debugging: bool = false #true tylko jeśli debugujemy
 
 func _ready() -> void:
-	$CollisionShape2D.set_deferred("disabled", true)
+	$CollisionPolygon2D.set_deferred("disabled", true)
 	screen_size = get_viewport_rect().size
 	#służy tylko do debugowania żeby samolot leciał
 	if debugging:
@@ -136,7 +136,7 @@ func _on_FuelTimer_timeout() -> void:
 func _on_Player_player_destroyed() -> void:
 	$DeathSound.play()
 	hide()
-	$CollisionShape2D.set_deferred("disabled", true)
+	$CollisionPolygon2D.set_deferred("disabled", true)
 	$LowFuel.stop()
 	$Engine.stop()
 	if(lives > 0):
@@ -149,7 +149,7 @@ func wait_for_pressing_key() -> void:
 	while true:
 		yield(get_tree(),"idle_frame")
 		if Input.is_action_pressed("interact"):
-			$CollisionShape2D.set_deferred("disabled", false)
+			$CollisionPolygon2D.set_deferred("disabled", false)
 			$Engine.play()
 			break
 
