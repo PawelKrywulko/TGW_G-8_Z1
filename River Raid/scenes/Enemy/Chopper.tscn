@@ -22,6 +22,7 @@ position = Vector2( 0, 0 )
 z_index = 1
 script = ExtResource( 2 )
 points = 60
+exlosion_number = 8
 
 [node name="Sprite" parent="." index="0"]
 visible = false
@@ -46,4 +47,5 @@ collide_with_bodies = false
 scale = Vector2( -1, 1 )
 frames = SubResource( 2 )
 animation = "Idle"
+frame = 1
 playing = true

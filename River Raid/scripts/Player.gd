@@ -12,6 +12,7 @@ export var fuel_capacity: float = 34
 export var refueling_speed: float = 0.025
 export var base_lives: int = 3
 export var fuel_decreaser: float = 1
+export var exlosion_number: int = 5
 
 var projectile = null
 var speed: float
@@ -104,6 +105,7 @@ func _on_Player_area_entered(area) -> void:
 	else:
 		print("player_destroyed")
 		reset()
+		
 		if lives == 1:
 			_on_Player_player_destroyed()
 		else:
@@ -139,6 +141,9 @@ func _on_Player_player_destroyed() -> void:
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$LowFuel.stop()
 	$Engine.stop()
+	ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
+	
+	
 	if(lives > 0):
 		lives -= 1
 		emit_signal("lives_left", lives)

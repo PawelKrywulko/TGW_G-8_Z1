@@ -14,6 +14,7 @@ script = ExtResource( 2 )
 points = 100
 distance_to_player = 1250.0
 speed = 500
+exlosion_number = 5
 
 [node name="Sprite" parent="." index="0"]
 z_index = 1

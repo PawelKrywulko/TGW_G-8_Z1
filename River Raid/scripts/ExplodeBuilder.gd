@@ -3,11 +3,16 @@ extends Node2D
 class_name ExplodeBuilder
 
 export var exlode_scene: PackedScene
-export var explosion_number:= 8
+var explosion_number: int = 0
 
-func explode(begin, end):
+func explode(begin, end, number):
+	
+	explosion_number += number
+	
 	var a = 0
-	while a < explosion_number:
+	while explosion_number > 0:
+		explosion_number -= 1
+		#yield(get_tree(),"idle_frame")
 		yield(get_tree().create_timer(0.05), "timeout")
 		a += 1
 		var boom = exlode_scene.instance();

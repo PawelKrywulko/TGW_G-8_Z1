@@ -7,4 +7,3 @@
 z_index = 1
 script = ExtResource( 1 )
 exlode_scene = ExtResource( 2 )
-explosion_number = 10
