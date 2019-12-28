@@ -37,7 +37,7 @@ animation = "turn_right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 6.47546, -534.399 )
-offset = Vector2( 0, 530 )
+offset = Vector2( 0, -530 )
 anchor_mode = 0
 current = true
 limit_left = 0
