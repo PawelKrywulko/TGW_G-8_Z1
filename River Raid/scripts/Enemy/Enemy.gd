@@ -8,7 +8,6 @@ export var is_static: bool = false
 export var distance_to_player: float = 500
 export (String, "right", "left") var choose_direction setget set_direction
 export var speed: int = 100
-var explodebuilder_scene = load("res://scenes/particles/ExplodeBuilder.tscn")
 
 var start_direction: int
 var screen_size: Vector2
@@ -49,10 +48,7 @@ func destroy_enemy() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	print("enemy_destroyed; points: %s" % points)
 	emit_signal("enemy_destroyed", points)
-	var explode = explodebuilder_scene.instance()
-	get_parent().add_child(explode)
-	explode.explode(position,$Sprite.get_rect().end)
-	
+	ExplosionBuilder.explode(position,$Sprite.get_rect().end)
 	get_node("Explosion").play()
 
 

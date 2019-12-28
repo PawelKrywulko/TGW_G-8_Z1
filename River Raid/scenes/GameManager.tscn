@@ -162,6 +162,7 @@ anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
 fuel_capacity = 10.0
@@ -181,17 +182,11 @@ choose_direction = null
 
 [node name="Chopper" parent="." instance=ExtResource( 12 )]
 position = Vector2( 498.065, -265.298 )
-is_static = false
-distance_to_player = 500.0
-speed = 100
 
 [node name="Chopper2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1317.18, -648.577 )
 scale = Vector2( -1, 1 )
-is_static = false
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Tank" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true

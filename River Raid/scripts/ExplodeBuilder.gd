@@ -19,7 +19,7 @@ func explode(begin, end):
 		var anim = boom.get_node("AnimatedSprite") as AnimatedSprite
 		anim.play(str(randi()%2))
 		get_parent().add_child(boom)
-	queue_free()
+	#queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
