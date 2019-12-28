@@ -1,26 +1,25 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/maps/Level2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/maps/Level3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scripts/HUD.gd" type="Script" id=14]
-[ext_resource path="res://graphics/quad.png" type="Texture" id=15]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/maps/Level2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/maps/Level3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=13]
+[ext_resource path="res://graphics/quad.png" type="Texture" id=14]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 16 )
+font_data = ExtResource( 15 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "BlackScreen"
@@ -93,92 +92,165 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
-editor/display_folded = true
 position = Vector2( -1, -4949 )
 
-[node name="Ship" parent="Levels/Level1" instance=ExtResource( 3 )]
-position = Vector2( 1400, 5157.82 )
+[node name="Chopper7" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 858.818, 339.532 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
 
-[node name="Tank" parent="Levels/Level1" instance=ExtResource( 4 )]
-editor/display_folded = true
-position = Vector2( 191.284, 5021.47 )
-distance_to_player = 1200.0
+[node name="Chopper6" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 1058.54, 179.752 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
 
-[node name="Chopper" parent="Levels/Level1" instance=ExtResource( 5 )]
-position = Vector2( 1394.15, 4697.34 )
+[node name="Chopper5" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 563.224, 842.839 )
+is_static = false
+distance_to_player = 500.0
+speed = 100
 
-[node name="Jet" parent="Levels/Level1" instance=ExtResource( 6 )]
-position = Vector2( 94.3599, 4788.5 )
+[node name="Chopper4" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 1471.24, 1509.95 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
 
-[node name="FuelTank6" parent="Levels/Level1" instance=ExtResource( 7 )]
-position = Vector2( 1055.87, 4017.41 )
+[node name="Chopper3" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 793.108, 2770.19 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
 
-[node name="FuelTank4" parent="Levels/Level1" instance=ExtResource( 7 )]
-position = Vector2( 1503.48, 3104.98 )
+[node name="Chopper2" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 1140.45, 3859.73 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
 
-[node name="FuelTank5" parent="Levels/Level1" instance=ExtResource( 7 )]
-position = Vector2( 786.967, 3086.91 )
+[node name="Chopper" parent="Levels/Level1" instance=ExtResource( 3 )]
+position = Vector2( 701.257, 5036.51 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
 
-[node name="FuelTank3" parent="Levels/Level1" instance=ExtResource( 7 )]
-position = Vector2( 1142.21, 1868.49 )
+[node name="FuelTank6" parent="Levels/Level1" instance=ExtResource( 4 )]
+position = Vector2( 984.934, 443.551 )
 
-[node name="FuelTank7" parent="Levels/Level1" instance=ExtResource( 7 )]
-position = Vector2( 1045.74, 1301.73 )
+[node name="FuelTank5" parent="Levels/Level1" instance=ExtResource( 4 )]
+position = Vector2( 757.248, 990.797 )
 
-[node name="Jet2" parent="Levels/Level1" instance=ExtResource( 6 )]
-position = Vector2( 1574.72, -635.28 )
+[node name="FuelTank4" parent="Levels/Level1" instance=ExtResource( 4 )]
+position = Vector2( 1344.44, 1242.45 )
 
-[node name="Chopper2" parent="Levels/Level1" instance=ExtResource( 5 )]
-position = Vector2( 532.922, 4507.62 )
+[node name="FuelTank3" parent="Levels/Level1" instance=ExtResource( 4 )]
+position = Vector2( 1345.46, 1871.14 )
 
-[node name="Baloon" parent="Levels/Level1" instance=ExtResource( 8 )]
-position = Vector2( 734.403, 2703.85 )
+[node name="FuelTank2" parent="Levels/Level1" instance=ExtResource( 4 )]
+position = Vector2( 1370.4, 3604.28 )
 
-[node name="Level2" parent="Levels" instance=ExtResource( 9 )]
+[node name="FuelTank" parent="Levels/Level1" instance=ExtResource( 4 )]
+position = Vector2( 830.097, 5227.58 )
+
+[node name="Ship8" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 1346.15, 782.922 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship7" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 929.52, 2326.2 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship6" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 1552.06, 2755.01 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship5" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 1677.29, 3024.43 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship4" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 943.198, 3303.38 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship3" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 1287.36, 4139.35 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship2" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 841.636, 4361.65 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Ship" parent="Levels/Level1" instance=ExtResource( 5 )]
+position = Vector2( 1136.07, 4822.36 )
+is_static = true
+distance_to_player = 500.0
+speed = 100
+
+[node name="Level2" parent="Levels" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 0, -10709 )
 
-[node name="Bridge" parent="Levels/Level2" instance=ExtResource( 10 )]
+[node name="Bridge" parent="Levels/Level2" instance=ExtResource( 7 )]
 position = Vector2( 939.034, 5669.9 )
 
-[node name="Jet3" parent="Levels/Level2" instance=ExtResource( 6 )]
+[node name="Jet3" parent="Levels/Level2" instance=ExtResource( 8 )]
 position = Vector2( 63.125, 5465.01 )
+is_static = false
 distance_to_player = 5000.0
 
-[node name="Tank2" parent="Levels/Level2" instance=ExtResource( 4 )]
+[node name="Tank2" parent="Levels/Level2" instance=ExtResource( 9 )]
 position = Vector2( 350.446, 5177.69 )
+is_static = false
 distance_to_player = 1000.0
+speed = 100
 
-[node name="Ship3" parent="Levels/Level2" instance=ExtResource( 3 )]
+[node name="Ship3" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 975.298, 5310.06 )
+is_static = false
+distance_to_player = 500.0
+speed = 100
 
-[node name="FuelTank" parent="Levels/Level2" instance=ExtResource( 7 )]
+[node name="FuelTank" parent="Levels/Level2" instance=ExtResource( 4 )]
 position = Vector2( 1466.25, 4644.89 )
 
-[node name="FuelTank2" parent="Levels/Level2" instance=ExtResource( 7 )]
+[node name="FuelTank2" parent="Levels/Level2" instance=ExtResource( 4 )]
 position = Vector2( 503.869, 4678.36 )
 
-[node name="Level3" parent="Levels" instance=ExtResource( 11 )]
+[node name="Level3" parent="Levels" instance=ExtResource( 10 )]
 position = Vector2( 0, -16469 )
 
-[node name="Level4" parent="Levels" instance=ExtResource( 12 )]
+[node name="Level4" parent="Levels" instance=ExtResource( 11 )]
 position = Vector2( 0, -22229 )
 
-[node name="Level5" parent="Levels" instance=ExtResource( 13 )]
+[node name="Level5" parent="Levels" instance=ExtResource( 12 )]
 position = Vector2( 0, -27989 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 990, 1013 )
 scale = Vector2( 10, 2 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="Lives" type="Label" parent="HUD"]
 margin_left = 106.0
@@ -210,9 +282,9 @@ align = 1
 
 [node name="Sprite" type="Sprite" parent="HUD/Fader"]
 modulate = Color( 0, 0, 0, 0 )
-position = Vector2( 960, 539.401 )
+position = Vector2( 962.051, 537.35 )
 scale = Vector2( 10, 6 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fader"]
 anims/BlackScreen = SubResource( 2 )
@@ -220,7 +292,7 @@ anims/FadeIn = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
-[node name="Player" parent="." instance=ExtResource( 17 )]
+[node name="Player" parent="." instance=ExtResource( 16 )]
 editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
