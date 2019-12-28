@@ -189,7 +189,3 @@ func _on_Player_out_of_lives() -> void:
 
 func _on_HUD_bonus_score_reached():
 	lives += 1
-
-
-#func _on_AnimatedSprite_animation_finished():
-#	$AnimatedSprite.stop()
