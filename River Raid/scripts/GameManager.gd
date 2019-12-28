@@ -48,7 +48,7 @@ func reset_game():
 	while true:
 		auto_move()
 		yield(get_tree(),"idle_frame")
-		print(player.position.y)
+		#print(player.position.y)
 		if player.position.y <= reset_point.y:
 			player.show()
 			emit_signal("ready_to_go")

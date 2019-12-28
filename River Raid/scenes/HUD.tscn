@@ -1,45 +1,96 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
-[ext_resource path="res://graphics/quad.png" type="Texture" id=2]
+[ext_resource path="res://graphics/player/plane001.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 3 )
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.180392, 0.666667, 0.0823529, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 1 )
+
 [node name="HUD" type="CanvasLayer"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 990, 1000 )
-scale = Vector2( 10, 1 )
+[node name="Plane" type="Sprite" parent="."]
+position = Vector2( 51.415, 1033.43 )
+scale = Vector2( 0.681488, 0.681488 )
 texture = ExtResource( 2 )
 
 [node name="Lives" type="Label" parent="."]
-margin_left = 106.0
-margin_top = 939.0
-margin_right = 488.0
-margin_bottom = 1026.0
+margin_left = 88.575
+margin_top = 997.06
+margin_right = 167.575
+margin_bottom = 1084.06
 custom_fonts/font = SubResource( 1 )
-text = "Lives 0"
-
-[node name="Score" type="Label" parent="."]
-margin_left = 1297.85
-margin_top = 943.0
-margin_right = 1878.85
-margin_bottom = 1021.0
-custom_fonts/font = SubResource( 1 )
-text = "Score 0"
+custom_colors/font_color = Color( 0.180392, 0.666667, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = 4
+text = "0"
 align = 1
 
-[node name="Fuel" type="Label" parent="."]
-margin_left = 548.0
-margin_top = 939.0
-margin_right = 1312.0
-margin_bottom = 1026.0
+[node name="Score" type="Label" parent="."]
+margin_left = 1385.66
+margin_top = 995.371
+margin_right = 1895.66
+margin_bottom = 1073.37
 custom_fonts/font = SubResource( 1 )
-text = "Fuel 0"
+custom_colors/font_color = Color( 0.180392, 0.666667, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = 4
+text = "SCORE: 0"
+align = 2
+
+[node name="Fuel" type="ProgressBar" parent="."]
+margin_left = 806.756
+margin_top = 1031.27
+margin_right = 1116.76
+margin_bottom = 1053.27
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+max_value = 34.0
+value = 28.91
+percent_visible = false
+
+[node name="Empty" type="Label" parent="Fuel"]
+margin_left = -83.407
+margin_top = -29.8354
+margin_right = -0.406982
+margin_bottom = 58.1646
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.180392, 0.666667, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = 4
+text = "E"
+align = 1
+
+[node name="Full" type="Label" parent="Fuel"]
+margin_left = 302.579
+margin_top = -27.3157
+margin_right = 385.579
+margin_bottom = 50.6843
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.180392, 0.666667, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = 4
+text = "F"
 align = 1

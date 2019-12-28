@@ -18,7 +18,7 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "turn_right",
-"speed": 11.0
+"speed": 15.0
 } ]
 
 [node name="Player" type="Area2D"]
@@ -37,14 +37,14 @@ animation = "turn_right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 6.47546, -534.399 )
-offset = Vector2( 0, -335 )
+offset = Vector2( 0, 530 )
 anchor_mode = 0
 current = true
 limit_left = 0
 limit_right = 1920
 
 [node name="FuelTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="Engine" type="AudioStreamPlayer2D" parent="."]

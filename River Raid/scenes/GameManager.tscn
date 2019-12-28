@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
@@ -13,14 +13,9 @@
 [ext_resource path="res://scenes/maps/Level3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scripts/HUD.gd" type="Script" id=14]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=14]
 [ext_resource path="res://graphics/quad.png" type="Texture" id=15]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=17]
-
-[sub_resource type="DynamicFont" id=1]
-size = 64
-font_data = ExtResource( 16 )
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=2]
 resource_name = "BlackScreen"
@@ -170,43 +165,14 @@ position = Vector2( 0, -22229 )
 [node name="Level5" parent="Levels" instance=ExtResource( 13 )]
 position = Vector2( 0, -27989 )
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" parent="." instance=ExtResource( 14 )]
 editor/display_folded = true
-script = ExtResource( 14 )
 
-[node name="Sprite" type="Sprite" parent="HUD"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 990, 1013 )
-scale = Vector2( 10, 2 )
-texture = ExtResource( 15 )
-
-[node name="Lives" type="Label" parent="HUD"]
-margin_left = 106.0
-margin_top = 939.0
-margin_right = 488.0
-margin_bottom = 1026.0
-custom_fonts/font = SubResource( 1 )
-text = "Lives 0"
-
-[node name="Score" type="Label" parent="HUD"]
-margin_left = 1297.85
-margin_top = 943.0
-margin_right = 1878.85
-margin_bottom = 1021.0
-custom_fonts/font = SubResource( 1 )
-text = "Score 0"
-align = 1
-
-[node name="Fuel" type="Label" parent="HUD"]
-margin_left = 548.0
-margin_top = 939.0
-margin_right = 1312.0
-margin_bottom = 1026.0
-custom_fonts/font = SubResource( 1 )
-text = "Fuel 0"
-align = 1
+[node name="Fuel" parent="HUD" index="3"]
+editor/display_folded = true
 
 [node name="Fader" type="Node" parent="HUD"]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="HUD/Fader"]
 modulate = Color( 0, 0, 0, 0 )
@@ -220,22 +186,18 @@ anims/FadeIn = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
-[node name="Player" parent="." instance=ExtResource( 17 )]
-editor/display_folded = true
+[node name="Player" parent="." instance=ExtResource( 16 )]
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
-
-[node name="AnimatedSprite" parent="Player" index="0"]
-animation = "default"
 
 [node name="FuelTimer" parent="Player" index="2"]
 autostart = false
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
-[connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_Player_fuel_left"]
 [connection signal="lives_left" from="Player" to="HUD" method="_on_Player_lives_left"]
-[connection signal="out_of_lives" from="Player" to="HUD" method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="Player" to="." method="reset_game"]
+
+[editable path="HUD"]
 
 [editable path="Player"]
