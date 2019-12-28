@@ -11,7 +11,8 @@ export var base_speed: float = 500
 export var fuel_capacity: float = 34
 export var refueling_speed: float = 0.025
 export var base_lives: int = 3
-export var fuel_decreaser: float = 0.25
+export var fuel_decreaser: float = 1
+export var exlosion_number: int = 5
 
 var projectile = null
 var speed: float
@@ -22,16 +23,9 @@ var can_fly: bool = false
 var is_any_button_pressed: bool = false
 var is_refueling: bool = false
 
-var debugging: bool = false #true tylko jeśli debugujemy
-
 func _ready() -> void:
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	screen_size = get_viewport_rect().size
-	#służy tylko do debugowania żeby samolot leciał
-	if debugging:
-		can_fly = true
-		is_any_button_pressed = true
-	################################################
 
 func _physics_process(delta: float) -> void:
 	move(delta)
@@ -87,12 +81,15 @@ func move(delta: float) -> void:
 		position += velocity * delta
 
 func fuel_monitor() -> void:
-	if fuel_amount < 5:
+	if fuel_amount <= 0:
+		emit_signal("player_destroyed")
+	elif fuel_amount < 5:
 		if !$LowFuel.playing:
 			$LowFuel.play()
 	else:
 		$LowFuel.stop()
 	emit_signal("fuel_left", fuel_amount)
+
 func live_monitor() -> void:
 	emit_signal("lives_left", lives)
 
@@ -115,11 +112,7 @@ func _on_Player_area_entered(area) -> void:
 		return
 	else:
 		print("player_destroyed")
-		reset()
-		if lives == 1:
-			_on_Player_player_destroyed()
-		else:
-			emit_signal("player_destroyed")
+		emit_signal("player_destroyed")
 
 func _on_Player_area_exited(area) -> void:
 	var area_name: String = area.get_name()
@@ -139,19 +132,17 @@ func refueling() -> void:
 func _on_FuelTimer_timeout() -> void:
 	if fuel_amount > 0:
 		fuel_amount -= fuel_decreaser
-	if fuel_amount <= 0:
-		print("out_of_fuel")
-		emit_signal("out_of_fuel")
-		print("player_destroyed")
-		emit_signal("player_destroyed")
 
 func _on_Player_player_destroyed() -> void:
+	reset()
 	$DeathSound.play()
 	hide()
 	$AnimatedSprite.stop()
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$LowFuel.stop()
 	$Engine.stop()
+	ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
+	
 	if(lives > 0):
 		lives -= 1
 		emit_signal("lives_left", lives)

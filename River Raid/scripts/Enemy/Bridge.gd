@@ -7,6 +7,7 @@ export var points: int = 500
 
 onready var hud := get_tree().get_root().get_node("GameManager/HUD")
 onready var game_manager := get_tree().get_root().get_node("GameManager")
+export var exlosion_number: int = 25
 
 func _ready():
 	show()
@@ -19,6 +20,7 @@ func _on_Bridge_area_entered(area):
 		connect("bridge_destroyed", area, "destroy_enemy")
 	if area_name == "Projectile" || area_name == "Player":
 		hide()
+		ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
 		$CollisionShape2D.set_deferred("disabled", true)
 		print("bridge_destroyed; points: %s" % points)
 		emit_signal("bridge_destroyed_hud", points)

@@ -29,6 +29,7 @@ __meta__ = {
 "_edit_group_": true
 }
 Projectile = ExtResource( 2 )
+exlosion_number = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.65, 1.65 )

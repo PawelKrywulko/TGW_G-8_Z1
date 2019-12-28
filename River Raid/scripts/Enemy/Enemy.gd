@@ -8,6 +8,7 @@ export var is_static: bool = false
 export var distance_to_player: float = 500
 export (String, "right", "left") var choose_direction setget set_direction
 export var speed: int = 100
+export var exlosion_number: int = 10
 
 var start_direction: int
 var screen_size: Vector2
@@ -48,6 +49,9 @@ func destroy_enemy() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	print("enemy_destroyed; points: %s" % points)
 	emit_signal("enemy_destroyed", points)
+	ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
+	get_node("Explosion").play()
+
 
 func _on_game_reseted():
 	position = start_position

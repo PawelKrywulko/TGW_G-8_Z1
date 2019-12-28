@@ -14,6 +14,7 @@ var fade_anim_played : bool = false
 onready var player := $Player
 var starting_point : Vector2
 var reset_point: Vector2
+var first_run: bool = true
 
 func _ready() -> void:
 	starting_point = $StartingPoint.position
@@ -39,7 +40,8 @@ func start_game() -> void:
 			break
 
 func reset_game():
-	
+	!first_run && yield(get_tree().create_timer(2), "timeout")
+	first_run = false
 	emit_signal("reset")
 	reset_point.y = starting_point.y - 5760 * bridge_destroyed
 	player.position.x = starting_point.x

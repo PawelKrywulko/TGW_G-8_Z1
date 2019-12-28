@@ -8,15 +8,24 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "ExplodeBuilder",
+"language": "GDScript",
+"path": "res://scripts/ExplodeBuilder.gd"
+} ]
 _global_script_class_icons={
-
+"ExplodeBuilder": ""
 }
 
 [application]
 
 config/name="River Raid"
 run/main_scene="res://scenes/GameManager.tscn"
+
+[autoload]
+
+ExplosionBuilder="*res://scenes/particles/ExplodeBuilder.tscn"
 
 [debug]
 
