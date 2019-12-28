@@ -30,9 +30,5 @@ func Shoot() -> void:
 	shell.set_target($ShotSpot.position)
 
 func destroy_enemy() -> void:
-	.destroy_enemy()
-	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	queue_free()
 
-func _on_game_reseted():
-	._on_game_reseted()
-	$Area2D/CollisionShape2D.set_deferred("disabled", false)

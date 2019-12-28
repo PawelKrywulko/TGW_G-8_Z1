@@ -93,7 +93,6 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 position = Vector2( -1, -4949 )
@@ -165,7 +164,6 @@ anims/Idle = SubResource( 5 )
 editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
-fuel_capacity = 2.0
 
 [node name="FuelTimer" parent="Player" index="2"]
 autostart = false
@@ -219,7 +217,7 @@ choose_direction = null
 position = Vector2( 1467.25, -6064.11 )
 
 [node name="Tank2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 351.446, -5531.31 )
+position = Vector2( 698.969, -5047.97 )
 distance_to_player = 1000.0
 
 [node name="Jet3" parent="." instance=ExtResource( 15 )]
