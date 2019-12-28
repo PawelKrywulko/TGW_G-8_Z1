@@ -44,14 +44,24 @@ func _physics_process(delta: float) -> void:
 func turn(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
 		var velocity: Vector2 = Vector2()
+		
 		if Input.is_action_pressed("ui_right"):
 			velocity.x += 1
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("turn_right")
+		if Input.is_action_just_released("ui_right"):
+			$AnimatedSprite.play("turn_right", true)
+		
 		if Input.is_action_pressed("ui_left"):
 			velocity.x -= 1
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("turn_right")
+		if Input.is_action_just_released("ui_left"):
+			$AnimatedSprite.play("turn_right", true)
 			
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * base_speed
-		
+			
 		position += velocity * delta
 		position.x = clamp(position.x, 0, screen_size.x)
 
@@ -179,3 +189,7 @@ func _on_Player_out_of_lives() -> void:
 
 func _on_HUD_bonus_score_reached():
 	lives += 1
+
+
+#func _on_AnimatedSprite_animation_finished():
+#	$AnimatedSprite.stop()
