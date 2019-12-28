@@ -30,5 +30,6 @@ func Shoot() -> void:
 	shell.set_target($ShotSpot.position)
 
 func destroy_enemy() -> void:
+	.destroy_enemy()
 	queue_free()
 
