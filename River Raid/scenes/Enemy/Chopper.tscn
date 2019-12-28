@@ -46,5 +46,4 @@ collide_with_bodies = false
 scale = Vector2( -1, 1 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 1
 playing = true
