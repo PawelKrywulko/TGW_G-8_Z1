@@ -81,7 +81,6 @@ tracks/0/keys = {
 }
 
 [node name="GameManager" type="Node2D"]
-editor/display_folded = true
 position = Vector2( -1, 0 )
 script = ExtResource( 1 )
 checkpoints = [ 738, -5022, -10782, -16542, -22302 ]
@@ -163,7 +162,6 @@ anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
 fuel_capacity = 10.0
@@ -172,18 +170,14 @@ fuel_capacity = 10.0
 autostart = false
 
 [node name="Ship" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1238.68, 208.818 )
-is_static = false
-distance_to_player = 500.0
-speed = 100
+position = Vector2( 1194.16, -24.0682 )
+scale = Vector2( -1, 1 )
+choose_direction = null
 
 [node name="Ship2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 873.02, 345.165 )
 scale = Vector2( -1, 1 )
-is_static = false
-distance_to_player = 500.0
-choose_direction = "left"
-speed = 100
+choose_direction = null
 
 [node name="Chopper" parent="." instance=ExtResource( 12 )]
 position = Vector2( 498.065, -265.298 )
@@ -202,9 +196,7 @@ speed = 100
 [node name="Tank" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 position = Vector2( 191.284, 72.4706 )
-is_static = false
 distance_to_player = 1200.0
-speed = 100
 
 [node name="ShotSpot" parent="Tank" index="3"]
 position = Vector2( 1026.7, 13.5086 )
@@ -227,18 +219,15 @@ position = Vector2( 940.034, -5039.1 )
 
 [node name="Ship3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 976.298, -5398.94 )
-is_static = false
-distance_to_player = 500.0
-speed = 100
+scale = Vector2( -1, 1 )
+choose_direction = null
 
 [node name="FuelTank" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1467.25, -6064.11 )
 
 [node name="Tank2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 351.446, -5531.31 )
-is_static = false
 distance_to_player = 1000.0
-speed = 100
 
 [node name="Jet3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 64.125, -5243.99 )

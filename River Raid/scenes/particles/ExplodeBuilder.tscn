@@ -4,5 +4,7 @@
 [ext_resource path="res://scenes/particles/Explode.tscn" type="PackedScene" id=2]
 
 [node name="ExplodeBuilder" type="Node2D"]
+z_index = 1
 script = ExtResource( 1 )
 exlode_scene = ExtResource( 2 )
+explosion_number = 10
