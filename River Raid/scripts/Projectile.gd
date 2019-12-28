@@ -14,4 +14,5 @@ func _on_Visibility_screen_exited():
 
 func _on_Projectile_area_entered(area):
 	if(area.get_name() != "Player"):
+		ExplosionBuilder.explode(position,$Sprite.get_rect().end)
 		queue_free()
