@@ -20,7 +20,7 @@ func _on_Bridge_area_entered(area):
 		connect("bridge_destroyed", area, "destroy_enemy")
 	if area_name == "Projectile" || area_name == "Player":
 		hide()
-		ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
+		ExplosionBuilder.explode(get_global_transform().get_origin(),$Sprite.get_rect().end, exlosion_number)
 		$CollisionShape2D.set_deferred("disabled", true)
 		print("bridge_destroyed; points: %s" % points)
 		emit_signal("bridge_destroyed_hud", points)

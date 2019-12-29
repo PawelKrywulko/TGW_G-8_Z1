@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Projectile.gd" type="Script" id=1]
 [ext_resource path="res://graphics/projectile/misile_icon_red_white.png" type="Texture" id=2]
 [ext_resource path="res://scenes/particles/Smoke.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/projectile4.wav" type="AudioStream" id=4]
-[ext_resource path="res://sounds/explosion5.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.55139
@@ -32,14 +31,9 @@ scale = Vector2( 0.410077, 3.42633 )
 
 [node name="Particles2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1.89941, 38.7017 )
-scale = Vector2( 0.1, 0.1 )
 
 [node name="Launch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
-
-[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-volume_db = 10.0
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]

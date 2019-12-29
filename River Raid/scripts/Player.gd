@@ -154,6 +154,7 @@ func wait_for_pressing_key() -> void:
 		yield(get_tree(),"idle_frame")
 		if Input.is_action_pressed("interact"):
 			$CollisionPolygon2D.set_deferred("disabled", false)
+			$FuelTimer.start()
 			$Engine.play()
 			break
 
@@ -164,7 +165,6 @@ func _on_ready_to_go() -> void:
 func prepare_to_fly() -> void:
 	can_fly = true
 	is_any_button_pressed = true
-	$FuelTimer.start()
 	
 func reset() -> void:
 	$FuelTimer.stop()

@@ -6,9 +6,8 @@ export var exlode_scene: PackedScene
 var explosion_number: int = 0
 
 func explode(begin, end, number):
-	
+	$ExplosionSound.play()
 	explosion_number += number
-	
 	var a = 0
 	while explosion_number > 0:
 		explosion_number -= 1
@@ -24,7 +23,3 @@ func explode(begin, end, number):
 		var anim = boom.get_node("AnimatedSprite") as AnimatedSprite
 		anim.play(str(randi()%2))
 		get_parent().add_child(boom)
-	#queue_free()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

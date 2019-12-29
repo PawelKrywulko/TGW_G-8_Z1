@@ -30,6 +30,7 @@ ExplosionBuilder="*res://scenes/particles/ExplodeBuilder.tscn"
 [debug]
 
 settings/fps/force_fps=60
+gdscript/warnings/enable=false
 
 [display]
 

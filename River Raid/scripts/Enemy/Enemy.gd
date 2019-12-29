@@ -49,8 +49,7 @@ func destroy_enemy() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	print("enemy_destroyed; points: %s" % points)
 	emit_signal("enemy_destroyed", points)
-	ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
-	get_node("Explosion").play()
+	ExplosionBuilder.explode(get_global_transform().get_origin(),$Sprite.get_rect().end, exlosion_number)
 
 
 func _on_game_reseted():

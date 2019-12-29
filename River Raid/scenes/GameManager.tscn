@@ -88,6 +88,7 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="Levels" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 editor/display_folded = true
@@ -121,10 +122,6 @@ position = Vector2( 1142.21, 1868.49 )
 
 [node name="FuelTank7" parent="Levels/Level1" instance=ExtResource( 7 )]
 position = Vector2( 1045.74, 1301.73 )
-[node name="Player" parent="." instance=ExtResource( 10 )]
-editor/display_folded = true
-scale = Vector2( 0.75, 0.75 )
-base_speed = 250.0
 
 [node name="Jet2" parent="Levels/Level1" instance=ExtResource( 6 )]
 position = Vector2( 1574.72, -635.28 )
@@ -192,13 +189,12 @@ anims/Idle = SubResource( 4 )
 [node name="Player" parent="." instance=ExtResource( 16 )]
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
-
-[node name="FuelTimer" parent="Player" index="2"]
-autostart = false
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
+[connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
 [connection signal="fuel_left" from="Player" to="HUD" method="_on_Player_fuel_left"]
 [connection signal="lives_left" from="Player" to="HUD" method="_on_Player_lives_left"]
+[connection signal="out_of_lives" from="Player" to="HUD" method="_on_Player_out_of_lives"]
 [connection signal="player_destroyed" from="Player" to="." method="reset_game"]
 
 [editable path="HUD"]

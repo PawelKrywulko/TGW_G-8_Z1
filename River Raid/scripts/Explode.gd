@@ -4,6 +4,7 @@ var scaler: Vector2
 
 func _ready():
 	scaler = Vector2(0.75,0.75)
+
 func _process(delta):
 	scale += scaler * delta
 	if scale.x > 1.2:

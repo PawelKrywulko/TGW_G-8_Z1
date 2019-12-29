@@ -31,6 +31,10 @@ __meta__ = {
 Projectile = ExtResource( 2 )
 exlosion_number = 4
 
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.65, 1.65 )
 frames = SubResource( 1 )
@@ -46,7 +50,6 @@ limit_right = 1920
 
 [node name="FuelTimer" type="Timer" parent="."]
 wait_time = 0.5
-autostart = true
 
 [node name="Engine" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
