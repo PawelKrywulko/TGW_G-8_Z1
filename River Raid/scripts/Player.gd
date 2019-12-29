@@ -82,7 +82,7 @@ func move(delta: float) -> void:
 
 func fuel_monitor() -> void:
 	if fuel_amount <= 0:
-		emit_signal("player_destroyed")
+		_on_player_destroyed()
 	elif fuel_amount < 5:
 		if !$LowFuel.playing:
 			$LowFuel.play()
@@ -112,7 +112,7 @@ func _on_Player_area_entered(area) -> void:
 		return
 	else:
 		print("player_destroyed")
-		emit_signal("player_destroyed")
+		_on_player_destroyed()
 
 func _on_Player_area_exited(area) -> void:
 	var area_name: String = area.get_name()
@@ -133,7 +133,7 @@ func _on_FuelTimer_timeout() -> void:
 	if fuel_amount > 0:
 		fuel_amount -= fuel_decreaser
 
-func _on_Player_player_destroyed() -> void:
+func _on_player_destroyed() -> void:
 	reset()
 	$DeathSound.play()
 	hide()
@@ -142,11 +142,11 @@ func _on_Player_player_destroyed() -> void:
 	$LowFuel.stop()
 	$Engine.stop()
 	ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
-	
+	lives -= 1
+	emit_signal("lives_left", lives)
 	if(lives > 0):
-		lives -= 1
-		emit_signal("lives_left", lives)
-	if(lives == 0):
+		emit_signal("player_destroyed")
+	elif(lives == 0):
 		emit_signal("out_of_lives")
 
 func wait_for_pressing_key() -> void:

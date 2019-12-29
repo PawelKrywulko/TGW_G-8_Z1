@@ -74,5 +74,4 @@ polygon = PoolVector2Array( -4.57874, -47.1605, -0.704529, -49.8725, 3.16968, -4
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Player_area_exited"]
 [connection signal="out_of_lives" from="." to="." method="_on_Player_out_of_lives"]
-[connection signal="player_destroyed" from="." to="." method="_on_Player_player_destroyed"]
 [connection signal="timeout" from="FuelTimer" to="." method="_on_FuelTimer_timeout"]

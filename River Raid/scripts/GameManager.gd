@@ -58,6 +58,7 @@ func reset_game():
 
 func game_running():
 	yield(player, "out_of_lives")
+	yield(get_tree().create_timer(2), "timeout")
 	#prepere to connect to end panel
 	#yield(endpanel,"gameover")
 	#get_tree().change_scene("res://scenes/StartScreen.tscn")
