@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/maps/Level1.tscn" type="PackedScene" id=2]
@@ -8,16 +8,17 @@
 [ext_resource path="res://scenes/maps/Level2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/maps/Level3.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scripts/HUD.gd" type="Script" id=11]
-[ext_resource path="res://graphics/quad.png" type="Texture" id=12]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=12]
+[ext_resource path="res://graphics/quad.png" type="Texture" id=13]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 13 )
+font_data = ExtResource( 14 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "BlackScreen"
@@ -90,7 +91,6 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 editor/display_folded = true
@@ -221,6 +221,7 @@ choose_direction = "left"
 speed = 100
 
 [node name="Level2" parent="Levels" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( 0, -10709 )
 
 [node name="Bridge" parent="Levels/Level2" instance=ExtResource( 7 )]
@@ -370,20 +371,27 @@ position = Vector2( 1323.36, 3557.24 )
 position = Vector2( 1425.35, 4522.2 )
 
 [node name="Level3" parent="Levels" instance=ExtResource( 8 )]
-editor/display_folded = true
 position = Vector2( 0, -16469 )
+
+[node name="Baloon" parent="Levels/Level3" instance=ExtResource( 9 )]
+position = Vector2( 988.99, 5319.89 )
+scale = Vector2( -1, 1 )
+is_static = false
+distance_to_player = 700.0
+choose_direction = "left"
+speed = 100
 
 [node name="Bridge" parent="Levels/Level3" instance=ExtResource( 7 )]
 position = Vector2( 946.684, 5761.81 )
 
-[node name="Level4" parent="Levels" instance=ExtResource( 9 )]
+[node name="Level4" parent="Levels" instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 0, -22229 )
 
 [node name="Bridge" parent="Levels/Level4" instance=ExtResource( 7 )]
 position = Vector2( 964.889, 5758.21 )
 
-[node name="Level5" parent="Levels" instance=ExtResource( 10 )]
+[node name="Level5" parent="Levels" instance=ExtResource( 11 )]
 editor/display_folded = true
 position = Vector2( 0, -27989 )
 
@@ -391,13 +399,13 @@ position = Vector2( 0, -27989 )
 position = Vector2( 941.544, 5765.99 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 990, 1013 )
 scale = Vector2( 10, 2 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="Lives" type="Label" parent="HUD"]
 margin_left = 106.0
@@ -431,7 +439,7 @@ align = 1
 modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 962.051, 537.35 )
 scale = Vector2( 10, 6 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fader"]
 anims/BlackScreen = SubResource( 2 )
@@ -439,7 +447,7 @@ anims/FadeIn = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
-[node name="Player" parent="." instance=ExtResource( 14 )]
+[node name="Player" parent="." instance=ExtResource( 15 )]
 editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 220.0
