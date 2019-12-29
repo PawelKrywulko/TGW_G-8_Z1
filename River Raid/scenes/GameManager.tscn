@@ -232,6 +232,7 @@ autostart = false
 pause_mode = 2
 stream = ExtResource( 18 )
 autoplay = true
+bus = "Music"
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
