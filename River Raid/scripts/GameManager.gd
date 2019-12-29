@@ -19,6 +19,14 @@ func _ready() -> void:
 	starting_point = $StartingPoint.position
 	gameloop()
 
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			var settings_panel: PackedScene = load("res://scenes/Settings.tscn")
+			add_child(settings_panel.instance())
+			set_process(false)
+			get_tree().paused = true
+
 func gameloop() -> void:
 	yield(start_game(),"completed")
 	yield(game_running(),"completed")
@@ -28,15 +36,16 @@ func start_game() -> void:
 	fade_anim_played = false
 	player.hide()
 	while true:
-		auto_move()
 		yield(get_tree(),"idle_frame")
-		#black screen animation fade in and out
-		if player.position.y <= max_prestart_position_y + fade_anim_offset && !fade_anim_played:
-			fade_anim_played = true
-			emit_signal("fade")
-		if player.position.y <= max_prestart_position_y:
-			reset_game()
-			break
+		if !get_tree().paused:
+			auto_move()
+			#black screen animation fade in and out
+			if player.position.y <= max_prestart_position_y + fade_anim_offset && !fade_anim_played:
+				fade_anim_played = true
+				emit_signal("fade")
+			if player.position.y <= max_prestart_position_y:
+				reset_game()
+				break
 
 func reset_game():
 	
@@ -46,13 +55,14 @@ func reset_game():
 	player.position.y = reset_point.y + min_reset_position_y
 
 	while true:
-		auto_move()
 		yield(get_tree(),"idle_frame")
-		print(player.position.y)
-		if player.position.y <= reset_point.y:
-			player.show()
-			emit_signal("ready_to_go")
-			break
+		if !get_tree().paused:
+			auto_move()
+			print(player.position.y)
+			if player.position.y <= reset_point.y:
+					player.show()
+					emit_signal("ready_to_go")
+					break
 
 func game_running():
 	yield(player, "out_of_lives")
