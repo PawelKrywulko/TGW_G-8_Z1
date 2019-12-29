@@ -225,9 +225,6 @@ editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 250.0
 
-[node name="AnimatedSprite" parent="Player" index="0"]
-animation = "default"
-
 [node name="FuelTimer" parent="Player" index="2"]
 autostart = false
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
