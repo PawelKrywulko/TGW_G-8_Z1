@@ -90,6 +90,7 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="Levels" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 editor/display_folded = true
@@ -229,7 +230,7 @@ position = Vector2( 939.034, 5669.9 )
 position = Vector2( 1222.11, 266.772 )
 scale = Vector2( -1, 1 )
 is_static = false
-distance_to_player = 300.0
+distance_to_player = 500.0
 choose_direction = "left"
 speed = 200
 
@@ -441,7 +442,7 @@ anims/Idle = SubResource( 5 )
 [node name="Player" parent="." instance=ExtResource( 14 )]
 editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
-base_speed = 250.0
+base_speed = 220.0
 
 [node name="FuelTimer" parent="Player" index="2"]
 autostart = false
