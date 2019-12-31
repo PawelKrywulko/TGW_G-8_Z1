@@ -409,36 +409,24 @@ position = Vector2( 0, -16469 )
 [node name="Baloon4" parent="Levels/Level3" instance=ExtResource( 11 )]
 position = Vector2( 882.995, 1580.98 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 800.0
 choose_direction = "left"
-speed = 100
-exlosion_number = 10
 
 [node name="Baloon3" parent="Levels/Level3" instance=ExtResource( 11 )]
 position = Vector2( 1274.25, 2556.48 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 1000.0
 choose_direction = "left"
-speed = 100
-exlosion_number = 10
 
 [node name="Baloon2" parent="Levels/Level3" instance=ExtResource( 11 )]
 position = Vector2( 751.366, 3381.15 )
-is_static = false
 distance_to_player = 700.0
-speed = 100
-exlosion_number = 10
 
 [node name="Baloon" parent="Levels/Level3" instance=ExtResource( 11 )]
 position = Vector2( 988.99, 5319.89 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 700.0
 choose_direction = "left"
-speed = 100
-exlosion_number = 10
 
 [node name="Chopper4" parent="Levels/Level3" instance=ExtResource( 5 )]
 position = Vector2( 891.404, 193.417 )
@@ -543,17 +531,11 @@ position = Vector2( 0, -22229 )
 position = Vector2( 195.73, 2456.62 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
-exlosion_number = 10
 
 [node name="Baloon" parent="Levels/Level4" instance=ExtResource( 11 )]
 position = Vector2( 912.018, 5532.95 )
-is_static = false
 distance_to_player = 700.0
-speed = 100
-exlosion_number = 10
 
 [node name="FuelTank5" parent="Levels/Level4" instance=ExtResource( 6 )]
 position = Vector2( 371.179, 1205.5 )
@@ -684,18 +666,12 @@ position = Vector2( 961.456, 5549.57 )
 [node name="Baloon2" parent="Levels/Level5" instance=ExtResource( 11 )]
 position = Vector2( 1338.39, 1665.21 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 1500.0
 choose_direction = "left"
-speed = 100
-exlosion_number = 10
 
 [node name="Baloon" parent="Levels/Level5" instance=ExtResource( 11 )]
 position = Vector2( 390.817, 3268.1 )
-is_static = false
 distance_to_player = 800.0
-speed = 100
-exlosion_number = 10
 
 [node name="Ship5" parent="Levels/Level5" instance=ExtResource( 7 )]
 position = Vector2( 1396.95, 3490.59 )
