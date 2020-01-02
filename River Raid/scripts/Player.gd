@@ -98,6 +98,8 @@ func shoot(pos: Vector2) -> void:
 		projectile = Projectile.instance()
 		projectile.position = pos
 		get_tree().get_root().add_child(projectile)
+	if get_tree().get_root().has_node("Projectile"):
+		projectile.position.x = position.x
 
 func can_shoot() -> bool:
 	return get_tree().get_root().get_node_or_null("Projectile") == null && is_any_button_pressed
@@ -181,4 +183,5 @@ func _on_Player_out_of_lives() -> void:
 	lives = base_lives
 
 func _on_HUD_bonus_score_reached():
+	$ExtraLife.play()
 	lives += 1
