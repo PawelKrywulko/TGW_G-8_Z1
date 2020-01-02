@@ -20,6 +20,14 @@ func _ready() -> void:
 	starting_point = $StartingPoint.position
 	gameloop()
 
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			var settings_panel: PackedScene = load("res://scenes/Settings.tscn")
+			add_child(settings_panel.instance())
+			set_process(false)
+			get_tree().paused = true
+
 func gameloop() -> void:
 	yield(start_game(),"completed")
 	yield(game_running(),"completed")

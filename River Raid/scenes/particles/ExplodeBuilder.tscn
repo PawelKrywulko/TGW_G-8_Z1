@@ -11,3 +11,4 @@ exlode_scene = ExtResource( 2 )
 
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+bus = "SFX"

@@ -27,6 +27,7 @@ run/main_scene="res://scenes/GameManager.tscn"
 
 ExplosionBuilder="*res://scenes/particles/ExplodeBuilder.tscn"
 Global="*res://scenes/Global.tscn"
+SaveSystem="*res://scripts/SaveSystem.gd"
 
 [debug]
 
