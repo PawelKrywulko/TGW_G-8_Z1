@@ -10,3 +10,4 @@ script = ExtResource( 1 )
 stream = ExtResource( 2 )
 volume_db = -20.0
 pitch_scale = 1.31
+bus = "SFX"

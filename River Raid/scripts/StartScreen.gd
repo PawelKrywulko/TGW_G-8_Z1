@@ -1,10 +1,21 @@
 extends CanvasLayer
 
 func _ready():
+	#connect signals
 	$ButtonsPanel/ButtonStartGame.connect("pressed", self, "start_game")
 	$ButtonsPanel/ButtonQuit.connect("pressed", self, "quit_game")
+	#turn music and sound or not
+	var music_volume = SaveSystem.load_value("Music", "Volume")
+	var is_music = SaveSystem.load_value("Music", "IsEnabled")
+	var sfx_volume = SaveSystem.load_value("SFX", "Volume")
+	var is_sfx = SaveSystem.load_value("SFX", "IsEnabled")
+	AudioServer.set_bus_mute( 1, !is_music)
+	AudioServer.set_bus_volume_db( 1, music_volume)
+	AudioServer.set_bus_mute( 2, !is_sfx)
+	AudioServer.set_bus_volume_db( 2, sfx_volume)
 
 func start_game():
+	#add awsome sound!
 	Global.click()
 	get_tree().change_scene("res://scenes/GameManager.tscn")
 
