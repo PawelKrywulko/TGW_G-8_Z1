@@ -13,7 +13,7 @@ height = 61.249
 position = Vector2( 978.329, 72.0817 )
 scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
-speed = 1000
+speed = 1500
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1.85315, 3.24316 )
