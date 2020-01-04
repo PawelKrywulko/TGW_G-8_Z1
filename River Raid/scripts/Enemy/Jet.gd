@@ -3,6 +3,7 @@ extends "res://scripts/Enemy/Enemy.gd"
 
 func on_ready() -> void:
 	.on_ready()
+	distance_to_player = 2000
 	points = 100
 
 func vehicle_action() -> void:

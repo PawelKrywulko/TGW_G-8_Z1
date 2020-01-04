@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Highscores.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Panel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=4]
+[ext_resource path="res://scripts/OurButton.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 150
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 65
+font_data = ExtResource( 3 )
+
+[node name="Highscores" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="Panel" parent="." instance=ExtResource( 2 )]
+
+[node name="TitleLabel" type="Label" parent="."]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 673.0
+margin_top = 199.0
+margin_right = 1415.0
+margin_bottom = 297.0
+custom_fonts/font = SubResource( 1 )
+text = "HIGHSCORE"
+align = 1
+valign = 1
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="BestLabel" type="Label" parent="Text"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 615.415
+margin_top = 378.121
+margin_right = 1352.42
+margin_bottom = 481.121
+custom_fonts/font = SubResource( 2 )
+text = "Best score is:"
+align = 1
+valign = 1
+
+[node name="Score" type="Label" parent="Text"]
+modulate = Color( 0.454902, 0.435294, 0.105882, 1 )
+margin_left = 490.426
+margin_top = 356.027
+margin_right = 1415.43
+margin_bottom = 793.027
+custom_fonts/font = SubResource( 3 )
+text = "10000"
+align = 1
+valign = 1
+
+[node name="OKButton" type="TextureButton" parent="."]
+margin_left = 686.397
+margin_top = 738.2
+margin_right = 1111.4
+margin_bottom = 833.2
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="OKButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_right = 429.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 4 )
+text = "OK"
+align = 1
+valign = 1
