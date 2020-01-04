@@ -12,6 +12,8 @@ func click():
 	$Click.play()
 
 func fade_in():
+	anim_fade.play("BlackScreen")
+	yield(anim_fade, "animation_finished")
 	anim_fade.play("FadeIn")
 	yield(anim_fade, "animation_finished")
 
