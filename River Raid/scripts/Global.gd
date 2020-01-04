@@ -21,3 +21,6 @@ func fade_out():
 	anim_fade.play("FadeOut")
 	yield(anim_fade, "animation_finished")
 	emit_signal("fade_out_completed")
+	
+func fade_unpause():
+	$Fader.set_pause_mode(Node.PAUSE_MODE_PROCESS)

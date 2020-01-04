@@ -75,8 +75,8 @@ pitch_scale = 1.31
 bus = "SFX"
 
 [node name="Fader" type="CanvasLayer" parent="."]
-pause_mode = 1
-layer = 2
+pause_mode = 2
+layer = 5
 
 [node name="Sprite" type="Sprite" parent="Fader"]
 modulate = Color( 0, 0, 0, 0 )

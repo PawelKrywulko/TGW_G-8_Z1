@@ -32,6 +32,7 @@ position = Vector2( 960, 738 )
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="Levels" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Level0" parent="Levels" instance=ExtResource( 3 )]
 position = Vector2( 0, 810 )

@@ -10,6 +10,7 @@ onready var CreditsButton:= $ButtonsPanel/ButtonCredits
 onready var QuitButton:= $ButtonsPanel/ButtonQuit
 
 func _ready():
+	get_tree().paused = false
 	#connect signals
 	StartButton.connect("pressed", self, "start_game")
 	QuitButton.connect("pressed", self, "quit_game")
