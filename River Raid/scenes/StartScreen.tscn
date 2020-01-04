@@ -126,6 +126,7 @@ texture = ExtResource( 12 )
 
 [node name="ButtonsPanel" type="Node" parent="."]
 pause_mode = 1
+editor/display_folded = true
 
 [node name="ButtonStartGame" type="TextureButton" parent="ButtonsPanel"]
 anchor_bottom = 0.71

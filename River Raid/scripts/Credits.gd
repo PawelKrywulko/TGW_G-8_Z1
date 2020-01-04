@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 func _ready():
-	$Close/CloseButton.connect("pressed", self, "close")
+	$OKButton.connect("pressed", self, "_on_OK_pressed")
 
-func close():
+func _on_OK_pressed():
 	get_tree().paused = false
 	queue_free()

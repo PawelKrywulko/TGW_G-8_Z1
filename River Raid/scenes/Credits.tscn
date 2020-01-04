@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Credits.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Panel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://graphics/startscreen/BTN Exit.png" type="Texture" id=4]
+[ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=4]
 [ext_resource path="res://scripts/OurButton.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -15,27 +15,31 @@ size = 60
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 70
+size = 60
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 70
+size = 60
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 70
+size = 60
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 65
+size = 50
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 65
+size = 50
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 65
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 60
 font_data = ExtResource( 3 )
 
 [node name="Credits" type="CanvasLayer"]
@@ -81,10 +85,10 @@ position = Vector2( -544, -557 )
 
 [node name="GD" type="Label" parent="Text/Titles"]
 modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
-margin_left = 643.0
-margin_top = 312.0
-margin_right = 1374.0
-margin_bottom = 416.0
+margin_left = 651.594
+margin_top = 296.039
+margin_right = 1382.59
+margin_bottom = 400.039
 custom_fonts/font = SubResource( 3 )
 text = "Game Designer:"
 align = 1
@@ -92,10 +96,10 @@ valign = 1
 
 [node name="Pro" type="Label" parent="Text/Titles"]
 modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
-margin_left = 593.0
-margin_top = 478.0
-margin_right = 1339.0
-margin_bottom = 564.0
+margin_left = 604.05
+margin_top = 432.573
+margin_right = 1350.05
+margin_bottom = 518.573
 custom_fonts/font = SubResource( 4 )
 text = "Programmers:"
 align = 1
@@ -103,10 +107,10 @@ valign = 1
 
 [node name="Artist" type="Label" parent="Text/Titles"]
 modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
-margin_left = 531.0
-margin_top = 704.0
-margin_right = 1280.0
-margin_bottom = 786.0
+margin_left = 553.099
+margin_top = 626.652
+margin_right = 1302.1
+margin_bottom = 708.652
 custom_fonts/font = SubResource( 5 )
 text = "Artist:"
 align = 1
@@ -117,10 +121,10 @@ position = Vector2( -544, -557 )
 
 [node name="GD" type="Label" parent="Text/Names"]
 modulate = Color( 0.454902, 0.435294, 0.105882, 1 )
-margin_left = 612.0
-margin_top = 389.0
-margin_right = 1357.0
-margin_bottom = 487.0
+margin_left = 625.505
+margin_top = 361.99
+margin_right = 1370.51
+margin_bottom = 459.99
 custom_fonts/font = SubResource( 6 )
 text = "Tomasz Włudarski"
 align = 1
@@ -128,10 +132,10 @@ valign = 1
 
 [node name="Pros" type="Label" parent="Text/Names"]
 modulate = Color( 0.454902, 0.435294, 0.105882, 1 )
-margin_left = 544.0
-margin_top = 557.0
-margin_right = 1319.0
-margin_bottom = 717.0
+margin_left = 649.586
+margin_top = 496.841
+margin_right = 1424.59
+margin_bottom = 656.841
 custom_fonts/font = SubResource( 7 )
 text = "      Paweł Krywulko
      Rafał Wilkowski"
@@ -139,24 +143,32 @@ valign = 1
 
 [node name="Art" type="Label" parent="Text/Names"]
 modulate = Color( 0.454902, 0.435294, 0.105882, 1 )
-margin_left = 512.0
-margin_top = 773.0
-margin_right = 1263.0
-margin_bottom = 875.0
+margin_left = 539.01
+margin_top = 678.464
+margin_right = 1290.01
+margin_bottom = 780.464
 custom_fonts/font = SubResource( 8 )
 text = "Jarosław Tarnowski"
 align = 1
 valign = 1
 
-[node name="Close" type="Node2D" parent="."]
-position = Vector2( 1329.62, 222.323 )
-scale = Vector2( 2, 2 )
-
-[node name="CloseButton" type="TextureButton" parent="Close"]
-modulate = Color( 0.746094, 0.746094, 0.746094, 1 )
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 13.81, 13.23 )
+[node name="OKButton" type="TextureButton" parent="."]
+margin_left = 671.592
+margin_top = 775.32
+margin_right = 1096.59
+margin_bottom = 870.32
+rect_pivot_offset = Vector2( 213, 48 )
 texture_normal = ExtResource( 4 )
 script = ExtResource( 5 )
 on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="OKButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 420.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 9 )
+text = "OK"
+align = 1
+valign = 1
