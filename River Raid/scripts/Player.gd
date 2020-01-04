@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	shoot(position)
 	fuel_monitor()
 	live_monitor()
-	refueling()
+	refueling(delta)
 
 func turn(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
@@ -56,24 +56,24 @@ func turn(delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * base_speed
 			
-		position += velocity * delta
+		position += velocity * delta * 2
 		position.x = clamp(position.x, 0, screen_size.x)
 
 func move(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
 		var velocity: Vector2 = Vector2()
 		$Engine.set_pitch_scale(1)
-		fuel_decreaser = 0.25
+		#fuel_decreaser = 0.25
 		speed = base_speed
 		velocity.y -= 1
 		if Input.is_action_pressed("ui_up"):
 			speed = base_speed * 1.5
 			$Engine.set_pitch_scale(1.5)
-			fuel_decreaser = 0.375
+			#fuel_decreaser = 0.375
 		if Input.is_action_pressed("ui_down"):
 			speed = base_speed * 0.7
 			$Engine.set_pitch_scale(0.7)
-			fuel_decreaser = 0.175
+			#fuel_decreaser = 0.175
 			
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
@@ -123,11 +123,11 @@ func _on_Player_area_exited(area) -> void:
 		$FuelTimer.start()
 		is_refueling = false
 
-func refueling() -> void:
+func refueling(delta: float) -> void:
 	if is_refueling && fuel_amount <= fuel_capacity:
 		if !$Refueling.playing:
 			$Refueling.play()
-		fuel_amount += refueling_speed
+		fuel_amount += refueling_speed * delta
 		if fuel_amount >= fuel_capacity:
 			$Refueled.play()
 

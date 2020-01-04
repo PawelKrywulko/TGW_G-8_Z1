@@ -30,6 +30,7 @@ __meta__ = {
 "_edit_group_": true
 }
 Projectile = ExtResource( 2 )
+refueling_speed = 10.0
 exlosion_number = 4
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -50,7 +51,6 @@ limit_left = 0
 limit_right = 1920
 
 [node name="FuelTimer" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="Engine" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
