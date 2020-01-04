@@ -1,9 +1,17 @@
 extends CanvasLayer
 
+onready var settings: PackedScene = load("res://scenes/Settings.tscn")
+onready var StartButton:= $ButtonsPanel/ButtonStartGame
+onready var SettingsButton:= $ButtonsPanel/ButtonSettings
+onready var HightscoreButton:= $ButtonsPanel/ButtonHighscore
+onready var CreditsButton:= $ButtonsPanel/ButtonCredits
+onready var QuitButton:= $ButtonsPanel/ButtonQuit
+
 func _ready():
 	#connect signals
-	$ButtonsPanel/ButtonStartGame.connect("pressed", self, "start_game")
-	$ButtonsPanel/ButtonQuit.connect("pressed", self, "quit_game")
+	StartButton.connect("pressed", self, "start_game")
+	QuitButton.connect("pressed", self, "quit_game")
+	SettingsButton.connect("pressed", self, "settings")
 	#turn music and sound or not
 	var music_volume = SaveSystem.load_value("Music", "Volume")
 	var is_music = SaveSystem.load_value("Music", "IsEnabled")
@@ -22,7 +30,19 @@ func start_game():
 	yield(Global, "fade_out_completed")
 	get_tree().change_scene("res://scenes/GameManager.tscn")
 
+func settings():
+	get_tree().paused = true
+	add_child(settings.instance())
+	
+
 func quit_game():
 	Global.click()
 	yield(get_tree().create_timer(0.1),"timeout")
 	get_tree().quit()
+	
+func disable_buttons():
+	StartButton.disabled = true
+	SettingsButton.disabled = true
+	HightscoreButton.disabled = true
+	CreditsButton.disabled = true
+	QuitButton.pause = true

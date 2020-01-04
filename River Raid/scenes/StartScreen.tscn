@@ -26,6 +26,7 @@ size = 45
 font_data = ExtResource( 6 )
 
 [node name="StartScreen" type="CanvasLayer"]
+pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="TileMapBG" type="Node2D" parent="."]
@@ -124,7 +125,7 @@ rotation = 0.261799
 texture = ExtResource( 12 )
 
 [node name="ButtonsPanel" type="Node" parent="."]
-editor/display_folded = true
+pause_mode = 1
 
 [node name="ButtonStartGame" type="TextureButton" parent="ButtonsPanel"]
 anchor_bottom = 0.71
@@ -139,7 +140,7 @@ script = ExtResource( 14 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonStartGame"]
-modulate = Color( 0.341176, 0.290196, 0.156863, 1 )
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
 margin_left = 44.1638
 margin_top = 17.7151
 margin_right = 381.164
@@ -161,7 +162,7 @@ script = ExtResource( 14 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonHighscore"]
-modulate = Color( 0.341176, 0.290196, 0.156863, 1 )
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
 margin_left = 44.1638
 margin_top = 17.7151
 margin_right = 381.164
@@ -183,7 +184,7 @@ script = ExtResource( 14 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonSettings"]
-modulate = Color( 0.341176, 0.290196, 0.156863, 1 )
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
 margin_left = 44.1638
 margin_top = 17.7151
 margin_right = 381.164
@@ -205,7 +206,7 @@ script = ExtResource( 14 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonCredits"]
-modulate = Color( 0.341176, 0.290196, 0.156863, 1 )
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
 margin_left = 44.1638
 margin_top = 17.7151
 margin_right = 381.164
@@ -227,7 +228,7 @@ script = ExtResource( 14 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonQuit"]
-modulate = Color( 0.341176, 0.290196, 0.156863, 1 )
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
 margin_left = 44.1638
 margin_top = 17.7151
 margin_right = 381.164
@@ -237,6 +238,7 @@ text = "QUIT"
 align = 1
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 15 )
 volume_db = -7.0
 autoplay = true

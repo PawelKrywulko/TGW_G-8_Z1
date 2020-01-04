@@ -7,8 +7,10 @@ func _ready():
 	connect("mouse_exited",self,"_on_mouse_exited")
 	
 func _on_mouse_entered():
-	Global.click()
-	rect_scale = on_enter_size
+	if can_process():
+		Global.click()
+		rect_scale = on_enter_size
 
 func _on_mouse_exited():
-	rect_scale = Vector2(1,1)
+	if can_process():
+		rect_scale = Vector2(1,1)
