@@ -18,6 +18,7 @@ var first_run: bool = true
 
 func _ready() -> void:
 	starting_point = $StartingPoint.position
+	Global.fade_in()
 	gameloop()
 
 func _input(event):

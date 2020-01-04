@@ -13,10 +13,13 @@ func _ready():
 	AudioServer.set_bus_volume_db( 1, music_volume)
 	AudioServer.set_bus_mute( 2, !is_sfx)
 	AudioServer.set_bus_volume_db( 2, sfx_volume)
+	Global.fade_in()
 
 func start_game():
-	#add awsome sound!
-	Global.click()
+	#... the awsome sound here... :(
+	$StartGameSound.play()
+	Global.fade_out()
+	yield(Global, "fade_out_completed")
 	get_tree().change_scene("res://scenes/GameManager.tscn")
 
 func quit_game():

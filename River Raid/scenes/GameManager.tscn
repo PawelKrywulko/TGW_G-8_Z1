@@ -88,10 +88,8 @@ fade_anim_offset = 400
 position = Vector2( 960, 738 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 
 [node name="Fader" type="Node" parent="HUD"]
-editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="HUD/Fader"]
 modulate = Color( 0, 0, 0, 0 )

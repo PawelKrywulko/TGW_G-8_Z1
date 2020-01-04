@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://graphics/tileset/water.tres" type="TileSet" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=13]
 [ext_resource path="res://scripts/OurButton.gd" type="Script" id=14]
 [ext_resource path="res://sounds/civil-war-field-loop.wav" type="AudioStream" id=15]
+[ext_resource path="res://sounds/startgame.wav" type="AudioStream" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -240,3 +241,9 @@ stream = ExtResource( 15 )
 volume_db = -7.0
 autoplay = true
 bus = "Music"
+
+[node name="StartGameSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -5.0
+pitch_scale = 0.8
+bus = "SFX"
