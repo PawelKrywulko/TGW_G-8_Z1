@@ -2,6 +2,7 @@ extends CanvasLayer
 
 onready var settings: PackedScene = load("res://scenes/Settings.tscn")
 onready var credits: PackedScene = load("res://scenes/Credits.tscn")
+onready var highscores: PackedScene = load("res://scenes/Highscores.tscn")
 onready var StartButton:= $ButtonsPanel/ButtonStartGame
 onready var SettingsButton:= $ButtonsPanel/ButtonSettings
 onready var HightscoreButton:= $ButtonsPanel/ButtonHighscore
@@ -49,7 +50,9 @@ func credits():
 	add_child(credits.instance())
 
 func highscores():
-	pass
+	get_tree().paused = true
+	Global.click()
+	add_child(highscores.instance())
 
 func disable_buttons():
 	StartButton.disabled = true

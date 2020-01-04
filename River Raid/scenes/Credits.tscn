@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scenes/Credits.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Panel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://graphics/startscreen/BTN Exit.png" type="Texture" id=4]
@@ -74,7 +74,6 @@ text = "               Game Designer:
 valign = 1
 
 [node name="Text" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 544, 557 )
 
 [node name="Titles" type="Node2D" parent="Text"]
@@ -98,7 +97,7 @@ margin_top = 478.0
 margin_right = 1339.0
 margin_bottom = 564.0
 custom_fonts/font = SubResource( 4 )
-text = "Programers:"
+text = "Programmers:"
 align = 1
 valign = 1
 
