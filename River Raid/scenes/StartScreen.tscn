@@ -237,5 +237,6 @@ align = 1
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+volume_db = -7.0
 autoplay = true
 bus = "Music"
