@@ -38,13 +38,15 @@ func start_game() -> void:
 	fade_anim_played = false
 	player.hide()
 	while true:
-		auto_move()
+		if can_process():
+			auto_move()
 		yield(get_tree(),"idle_frame")
 		#black screen animation fade in and out
 		if player.position.y <= max_prestart_position_y + fade_anim_offset && !fade_anim_played:
 			fade_anim_played = true
-			emit_signal("fade")
+			Global.fade_out()
 		if player.position.y <= max_prestart_position_y:
+			Global.fade_in()
 			reset_game()
 			break
 
@@ -57,7 +59,8 @@ func reset_game():
 	player.position.y = reset_point.y + min_reset_position_y
 
 	while true:
-		auto_move()
+		if can_process():
+			auto_move()
 		yield(get_tree(),"idle_frame")
 		#print(player.position.y)
 		if player.position.y <= reset_point.y:
