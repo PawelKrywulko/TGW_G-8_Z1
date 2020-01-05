@@ -19,6 +19,7 @@ var options_panel: PackedScene = load("res://scenes/Options.tscn")
 var ready_to_go: bool = false
 
 func _ready() -> void:
+	get_tree().paused = false
 	starting_point = $StartingPoint.position
 	Global.fade_in()
 	gameloop()
