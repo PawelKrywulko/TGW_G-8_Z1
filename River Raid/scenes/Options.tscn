@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Options.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Panel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=4]
+[ext_resource path="res://scripts/OurButton.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Options" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="Panel" parent="." instance=ExtResource( 2 )]
+
+[node name="TitleLabel" type="Label" parent="."]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 640.0
+margin_top = 197.0
+margin_right = 1441.0
+margin_bottom = 303.0
+custom_fonts/font = SubResource( 1 )
+text = "OPTIONS"
+align = 1
+valign = 1
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 785.361
+margin_top = 334.24
+margin_right = 1210.36
+margin_bottom = 429.24
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="ContinueButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 424.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+text = "CONTINUE"
+align = 1
+valign = 1
+
+[node name="RestartButton" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 748.451
+margin_top = 469.576
+margin_right = 1173.45
+margin_bottom = 564.576
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="RestartButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 424.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+text = "RESTART GAME"
+align = 1
+valign = 1
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 705.389
+margin_top = 611.064
+margin_right = 1130.39
+margin_bottom = 706.064
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="SettingsButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 424.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+text = "SETTINGS"
+align = 1
+valign = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 668.479
+margin_top = 762.805
+margin_right = 1093.48
+margin_bottom = 857.805
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="MainMenuButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 424.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+text = "MAIN MENU"
+align = 1
+valign = 1
