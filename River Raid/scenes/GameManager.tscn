@@ -105,7 +105,6 @@ anims/FadeOut = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level1" parent="Levels" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -694,7 +693,6 @@ exlosion_number = 10
 position = Vector2( 964.889, 5758.21 )
 
 [node name="Level5" parent="Levels" instance=ExtResource( 14 )]
-editor/display_folded = true
 position = Vector2( 0, -27989 )
 
 [node name="FuelTank3" parent="Levels/Level5" instance=ExtResource( 6 )]
@@ -781,11 +779,13 @@ scale = Vector2( -1, 1 )
 is_static = false
 distance_to_player = 1500.0
 choose_direction = "left"
+speed = 700
 
 [node name="Jet" parent="Levels/Level5" instance=ExtResource( 15 )]
 position = Vector2( 35.1133, 2542.21 )
 is_static = false
 distance_to_player = 1500.0
+speed = 700
 
 [node name="Tank" parent="Levels/Level5" instance=ExtResource( 10 )]
 position = Vector2( 1060.42, 695.246 )
