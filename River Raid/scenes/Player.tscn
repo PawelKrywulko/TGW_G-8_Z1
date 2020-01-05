@@ -1,29 +1,30 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://graphics/player/plane01.png" type="Texture" id=3]
-[ext_resource path="res://graphics/player/plane002.png" type="Texture" id=4]
-[ext_resource path="res://graphics/player/plane003.png" type="Texture" id=5]
-[ext_resource path="res://graphics/player/plane004.png" type="Texture" id=6]
-[ext_resource path="res://graphics/player/plane005.png" type="Texture" id=7]
-[ext_resource path="res://sounds/engine4.wav" type="AudioStream" id=8]
-[ext_resource path="res://sounds/explosion3.wav" type="AudioStream" id=9]
-[ext_resource path="res://sounds/refueling.wav" type="AudioStream" id=10]
-[ext_resource path="res://sounds/refuelled.wav" type="AudioStream" id=11]
-[ext_resource path="res://sounds/out_of_fuel.wav" type="AudioStream" id=12]
-[ext_resource path="res://sounds/extra_life.wav" type="AudioStream" id=13]
+[ext_resource path="res://graphics/final_graphics/Douglas F-4 Phantom II (wersja 1test).png" type="Texture" id=3]
+[ext_resource path="res://graphics/player/plane01.png" type="Texture" id=4]
+[ext_resource path="res://graphics/player/plane002.png" type="Texture" id=5]
+[ext_resource path="res://graphics/player/plane003.png" type="Texture" id=6]
+[ext_resource path="res://graphics/player/plane004.png" type="Texture" id=7]
+[ext_resource path="res://graphics/player/plane005.png" type="Texture" id=8]
+[ext_resource path="res://sounds/engine4.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/explosion3.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/refueling.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/refuelled.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/out_of_fuel.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/extra_life.wav" type="AudioStream" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "turn_right",
 "speed": 15.0
 } ]
 
 [node name="Player" type="Area2D"]
-position = Vector2( 960, 738 )
+position = Vector2( 961.151, 738.209 )
 z_index = 2
 script = ExtResource( 1 )
 __meta__ = {
@@ -34,10 +35,12 @@ refueling_speed = 10.0
 exlosion_number = 4
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
+position = Vector2( 0.366211, -1.58691 )
+scale = Vector2( 0.06, 0.06 )
 texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
 scale = Vector2( 1.65, 1.65 )
 frames = SubResource( 1 )
 animation = "turn_right"
@@ -53,34 +56,35 @@ limit_right = 1920
 [node name="FuelTimer" type="Timer" parent="."]
 
 [node name="Engine" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = -5.0
 bus = "SFX"
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
-bus = "SFX"
-
-[node name="Refueling" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 bus = "SFX"
 
-[node name="Refueled" type="AudioStreamPlayer2D" parent="."]
+[node name="Refueling" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
+bus = "SFX"
+
+[node name="Refueled" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="LowFuel" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -13.665
 bus = "SFX"
 
 [node name="ExtraLife" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 attenuation = 0.554785
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -4.57874, -47.1605, -0.704529, -49.8725, 3.16968, -48.5165, 7.4314, -39.9932, 7.4314, -33.0196, 20.0226, -32.8259, 26.415, -25.2711, 48.6919, -23.5277, 55.4718, -19.8472, 55.4718, -15.0044, 51.0165, -8.22449, 24.478, -1.63831, 23.1219, 2.2359, 20.0226, 3.97931, 6.65649, 3.01074, 4.13824, 25.8687, 22.3472, 29.1618, 24.571, 31.4829, 25.7102, 33.4764, 25.1406, 38.3179, 5.63239, 40.4539, -7.75281, 40.5963, -24.9827, 38.1755, -26.1218, 33.4764, -23.8435, 29.0622, -13.0214, 26.3567, -5.0473, 25.3599, -6.89844, 3.43091, -21.138, 4.42773, -24.4131, -0.983337, -49.6172, -7.10632, -55.0282, -12.5174, -55.8826, -18.3556, -55.5978, -20.4916, -50.0443, -23.4819, -24.2707, -26.1874, -19.5717, -33.1648, -8.46478, -33.1648, -8.0376, -40.5693 )
+position = Vector2( 0.283386, 0.755737 )
+polygon = PoolVector2Array( -0.44751, -49.8053, 0.36499, -48.746, 1.58948, -46.297, 2.30048, -43.4136, 2.69543, -41.1226, 2.89294, -38.0022, 3.17059, -34.9251, 3.34247, -27.483, 3.66327, -27.2335, 3.98413, -23.6331, 5.98041, -23.8113, 6.44379, -20.9594, 6.729, -17.8581, 6.69336, -14.3646, 21.4719, 2.35669, 21.5346, 1.04059, 30.4995, 12.0251, 30.587, 19.4653, 5.94653, 14.3009, 5.1355, 23.4409, 3.43091, 23.7634, 2.23309, 30.2131, 13.0595, 40.2103, 13.1977, 43.6655, 0.897095, 42.3755, 0.159973, 45.5543, -0.853577, 42.4216, -12.6474, 43.7576, -12.7396, 40.1642, -2.28174, 30.3053, -3.57166, 23.6252, -5.23016, 23.4869, -6.28979, 14.273, -30.6654, 19.5563, -30.701, 12.1772, -22.0704, 1.45184, -21.8861, 2.74176, -7.03082, -14.2618, -7.1604, -19.9369, -6.69702, -23.6086, -4.37988, -23.466, -4.2373, -27.2447, -3.77386, -27.6725, -3.46777, -38.0712, -2.73248, -43.897, -1.82745, -47.5735 )
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Player_area_exited"]
 [connection signal="out_of_lives" from="." to="." method="_on_Player_out_of_lives"]

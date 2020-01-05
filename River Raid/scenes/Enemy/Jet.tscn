@@ -12,7 +12,7 @@ height = 70.4741
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
 points = 100
-distance_to_player = 1250.0
+distance_to_player = 2000.0
 speed = 500
 exlosion_number = 5
 

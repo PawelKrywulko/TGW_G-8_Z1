@@ -2,11 +2,11 @@
 
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Enemy/Baloon.gd" type="Script" id=2]
-[ext_resource path="res://graphics/enemy/zeppelin.png" type="Texture" id=3]
+[ext_resource path="res://graphics/final_graphics/depositphotos_74556665-stock-illustration-air-balloon-outline-drawing.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 33.1948
-height = 91.9731
+radius = 34.7324
+height = 18.5565
 
 [node name="Baloon" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
@@ -15,15 +15,16 @@ script = ExtResource( 2 )
 points = 60
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( -0.6, 0.6 )
+scale = Vector2( -0.1, 0.1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -2.76633, -6.16745 )
+position = Vector2( -0.506976, -5.94151 )
+rotation = 0.0
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
-position = Vector2( 69.2284, -8.56321 )
+position = Vector2( 33.9825, -18.2784 )
 enabled = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 2

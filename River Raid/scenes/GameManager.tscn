@@ -539,12 +539,10 @@ speed = 200
 [node name="Jet2" parent="Levels/Level5" instance=ExtResource( 15 )]
 position = Vector2( 1832.92, 189.613 )
 scale = Vector2( -1, 1 )
-distance_to_player = 2000.0
 choose_direction = "left"
 
 [node name="Jet" parent="Levels/Level5" instance=ExtResource( 15 )]
 position = Vector2( 35.1133, 2542.21 )
-distance_to_player = 2000.0
 
 [node name="Tank" parent="Levels/Level5" instance=ExtResource( 13 )]
 position = Vector2( 1060.42, 695.246 )
