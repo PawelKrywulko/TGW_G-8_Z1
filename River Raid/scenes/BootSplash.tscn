@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/BootSplash.gd" type="Script" id=1]
+[ext_resource path="res://graphics/quad.png" type="Texture" id=2]
+[ext_resource path="res://graphics/startscreen/GDSLogo.png" type="Texture" id=3]
+
+[node name="BootSplash" type="CanvasLayer"]
+script = ExtResource( 1 )
+onscreen_time = 3
+
+[node name="BG" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 960, 540 )
+scale = Vector2( 10, 6 )
+texture = ExtResource( 2 )
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( 960, 600 )
+texture = ExtResource( 3 )
