@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Enemy/Bridge.gd" type="Script" id=1]
-[ext_resource path="res://graphics/tileset/bridge.tres" type="TileSet" id=2]
-[ext_resource path="res://graphics/enemy/bridge.png" type="Texture" id=3]
+[ext_resource path="res://graphics/enemy/bridge.png" type="Texture" id=2]
+[ext_resource path="res://graphics/tileset/bridge.tres" type="TileSet" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 191.499, 46.4382 )
@@ -12,21 +12,23 @@ z_index = 1
 collision_layer = 3
 script = ExtResource( 1 )
 
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 17.0281, 12.4305 )
+scale = Vector2( 0.785231, 0.890428 )
+texture = ExtResource( 2 )
+
 [node name="Bridge" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0 )
 
 [node name="Bridge2" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -65541, 4, 0, -65540, 5, 0, -65539, 5, 0, -65538, 5, 0, -65537, 5, 0, -131072, 5, 0, -131071, 5, 0, -131070, 5, 0, -131069, 5, 0, -131068, 5, 0, -131067, 6, 0, 131067, 1, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 3, 0 )
-
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
