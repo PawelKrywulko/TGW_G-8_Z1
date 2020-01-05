@@ -4,7 +4,7 @@
 [ext_resource path="res://sounds/click.wav" type="AudioStream" id=2]
 [ext_resource path="res://graphics/quad.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "BlackScreen"
 length = 0.5
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "FadeIn"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
@@ -50,8 +50,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
@@ -76,7 +75,8 @@ pitch_scale = 1.31
 bus = "SFX"
 
 [node name="Fader" type="CanvasLayer" parent="."]
-layer = 2
+pause_mode = 2
+layer = 5
 
 [node name="Sprite" type="Sprite" parent="Fader"]
 modulate = Color( 0, 0, 0, 0 )
@@ -85,7 +85,7 @@ scale = Vector2( 10, 6 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fader"]
-anims/BlackScreen = SubResource( 2 )
-anims/FadeIn = SubResource( 3 )
-anims/FadeOut = SubResource( 4 )
-anims/Idle = SubResource( 1 )
+anims/BlackScreen = SubResource( 1 )
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+anims/Idle = SubResource( 4 )

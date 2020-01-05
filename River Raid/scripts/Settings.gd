@@ -19,5 +19,8 @@ func _on_OK_pressed():
 	SaveSystem.save_value("Music", "Volume", $MusicSlider.value)
 	SaveSystem.save_value("SFX", "Volume", $SFXSlider.value)
 	SaveSystem.save_value("SFX", "IsEnabled", $SFXCheckBox.pressed)	
-	get_tree().paused = false
+	if get_parent().name == "Options":
+		get_parent().set_pause_mode(Node.PAUSE_MODE_PROCESS)
+	else:
+		get_tree().paused = false
 	queue_free()

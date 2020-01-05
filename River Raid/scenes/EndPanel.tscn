@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/EndPanel.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Panel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=4]
+[ext_resource path="res://scripts/OurButton.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+font_data = ExtResource( 3 )
+
+[node name="EndPanel" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="Panel" parent="." instance=ExtResource( 2 )]
+
+[node name="TitleLabel" type="Label" parent="."]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 634.0
+margin_top = 193.0
+margin_right = 1438.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="RestartButton" type="TextureButton" parent="."]
+margin_left = 704.118
+margin_top = 651.734
+margin_right = 1129.12
+margin_bottom = 746.734
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="RestartButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 16.0
+margin_right = 413.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 2 )
+text = "RESTART GAME"
+align = 1
+valign = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="."]
+margin_left = 672.539
+margin_top = 768.576
+margin_right = 1097.54
+margin_bottom = 863.576
+rect_pivot_offset = Vector2( 213, 48 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+on_enter_size = Vector2( 1.1, 1.1 )
+
+[node name="Label" type="Label" parent="MainMenuButton"]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 16.0
+margin_right = 413.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 2 )
+text = "MAIN MENU"
+align = 1
+valign = 1
+
+[node name="Text" type="Label" parent="."]
+modulate = Color( 0.352941, 0.294118, 0.156863, 1 )
+margin_left = 647.0
+margin_top = 314.0
+margin_right = 1374.0
+margin_bottom = 503.0
+custom_fonts/font = SubResource( 3 )
+text = "You didn't beat highscore!
+Try harder!
+Your score is:"
+align = 1
+valign = 1
+
+[node name="Score" type="Label" parent="."]
+modulate = Color( 0.454902, 0.435294, 0.105882, 1 )
+margin_left = 590.0
+margin_top = 502.0
+margin_right = 1311.0
+margin_bottom = 649.0
+custom_fonts/font = SubResource( 4 )
+text = "15000"
+align = 1
+valign = 1
