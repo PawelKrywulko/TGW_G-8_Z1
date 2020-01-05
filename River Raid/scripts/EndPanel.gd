@@ -13,7 +13,7 @@ func _ready():
 	var hiscore = SaveSystem.load_value("Highscore","Score")
 	if game_score > hiscore:
 		$Text.text = "Congratulations!\nYou beat the highscore!\nYour score is:"
-		SaveSystem.save_value("Highscre","Score",game_score)
+		SaveSystem.save_value("Highscore","Score",game_score)
 	else:
 		$Text.text = "You didn't beat highscore!\nTry harder!\nYour score is:"
 	$Score.text = str(game_score)

@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="River Raid"
-run/main_scene="res://scenes/GameManager.tscn"
+run/main_scene="res://scenes/StartScreen.tscn"
 
 [autoload]
 
