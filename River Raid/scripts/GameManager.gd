@@ -5,7 +5,7 @@ signal reset
 signal fade
 
 export (Array, int) var checkpoints
-var bridge_destroyed: int = 0
+export var bridge_destroyed: int = 0
 export var prestart_speed: float
 export var max_prestart_position_y: int
 export var min_reset_position_y: int
@@ -17,12 +17,22 @@ var reset_point: Vector2
 var first_run: bool = true
 var options_panel: PackedScene = load("res://scenes/Options.tscn")
 var ready_to_go: bool = false
+#maps
+onready var buildmap_point := $BuildMapPoint
+var first_build: bool = true
+var current_map
+var previous_map_first
+var previous_map_second
 
 func _ready() -> void:
+	#build_map()
 	get_tree().paused = false
 	starting_point = $StartingPoint.position
 	Global.fade_in()
 	gameloop()
+
+func _process(delta):
+	check_map()
 
 func _input(event):
 	if event is InputEventKey:
@@ -87,3 +97,29 @@ func auto_move():
 
 func _on_bridge_destroyed():
 	bridge_destroyed += 1
+
+func check_map():
+	if $Player.position.y <= buildmap_point.position.y:
+		build_map()
+		buildmap_point.position.y -= 5760
+func build_map():
+	randomize()
+	var random_map = load("res://scenes/maps/Level" + str(randi()%4 + 2) + ".tscn")
+	var map_to_add = random_map.instance()
+	if first_build:
+		first_build = false
+		$Levels/Level0.queue_free()
+		$Levels/Level1.queue_free()
+		$Levels/Level2.queue_free()
+		$Levels/Level3.queue_free()
+		previous_map_second = $Levels/Level4
+		previous_map_first = $Levels/Level5
+		current_map = map_to_add
+	else:
+		previous_map_second.queue_free()
+		previous_map_second = previous_map_first
+		previous_map_first = current_map
+		current_map = map_to_add
+
+	current_map.position.y = previous_map_first.position.y - 5760
+	$Levels.add_child(current_map)

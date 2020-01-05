@@ -21,18 +21,22 @@
 position = Vector2( -1, 0 )
 script = ExtResource( 1 )
 checkpoints = [ 738, -5022, -10782, -16542, -22302 ]
+bridge_destroyed = 4
 prestart_speed = 300.0
 max_prestart_position_y = -500
 min_reset_position_y = 500
 fade_anim_offset = 400
 
+[node name="BuildMapPoint" type="Position2D" parent="."]
+position = Vector2( 960, -24650 )
+
 [node name="StartingPoint" type="Position2D" parent="."]
 position = Vector2( 960, 738 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level0" parent="Levels" instance=ExtResource( 3 )]
 position = Vector2( 0, 810 )
@@ -44,52 +48,38 @@ position = Vector2( -1, -4949 )
 [node name="Chopper7" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 858.818, 339.532 )
 is_static = true
-distance_to_player = 500.0
-speed = 100
 
 [node name="Chopper6" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 1058.54, 183.957 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Chopper5" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 563.224, 842.839 )
 is_static = true
-distance_to_player = 500.0
-speed = 100
 
 [node name="Chopper4" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 1471.24, 1526.76 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Chopper3" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 821.003, 2800.87 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Chopper2" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 1134.87, 3859.73 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Chopper" parent="Levels/Level1" instance=ExtResource( 5 )]
 position = Vector2( 701.257, 5036.51 )
 is_static = true
-distance_to_player = 500.0
-speed = 100
 
 [node name="FuelTank6" parent="Levels/Level1" instance=ExtResource( 6 )]
 position = Vector2( 984.934, 443.551 )
@@ -183,7 +173,6 @@ position = Vector2( 939.034, 5669.9 )
 [node name="Chopper8" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 1222.11, 266.772 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 1200.0
 choose_direction = "left"
 speed = 200
@@ -191,13 +180,11 @@ speed = 200
 [node name="Chopper7" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 1633.08, 1070.7 )
 is_static = true
-distance_to_player = 500.0
 speed = 200
 
 [node name="Chopper6" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 681.352, 569.596 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 700.0
 choose_direction = "left"
 speed = 200
@@ -205,18 +192,15 @@ speed = 200
 [node name="Chopper5" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 670.537, 1748.44 )
 is_static = true
-distance_to_player = 500.0
 speed = 200
 
 [node name="Chopper4" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 1037.88, 2121.31 )
-is_static = false
 distance_to_player = 1200.0
 speed = 200
 
 [node name="Chopper3" parent="Levels/Level2" instance=ExtResource( 5 )]
 position = Vector2( 512.78, 4095.16 )
-is_static = false
 distance_to_player = 700.0
 speed = 200
 
@@ -224,7 +208,6 @@ speed = 200
 position = Vector2( 563.544, 4552.33 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
 speed = 200
 
@@ -361,28 +344,23 @@ choose_direction = "left"
 
 [node name="Chopper4" parent="Levels/Level3" instance=ExtResource( 5 )]
 position = Vector2( 891.404, 193.417 )
-is_static = false
 distance_to_player = 700.0
 speed = 200
 
 [node name="Chopper3" parent="Levels/Level3" instance=ExtResource( 5 )]
 position = Vector2( 819.924, 874.584 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 1000.0
 choose_direction = "left"
 speed = 200
 
 [node name="Chopper2" parent="Levels/Level3" instance=ExtResource( 5 )]
 position = Vector2( 672.758, 1055.39 )
-is_static = false
 distance_to_player = 800.0
 speed = 200
 
 [node name="Chopper" parent="Levels/Level3" instance=ExtResource( 5 )]
 position = Vector2( 1415.37, 4354.81 )
-is_static = false
-distance_to_player = 500.0
 speed = 200
 
 [node name="Ship6" parent="Levels/Level3" instance=ExtResource( 7 )]
@@ -501,7 +479,6 @@ exlosion_number = 10
 
 [node name="Chopper6" parent="Levels/Level4" instance=ExtResource( 5 )]
 position = Vector2( 1496.09, 666.934 )
-is_static = false
 distance_to_player = 700.0
 speed = 200
 
@@ -509,25 +486,19 @@ speed = 200
 position = Vector2( 342.478, 547.967 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Chopper4" parent="Levels/Level4" instance=ExtResource( 5 )]
 position = Vector2( 1525.5, 1734.21 )
 is_static = true
-distance_to_player = 500.0
-speed = 100
 
 [node name="Chopper3" parent="Levels/Level4" instance=ExtResource( 5 )]
 position = Vector2( 895.567, 2136.46 )
-is_static = false
 distance_to_player = 1000.0
 speed = 200
 
 [node name="Chopper2" parent="Levels/Level4" instance=ExtResource( 5 )]
 position = Vector2( 1447.31, 3925.9 )
-is_static = false
 distance_to_player = 1200.0
 speed = 200
 
@@ -535,9 +506,7 @@ speed = 200
 position = Vector2( 1619.93, 5019.13 )
 scale = Vector2( -1, 1 )
 is_static = true
-distance_to_player = 500.0
 choose_direction = "left"
-speed = 100
 
 [node name="Ship5" parent="Levels/Level4" instance=ExtResource( 7 )]
 position = Vector2( 447.024, 1485.28 )
@@ -646,14 +615,12 @@ exlosion_number = 10
 [node name="Chopper2" parent="Levels/Level5" instance=ExtResource( 5 )]
 position = Vector2( 632.041, 1348.36 )
 scale = Vector2( -1, 1 )
-is_static = false
 distance_to_player = 700.0
 choose_direction = "left"
 speed = 200
 
 [node name="Chopper" parent="Levels/Level5" instance=ExtResource( 5 )]
 position = Vector2( 308.998, 1720.56 )
-is_static = false
 distance_to_player = 900.0
 speed = 200
 
@@ -683,6 +650,7 @@ position = Vector2( 942.198, 5779 )
 editor/display_folded = true
 scale = Vector2( 0.75, 0.75 )
 base_speed = 220.0
+fuel_capacity = 200.0
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
