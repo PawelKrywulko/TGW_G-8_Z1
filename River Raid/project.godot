@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="River Raid"
-run/main_scene="res://scenes/BootSplash.tscn"
+run/main_scene="res://scenes/GameManager.tscn"
 boot_splash/image="res://graphics/startscreen/none.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
