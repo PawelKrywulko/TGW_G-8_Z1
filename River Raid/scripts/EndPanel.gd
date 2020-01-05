@@ -1,20 +1,23 @@
 extends CanvasLayer
 
-onready var continue_button:= $ContinueButton
 onready var restart_button:= $RestartButton
-onready var settings_button:= $SettingsButton
 onready var main_menu_button:= $MainMenuButton
+var game_score: int = 0
 
 func _ready():
-	continue_button.connect("pressed", self, "play")
 	restart_button.connect("pressed", self, "restart")
-	settings_button.connect("pressed", self, "settings")
 	main_menu_button.connect("pressed", self, "main_menu")
+	var hud = get_parent().get_node("HUD")
+	if hud != null:
+		game_score = hud.score
+	var hiscore = SaveSystem.load_value("Highscore","Score")
+	if game_score > hiscore:
+		$Text.text = "Congratulations!\nYou beat the highscore!\nYour score is:"
+		SaveSystem.save_value("Highscre","Score",game_score)
+	else:
+		$Text.text = "You didn't beat highscore!\nTry harder!\nYour score is:"
+	$Score.text = str(game_score)
 
-func play():
-	get_tree().paused = false
-	queue_free()
-	
 func restart():
 	Global.click()
 	Global.fade_out()
@@ -22,13 +25,6 @@ func restart():
 	yield(Global,"fade_out_completed")
 	get_tree().change_scene("res://scenes/GameManager.tscn")
 
-
-func settings():
-	Global.click()
-	var settings_scene = load("res://scenes/Settings.tscn")
-	add_child(settings_scene.instance())
-	set_pause_mode(Node.PAUSE_MODE_STOP)
-	
 func main_menu():
 	Global.click()
 	#Global.fade_unpause()

@@ -79,7 +79,7 @@ func game_running():
 	#get_tree().change_scene("res://scenes/StartScreen.tscn")
 	print("game+stoprunning")
 func gameover():
-	var game_over_panel: PackedScene = load("res://scenes/EndGamePanel.tscn")
+	var game_over_panel: PackedScene = load("res://scenes/EndPanel.tscn")
 	add_child(game_over_panel.instance())
 
 func auto_move():
