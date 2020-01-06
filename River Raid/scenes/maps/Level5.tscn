@@ -35,4 +35,4 @@ polygon = PoolVector2Array( 813.121, 5759.68, 813.106, 5470.17, 835.398, 5467.59
 [node name="Enemies" type="Node2D" parent="." index="5"]
 
 [node name="Bridge" parent="Enemies" index="0" instance=ExtResource( 2 )]
-position = Vector2( 1718.67, 5498.69 )
+position = Vector2( 941.886, 5691.6 )
