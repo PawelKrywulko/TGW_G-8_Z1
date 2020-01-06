@@ -1,8 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://graphics/tileset/water.tres" type="TileSet" id=1]
 [ext_resource path="res://graphics/tileset/ground.tres" type="TileSet" id=2]
 [ext_resource path="res://graphics/tileset/details.tres" type="TileSet" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BridgeDestroyed"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Water:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Water:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Premap" type="Node2D"]
 
@@ -31,3 +62,7 @@ format = 1
 [node name="ColliderArea" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BridgeDestroyed = SubResource( 1 )
+anims/Idle = SubResource( 2 )
