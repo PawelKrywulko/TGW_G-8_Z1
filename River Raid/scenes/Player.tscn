@@ -43,7 +43,8 @@ __meta__ = {
 }
 Projectile = ExtResource( 2 )
 base_speed = 600.0
-refueling_speed = 3.0
+refueling_speed = 2.0
+fuel_decreaser = 0.5
 exlosion_number = 4
 
 [node name="Sprite" type="Sprite" parent="."]
