@@ -48,23 +48,23 @@ scale = Vector2( -1, 1 )
 is_static = true
 choose_direction = "left"
 
-[node name="Chopper8" parent="Enemies" index="4" instance=ExtResource( 2 )]
-position = Vector2( 1232.32, 1633.71 )
-is_static = true
-
-[node name="Chopper5" parent="Enemies" index="5" instance=ExtResource( 2 )]
+[node name="Chopper5" parent="Enemies" index="4" instance=ExtResource( 2 )]
 position = Vector2( 734.221, 1043.74 )
 is_static = true
 
-[node name="Chopper6" parent="Enemies" index="6" instance=ExtResource( 2 )]
+[node name="Chopper6" parent="Enemies" index="5" instance=ExtResource( 2 )]
 position = Vector2( 806.297, 375.565 )
 is_static = true
 
-[node name="Chopper7" parent="Enemies" index="7" instance=ExtResource( 2 )]
+[node name="Chopper7" parent="Enemies" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1043.96, 206.087 )
 scale = Vector2( -1, 1 )
 is_static = true
 choose_direction = "left"
+
+[node name="Chopper8" parent="Enemies" index="7" instance=ExtResource( 2 )]
+position = Vector2( 1232.32, 1633.71 )
+is_static = true
 
 [node name="Ship" parent="Enemies" index="8" instance=ExtResource( 3 )]
 position = Vector2( 1187.44, 4599.49 )

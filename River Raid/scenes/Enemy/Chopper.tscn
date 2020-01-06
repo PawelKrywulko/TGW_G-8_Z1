@@ -13,12 +13,12 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Chopper" index="0" instance=ExtResource( 1 )]
+[node name="Chopper" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 z_index = 1
 script = ExtResource( 2 )
 points = 60
-speed = 200
+speed = 250
 exlosion_number = 8
 
 [node name="Sprite" parent="." index="0"]
