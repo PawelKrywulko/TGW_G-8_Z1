@@ -22,6 +22,7 @@ var screen_size: Vector2
 var can_fly: bool = false
 var is_any_button_pressed: bool = false
 var is_refueling: bool = false
+var holding_time: float = 0
 
 func _ready() -> void:
 	$CollisionPolygon2D.set_deferred("disabled", true)
@@ -38,25 +39,31 @@ func _physics_process(delta: float) -> void:
 func turn(delta: float) -> void:
 	if can_fly && is_any_button_pressed:
 		var velocity: Vector2 = Vector2()
+		speed = base_speed
+		
+		if holding_time >= 0.4:
+			speed = speed * 2
 		
 		if Input.is_action_pressed("ui_right"):
+			holding_time += delta
 			velocity.x += 1
-			$AnimatedSprite.flip_h = false
 			$AnimatedSprite.play("turn_right")
 		if Input.is_action_just_released("ui_right"):
+			holding_time = 0
 			$AnimatedSprite.play("turn_right", true)
 		
 		if Input.is_action_pressed("ui_left"):
+			holding_time += delta
 			velocity.x -= 1
-			$AnimatedSprite.flip_h = true
-			$AnimatedSprite.play("turn_right")
+			$AnimatedSprite.play("turn_left")
 		if Input.is_action_just_released("ui_left"):
-			$AnimatedSprite.play("turn_right", true)
+			holding_time = 0
+			$AnimatedSprite.play("turn_left", true)
 			
 		if velocity.length() > 0:
-			velocity = velocity.normalized() * base_speed
+			velocity = velocity.normalized() * speed
 			
-		position += velocity * delta * 2
+		position += velocity * delta
 		position.x = clamp(position.x, 0, screen_size.x)
 
 func move(delta: float) -> void:
