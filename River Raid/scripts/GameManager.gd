@@ -97,6 +97,9 @@ func auto_move():
 
 func _on_bridge_destroyed():
 	bridge_destroyed += 1
+	var levels = $Levels.get_children()
+	for level in levels:
+		level.get_node("AnimationPlayer").play("BridgeDestroyed")
 
 func check_map():
 	if $Player.position.y <= buildmap_point.position.y:
