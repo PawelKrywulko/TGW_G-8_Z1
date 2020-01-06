@@ -143,7 +143,8 @@ func _on_player_destroyed() -> void:
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$LowFuel.stop()
 	$Engine.stop()
-	ExplosionBuilder.explode(position,$Sprite.get_rect().end, exlosion_number)
+	var scaled_rect = $Sprite.get_rect().end * $Sprite.scale.x
+	ExplosionBuilder.explode(position, scaled_rect, exlosion_number)
 	lives -= 1
 	emit_signal("lives_left", lives)
 	if(lives > 0):

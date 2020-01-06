@@ -4,10 +4,9 @@
 [ext_resource path="res://graphics/final_graphics/oil.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40.5625, 54.2299 )
+extents = Vector2( 41.2574, 65.9786 )
 
 [node name="FuelTank" type="Area2D"]
-position = Vector2( 929.011, 123.991 )
 z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -15,12 +14,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.225952, 3.16311 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.0595713, 4.76843 )
+position = Vector2( -0.285523, 2.0572 )
 shape = SubResource( 1 )
 [connection signal="area_entered" from="." to="." method="_on_FuelTank_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_FuelTank_body_entered"]

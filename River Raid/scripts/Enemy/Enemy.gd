@@ -46,17 +46,17 @@ func _on_Enemy_area_entered(area):
 
 func destroy_enemy() -> void:
 	hide()
-	$CollisionShape2D.set_deferred("disabled", true)
+	$CollisionPolygon2D.set_deferred("disabled", true)
 	print("enemy_destroyed; points: %s" % points)
 	emit_signal("enemy_destroyed", points)
-	var rect = $Sprite.get_rect().end * $Sprite.scale.x
-	ExplosionBuilder.explode(get_global_transform().get_origin(),rect, exlosion_number)
+	var scaled_rect = $Sprite.get_rect().end * $Sprite.scale.x
+	ExplosionBuilder.explode(get_global_transform().get_origin(), scaled_rect, exlosion_number)
 
 
 func _on_game_reseted():
 	position = start_position
 	show()
-	$CollisionShape2D.set_deferred("disabled", false)
+	$CollisionPolygon2D.set_deferred("disabled", false)
 	
 func set_direction(new_direction) -> void:
 	choose_direction = new_direction
