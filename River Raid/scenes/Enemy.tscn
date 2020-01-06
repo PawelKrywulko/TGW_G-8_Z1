@@ -12,7 +12,5 @@ choose_direction = "right"
 
 [node name="Sprite" type="Sprite" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.970596, 7.11774 )
-rotation = 1.5708
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]

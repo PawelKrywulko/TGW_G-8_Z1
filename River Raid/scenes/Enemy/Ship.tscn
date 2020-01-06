@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Enemy/Ship.gd" type="Script" id=2]
-[ext_resource path="res://graphics/enemy/ShipLimonResizes.png" type="Texture" id=3]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 18.4011
-height = 132.14
+[ext_resource path="res://graphics/final_graphics/shanghai-pc-751.png" type="Texture" id=3]
 
 [node name="Ship" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
@@ -15,15 +11,17 @@ script = ExtResource( 2 )
 points = 30
 
 [node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.3, 0.5 )
 z_index = 1
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -1.09535, 13.3156 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2( -0.19371, -3.87422 )
+scale = Vector2( 0.3, 0.5 )
+polygon = PoolVector2Array( -281.606, 53.8741, 268.492, 53.8741, 293.363, 8.03262, 166.568, 14.86, 145.597, -11.4744, 129.992, -12.9374, 117.312, -7.0853, 72.4463, -36.8335, 41.7227, -30.9814, -7.04474, -10.0114, -72.3932, -3.1839, -202.602, -5.13461, -261.611, 4.13123, -283.556, 18.7614, -287.458, 26.5642 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
-position = Vector2( 81.1271, 11.2931 )
+position = Vector2( 79.9426, 2.69776 )
 enabled = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 2

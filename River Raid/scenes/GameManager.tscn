@@ -13,6 +13,9 @@
 [node name="GameManager" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 70.0 ]
+}
 checkpoints = [ 738, -5022, -10782, -16542, -22302 ]
 prestart_speed = 300.0
 max_prestart_position_y = -500
@@ -51,8 +54,9 @@ position = Vector2( 0, -27989 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 958.713, 710 )
 base_speed = 220.0
+fuel_capacity = 1e+006
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
