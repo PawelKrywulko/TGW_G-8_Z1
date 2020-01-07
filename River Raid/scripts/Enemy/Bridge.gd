@@ -15,7 +15,7 @@ func _ready():
 	show()
 	connect("bridge_destroyed_hud", hud, "_on_score_changed")
 	connect("bridge_destroyed", game_manager, "_on_bridge_destroyed")
-	game_manager.connect("reset", self, "_on_game_reseted")
+	game_manager.connect("game_reseted", self, "_on_game_reseted")
 
 func _on_Bridge_area_entered(area):
 	var area_name: String = area.get_name()
@@ -42,7 +42,7 @@ func _on_game_reseted():
 		for area in areas:
 			if area.name == "Player" || area.get_parent().name.begins_with("Level") || area.name.begins_with("Bridge"):
 				if area.get_parent().name.begins_with("Level"):
-					print(area.name)
+					pass
 			else:
 				print("destroed:" + area.name)
 				area.queue_free()

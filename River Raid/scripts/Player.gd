@@ -117,7 +117,7 @@ func _on_Player_area_entered(area) -> void:
 		print("refueling_started")
 		$FuelTimer.stop()
 		is_refueling = true
-	elif area.get_parent().name.begins_with("Tank"):
+	elif area.get_parent().name.begins_with("Tank") && !area_name.begins_with("Explosion"):
 		return
 	elif area.get_parent().name.begins_with("Cannon"):
 		return
