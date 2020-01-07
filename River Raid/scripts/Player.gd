@@ -63,7 +63,7 @@ func turn(delta: float) -> void:
 		if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):
 			current_turn_acceleration += turn_acceleration_factor
 		if !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
-			current_turn_acceleration -= turn_acceleration_factor
+			current_turn_acceleration = 1
 		current_turn_acceleration = clamp(current_turn_acceleration, 0, max_turn_acceleration)
 
 		if velocity.length() > 0:
