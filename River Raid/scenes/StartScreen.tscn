@@ -7,11 +7,11 @@
 [ext_resource path="res://graphics/startscreen/mainmanubackground.png" type="Texture" id=5]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://graphics/startscreen/riverraidtitle.png" type="Texture" id=7]
-[ext_resource path="res://graphics/player/plane001.png" type="Texture" id=8]
-[ext_resource path="res://graphics/enemy/ShipLimonResizes.png" type="Texture" id=9]
-[ext_resource path="res://graphics/enemy/tankresized.png" type="Texture" id=10]
-[ext_resource path="res://graphics/enemy/Heli01.png" type="Texture" id=11]
-[ext_resource path="res://graphics/enemy/jetresized.png" type="Texture" id=12]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_0.png" type="Texture" id=8]
+[ext_resource path="res://graphics/final_graphics/shanghai-pc-751.png" type="Texture" id=9]
+[ext_resource path="res://graphics/final_graphics/tank.png" type="Texture" id=10]
+[ext_resource path="res://graphics/final_graphics/helikopter.png" type="Texture" id=11]
+[ext_resource path="res://graphics/final_graphics/Mig21PFfamilyweb.png" type="Texture" id=12]
 [ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=13]
 [ext_resource path="res://scripts/OurButton.gd" type="Script" id=14]
 [ext_resource path="res://sounds/civil-war-field-loop.wav" type="AudioStream" id=15]
@@ -86,42 +86,71 @@ autowrap = true
 position = Vector2( 1024.66, 206.491 )
 texture = ExtResource( 7 )
 
+[node name="PlaneShadow" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0.329412 )
+position = Vector2( 328.475, 732.033 )
+rotation = 0.261799
+scale = Vector2( 0.09, 0.06 )
+texture = ExtResource( 8 )
+
 [node name="Plane" type="Sprite" parent="."]
 position = Vector2( 319.136, 724.207 )
 rotation = 0.261799
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 8 )
-
-[node name="PlaneShadow" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 0.329412 )
-position = Vector2( 321.084, 737.843 )
-rotation = 0.261799
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.09, 0.06 )
 texture = ExtResource( 8 )
 
 [node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Enemy" type="Sprite" parent="Enemies"]
-position = Vector2( 1444.97, 742.012 )
+[node name="ShipShadow" type="Sprite" parent="Enemies"]
+modulate = Color( 0, 0, 0, 0.329412 )
+position = Vector2( 1441.87, 733.588 )
 rotation = 0.261799
-scale = Vector2( -1, 1 )
+scale = Vector2( -0.3, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Enemy2" type="Sprite" parent="Enemies"]
-position = Vector2( 1813.19, 716.906 )
+[node name="Ship" type="Sprite" parent="Enemies"]
+position = Vector2( 1444.97, 742.012 )
 rotation = 0.261799
+scale = Vector2( -0.3, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="TankShadow" type="Sprite" parent="Enemies"]
+modulate = Color( 0, 0, 0, 0.329412 )
+position = Vector2( 1767.14, 700.065 )
+rotation = 0.261799
+scale = Vector2( 0.3, 0.35 )
 texture = ExtResource( 10 )
 
-[node name="Enemy3" type="Sprite" parent="Enemies"]
-position = Vector2( 1771.34, 125.528 )
+[node name="Tank" type="Sprite" parent="Enemies"]
+position = Vector2( 1768.97, 703.735 )
 rotation = 0.261799
-scale = Vector2( -1, 1 )
+scale = Vector2( 0.3, 0.35 )
+texture = ExtResource( 10 )
+
+[node name="ChopperShadow" type="Sprite" parent="Enemies"]
+modulate = Color( 0, 0, 0, 0.329412 )
+position = Vector2( 1777.1, 131.125 )
+rotation = 0.261799
+scale = Vector2( -0.07, 0.11 )
 texture = ExtResource( 11 )
 
-[node name="Enemy4" type="Sprite" parent="Enemies"]
+[node name="Chopper" type="Sprite" parent="Enemies"]
+position = Vector2( 1771.34, 125.528 )
+rotation = 0.261799
+scale = Vector2( -0.07, 0.11 )
+texture = ExtResource( 11 )
+
+[node name="JetShadow" type="Sprite" parent="Enemies"]
+modulate = Color( 0, 0, 0, 0.329412 )
 position = Vector2( 1336.18, 443.534 )
 rotation = 0.261799
+scale = Vector2( -0.2, 0.25 )
+texture = ExtResource( 12 )
+
+[node name="Jet" type="Sprite" parent="Enemies"]
+position = Vector2( 1328.6, 431.153 )
+rotation = 0.261799
+scale = Vector2( -0.2, 0.25 )
 texture = ExtResource( 12 )
 
 [node name="ButtonsPanel" type="Node" parent="."]
