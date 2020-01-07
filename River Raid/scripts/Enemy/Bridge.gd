@@ -10,12 +10,17 @@ onready var game_manager := get_tree().get_root().get_node("GameManager")
 export var exlosion_number: int = 25
 onready var destroy_area := $Area2D
 var destroy_enemies_behind: bool = false
+var areas
 
 func _ready():
 	show()
 	connect("bridge_destroyed_hud", hud, "_on_score_changed")
 	connect("bridge_destroyed", game_manager, "_on_bridge_destroyed")
-	game_manager.connect("game_reseted", self, "_on_game_reseted")
+	game_manager.connect("reset", self, "_on_game_reseted")
+	
+func _process(delta):
+	if areas == null:
+		areas = $Area2D.get_overlapping_areas()
 
 func _on_Bridge_area_entered(area):
 	var area_name: String = area.get_name()
@@ -37,12 +42,10 @@ func _on_Bridge_area_exited(area):
 
 func _on_game_reseted():
 	if destroy_enemies_behind:
-		var areas = $Area2D.get_overlapping_areas()
-		print("Area overlas:" + str(areas.size()))
 		for area in areas:
-			if area.name == "Player" || area.get_parent().name.begins_with("Level") || area.name.begins_with("Bridge"):
-				if area.get_parent().name.begins_with("Level"):
-					pass
-			else:
-				print("destroed:" + area.name)
-				area.queue_free()
+			if is_instance_valid(area):
+				if area.name == "Player" || area.get_parent().name.begins_with("Level") || area.name.begins_with("Bridge"):
+						pass
+				else:
+					area.queue_free()
+		queue_free()

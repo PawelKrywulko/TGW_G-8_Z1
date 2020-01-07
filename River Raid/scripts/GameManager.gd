@@ -76,7 +76,6 @@ func reset_game():
 		if can_process():
 			auto_move()
 		yield(get_tree(),"idle_frame")
-		emit_signal("game_reseted")
 		#print(player.position.y)
 		if player.position.y <= reset_point.y:
 			player.show()
