@@ -12,6 +12,7 @@ export var exlosion_number: int = 25
 func _ready():
 	show()
 	connect("bridge_destroyed_hud", hud, "_on_score_changed")
+	connect("bridge_destroyed", hud, "_on_bridge_destroyed")
 	connect("bridge_destroyed", game_manager, "_on_bridge_destroyed")
 
 func _on_Bridge_area_entered(area):

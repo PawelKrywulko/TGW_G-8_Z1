@@ -3,13 +3,17 @@ extends CanvasLayer
 signal bonus_score_reached
 
 onready var lives_panel : Label = $Lives
+onready var bridge_panel : Label = $Bridge
 onready var fuel_bar : Label = $Fuel
 onready var score_panel : Label= $Score
+onready var hi_score_panel : Label = $HiScore
 
 var bonus_score: int = 10000
 var score: int = 0
+var bridge: int = 0
 
 func _ready():
+	$HiScore.text = "HI SCORE: " + str(SaveSystem.load_value("Highscore","Score"))
 	var game_manager = get_parent()
 
 func _on_score_changed(value):
@@ -22,6 +26,10 @@ func _on_score_changed(value):
 
 func _on_Player_lives_left(value):
 	lives_panel.text = str(value)
+
+func _on_bridge_destroyed():
+	bridge += 1
+	bridge_panel.text = str(bridge)
 
 func _on_Player_fuel_left(value: float):
 	fuel_bar.value = value
