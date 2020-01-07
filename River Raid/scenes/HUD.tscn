@@ -90,9 +90,9 @@ text = "HI SCORE: 0"
 align = 2
 
 [node name="Fuel" type="ProgressBar" parent="."]
-margin_left = 850.0
+margin_left = 810.0
 margin_top = 1025.0
-margin_right = 1160.0
+margin_right = 1120.0
 margin_bottom = 1050.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
