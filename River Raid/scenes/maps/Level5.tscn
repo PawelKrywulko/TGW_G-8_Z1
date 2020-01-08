@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/maps/Premap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Enemy/Bridge.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Enemy/Tank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Enemy/Cannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=8]
 
 [node name="Level5" index="0" instance=ExtResource( 1 )]
 
@@ -36,4 +42,80 @@ polygon = PoolVector2Array( 813.121, 5759.68, 813.106, 5470.17, 835.398, 5467.59
 [node name="Enemies" type="Node2D" parent="." index="5"]
 
 [node name="Bridge" parent="Enemies" index="0" instance=ExtResource( 2 )]
-position = Vector2( 1516.33, 5434.39 )
+position = Vector2( 941.886, 5691.6 )
+
+[node name="Tank" parent="Enemies" index="1" instance=ExtResource( 3 )]
+position = Vector2( 767.155, 5702.88 )
+distance_to_player = 700.0
+
+[node name="FuelTank" parent="Enemies" index="2" instance=ExtResource( 4 )]
+position = Vector2( 958.941, 5494.09 )
+
+[node name="FuelTank2" parent="Enemies" index="3" instance=ExtResource( 4 )]
+position = Vector2( 218.161, 1818.14 )
+
+[node name="FuelTank3" parent="Enemies" index="4" instance=ExtResource( 4 )]
+position = Vector2( 1317.68, 1645.75 )
+
+[node name="Ship" parent="Enemies" index="5" instance=ExtResource( 5 )]
+position = Vector2( 755.248, 4864.97 )
+distance_to_player = 700.0
+
+[node name="Ship2" parent="Enemies" index="6" instance=ExtResource( 5 )]
+position = Vector2( 1266.17, 4703.48 )
+scale = Vector2( -1, 1 )
+distance_to_player = 700.0
+choose_direction = "left"
+
+[node name="Ship3" parent="Enemies" index="7" instance=ExtResource( 5 )]
+position = Vector2( 970.071, 3981.43 )
+scale = Vector2( -1, 1 )
+distance_to_player = 700.0
+choose_direction = "left"
+
+[node name="Ship4" parent="Enemies" index="8" instance=ExtResource( 5 )]
+position = Vector2( 751.098, 3478.25 )
+distance_to_player = 700.0
+
+[node name="Ship5" parent="Enemies" index="9" instance=ExtResource( 5 )]
+position = Vector2( 1440.63, 1824.31 )
+scale = Vector2( -1, 1 )
+distance_to_player = 700.0
+choose_direction = "left"
+
+[node name="Ship6" parent="Enemies" index="10" instance=ExtResource( 5 )]
+position = Vector2( 364.401, 1605.34 )
+distance_to_player = 700.0
+
+[node name="Ship7" parent="Enemies" index="11" instance=ExtResource( 5 )]
+position = Vector2( 452.922, 1316.48 )
+distance_to_player = 700.0
+
+[node name="Cannon" parent="Enemies" index="12" instance=ExtResource( 6 )]
+position = Vector2( 287.125, 4546.7 )
+
+[node name="Cannon2" parent="Enemies" index="13" instance=ExtResource( 6 )]
+position = Vector2( 1599.67, 4451.11 )
+scale = Vector2( -1, 1 )
+choose_direction = "left"
+
+[node name="Baloon" parent="Enemies" index="14" instance=ExtResource( 7 )]
+position = Vector2( 1532.81, 3279.93 )
+scale = Vector2( -1, 1 )
+distance_to_player = 800.0
+choose_direction = "left"
+
+[node name="Baloon2" parent="Enemies" index="15" instance=ExtResource( 7 )]
+position = Vector2( 340.107, 3228.69 )
+distance_to_player = 800.0
+
+[node name="Jet" parent="Enemies" index="16" instance=ExtResource( 8 )]
+position = Vector2( 1835.65, 2119.84 )
+scale = Vector2( -1, 1 )
+distance_to_player = 2500.0
+choose_direction = "left"
+speed = 600
+
+[node name="Jet2" parent="Enemies" index="17" instance=ExtResource( 8 )]
+position = Vector2( 60.5669, 144.429 )
+speed = 600
