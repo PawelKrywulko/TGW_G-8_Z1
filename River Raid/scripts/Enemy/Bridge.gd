@@ -45,7 +45,7 @@ func _on_game_reseted():
 	if destroy_enemies_behind:
 		for area in areas:
 			if is_instance_valid(area):
-				if area.name == "Player" || area.get_parent().name.begins_with("Level") || area.name.begins_with("Bridge"):
+				if area.name == "Player" || area.get_parent().is_in_group("Level") || area.name.begins_with("Bridge"):
 						pass
 				else:
 					area.queue_free()
