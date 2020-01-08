@@ -10,7 +10,7 @@ export var Projectile: PackedScene
 export var base_speed: float = 500
 export var fuel_capacity: float = 34
 export var refueling_speed: float = 0.025
-export var base_lives: int = 100
+export var base_lives: int = 3
 export var fuel_decreaser: float = 1
 export var exlosion_number: int = 5
 export var max_flight_acceleration: float = 1.5
@@ -19,20 +19,19 @@ export var flight_acceleration_factor: float = 0.02
 export var max_turn_acceleration: float = 1.9
 export var turn_acceleration_factor: float = 0.06
 
-var projectile = null
+onready var lives: int = base_lives
+onready var fuel_amount: float = fuel_capacity
+onready var can_fly: bool = false
+onready var is_any_button_pressed: bool = false
+onready var is_refueling: bool = false
+onready var current_turn_acceleration: float = 1
+onready var current_flight_acceleration: float = 1
+onready var projectile = null
+onready var screen_size: Vector2 = get_viewport_rect().size
 var speed: float
-var fuel_amount: float = fuel_capacity
-var lives: int = base_lives
-var screen_size: Vector2
-var can_fly: bool = false
-var is_any_button_pressed: bool = false
-var is_refueling: bool = false
-var current_turn_acceleration: float = 1
-var current_flight_acceleration: float = 1
 
 func _ready() -> void:
 	$CollisionPolygon2D.set_deferred("disabled", true)
-	screen_size = get_viewport_rect().size
 
 func _physics_process(delta: float) -> void:
 	move(delta)
