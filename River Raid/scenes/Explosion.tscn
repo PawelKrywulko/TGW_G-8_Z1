@@ -19,7 +19,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 37.3995
 
-[node name="Explosion" type="Area2D"]
+[node name="Explosion" type="Area2D" groups=[
+"Explosion",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
