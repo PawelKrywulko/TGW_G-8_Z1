@@ -10,7 +10,7 @@ export var Projectile: PackedScene
 export var base_speed: float = 500
 export var fuel_capacity: float = 34
 export var refueling_speed: float = 0.025
-export var base_lives: int = 3
+export var base_lives: int = 100
 export var fuel_decreaser: float = 1
 export var exlosion_number: int = 5
 export var max_flight_acceleration: float = 1.5
@@ -129,7 +129,7 @@ func _on_Player_area_entered(area) -> void:
 		print("refueling_started")
 		$FuelTimer.stop()
 		is_refueling = true
-	elif area.get_parent().name.begins_with("Tank") && !area_name.begins_with("Explosion"):
+	elif area.get_parent().name.begins_with("Tank") && !area.is_in_group("Explosion"):
 		return
 	elif area.get_parent().name.begins_with("Cannon"):
 		return
