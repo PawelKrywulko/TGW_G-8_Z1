@@ -25,11 +25,11 @@ func _on_score_changed(value):
 	score_panel.text = "SCORE: " + str(score)
 
 func _on_Player_lives_left(value):
-	lives_panel.text = str(value)
+	lives_panel.text = "LIVES: " + str(value)
 
 func _on_bridge_destroyed():
 	bridge += 1
-	bridge_panel.text = str(bridge)
+	bridge_panel.text = "BRIDGE: " + str(bridge)
 
 func _on_Player_fuel_left(value: float):
 	fuel_bar.value = value
