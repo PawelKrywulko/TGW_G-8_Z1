@@ -57,7 +57,7 @@ frames = SubResource( 1 )
 animation = "turn_left"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 960.78, -408.137 )
+position = Vector2( 951.514, -360.833 )
 offset = Vector2( 0, -530 )
 anchor_mode = 0
 current = true
