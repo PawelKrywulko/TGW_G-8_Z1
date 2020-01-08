@@ -49,14 +49,18 @@ func turn(delta: float) -> void:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x += 1
 			$AnimatedSprite.play("turn_right")
+			$AnimatedSpriteShadow.play("turn_right")
 		if Input.is_action_pressed("ui_left"):
 			velocity.x -= 1
 			$AnimatedSprite.play("turn_left")
+			$AnimatedSpriteShadow.play("turn_left")
 			
 		if Input.is_action_just_released("ui_right"):
 			$AnimatedSprite.play("turn_right", true)
+			$AnimatedSpriteShadow.play("turn_right", true)
 		if Input.is_action_just_released("ui_left"):
 			$AnimatedSprite.play("turn_left", true)
+			$AnimatedSpriteShadow.play("turn_left", true)
 		
 		#acceleration
 		if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):
@@ -162,6 +166,7 @@ func _on_player_destroyed() -> void:
 	$DeathSound.play()
 	hide()
 	$AnimatedSprite.stop()
+	$AnimatedSpriteShadow.stop()
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$LowFuel.stop()
 	$Engine.stop()
@@ -194,6 +199,7 @@ func prepare_to_fly() -> void:
 func reset() -> void:
 	$FuelTimer.stop()
 	$AnimatedSprite.frame = 0
+	$AnimatedSpriteShadow.frame = 0
 	can_fly = false
 	is_any_button_pressed = false
 	fuel_amount = fuel_capacity

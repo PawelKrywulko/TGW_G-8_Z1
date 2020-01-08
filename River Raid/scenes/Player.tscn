@@ -52,6 +52,13 @@ visible = false
 scale = Vector2( 0.09, 0.06 )
 texture = ExtResource( 3 )
 
+[node name="AnimatedSpriteShadow" type="AnimatedSprite" parent="."]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 8.29047, 5.36443 )
+scale = Vector2( 0.095, 0.064 )
+frames = SubResource( 1 )
+animation = "turn_left"
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.095, 0.064 )
 frames = SubResource( 1 )
