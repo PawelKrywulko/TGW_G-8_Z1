@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=6]
 
-[node name="Level2" groups=[
+[node name="Level2" index="0" groups=[
 "Level",
 ] instance=ExtResource( 1 )]
 
@@ -39,7 +39,7 @@ position = Vector2( 942.413, 5651.52 )
 
 [node name="Tank" parent="Enemies" index="1" instance=ExtResource( 3 )]
 position = Vector2( 499.443, 5663.41 )
-distance_to_player = 1200.0
+distance_to_player = 1500.0
 
 [node name="Ship" parent="Enemies" index="2" instance=ExtResource( 4 )]
 position = Vector2( 875.906, 5386.54 )
