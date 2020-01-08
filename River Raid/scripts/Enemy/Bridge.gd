@@ -17,7 +17,7 @@ func _ready():
 	connect("bridge_destroyed_hud", hud, "_on_score_changed")
 	connect("bridge_destroyed", hud, "_on_bridge_destroyed")
 	connect("bridge_destroyed", game_manager, "_on_bridge_destroyed")
-	game_manager.connect("reset", self, "_on_game_reseted")
+	game_manager.connect("kill_enemies_behind", self, "_on_game_reseted")
 	
 func _process(delta):
 	if areas == null:
@@ -48,5 +48,6 @@ func _on_game_reseted():
 				if area.name == "Player" || area.get_parent().is_in_group("Level") || area.name.begins_with("Bridge"):
 						pass
 				else:
+					area.hide()
 					area.queue_free()
 		queue_free()
