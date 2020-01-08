@@ -197,13 +197,11 @@ func reset() -> void:
 	can_fly = false
 	is_any_button_pressed = false
 	fuel_amount = fuel_capacity
+	if lives == 0:
+		lives = base_lives
 
 func _on_GameManager_reset() -> void:
 	reset()
-
-func _on_Player_out_of_lives() -> void:
-	#na razie tylko tak
-	lives = base_lives
 
 func _on_HUD_bonus_score_reached():
 	$ExtraLife.play()
