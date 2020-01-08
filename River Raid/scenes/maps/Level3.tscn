@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=7]
 
-[node name="Level3" groups=[
+[node name="Level3" index="0" groups=[
 "Level",
 ] instance=ExtResource( 1 )]
 
@@ -39,11 +39,11 @@ distance_to_player = 700.0
 choose_direction = "left"
 
 [node name="Baloon2" parent="Enemies" index="2" instance=ExtResource( 3 )]
-position = Vector2( 1232.67, 2373 )
+position = Vector2( 1347.41, 2417.42 )
 distance_to_player = 700.0
 
 [node name="Baloon3" parent="Enemies" index="3" instance=ExtResource( 3 )]
-position = Vector2( 620.989, 1508.08 )
+position = Vector2( 524.757, 1511.78 )
 scale = Vector2( -1, 1 )
 distance_to_player = 800.0
 choose_direction = "left"
@@ -51,7 +51,7 @@ choose_direction = "left"
 [node name="Tank" parent="Enemies" index="4" instance=ExtResource( 4 )]
 position = Vector2( 1429.69, 5693.55 )
 scale = Vector2( -1, 1 )
-distance_to_player = 1700.0
+distance_to_player = 1500.0
 choose_direction = "left"
 
 [node name="FuelTank" parent="Enemies" index="5" instance=ExtResource( 5 )]
