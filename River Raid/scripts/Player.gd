@@ -13,6 +13,11 @@ export var refueling_speed: float = 0.025
 export var base_lives: int = 3
 export var fuel_decreaser: float = 1
 export var exlosion_number: int = 5
+export var max_flight_acceleration: float = 1.5
+export var min_flight_acceleration: float = 0.7
+export var flight_acceleration_factor: float = 0.02
+export var max_turn_acceleration: float = 1.9
+export var turn_acceleration_factor: float = 0.06
 
 var projectile = null
 var speed: float
@@ -22,7 +27,8 @@ var screen_size: Vector2
 var can_fly: bool = false
 var is_any_button_pressed: bool = false
 var is_refueling: bool = false
-var holding_time: float = 0
+var current_turn_acceleration: float = 1
+var current_flight_acceleration: float = 1
 
 func _ready() -> void:
 	$CollisionPolygon2D.set_deferred("disabled", true)
@@ -41,28 +47,28 @@ func turn(delta: float) -> void:
 		var velocity: Vector2 = Vector2()
 		speed = base_speed
 		
-		if holding_time >= 0.4:
-			speed = speed * 2
-		
 		if Input.is_action_pressed("ui_right"):
-			holding_time += delta
 			velocity.x += 1
 			$AnimatedSprite.play("turn_right")
-		if Input.is_action_just_released("ui_right"):
-			holding_time = 0
-			$AnimatedSprite.play("turn_right", true)
-		
 		if Input.is_action_pressed("ui_left"):
-			holding_time += delta
 			velocity.x -= 1
 			$AnimatedSprite.play("turn_left")
+			
+		if Input.is_action_just_released("ui_right"):
+			$AnimatedSprite.play("turn_right", true)
 		if Input.is_action_just_released("ui_left"):
-			holding_time = 0
 			$AnimatedSprite.play("turn_left", true)
-			
+		
+		#acceleration
+		if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):
+			current_turn_acceleration += turn_acceleration_factor
+		if !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
+			current_turn_acceleration = 1
+		current_turn_acceleration = clamp(current_turn_acceleration, 0, max_turn_acceleration)
+
 		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
-			
+			velocity = velocity.normalized() * speed * current_turn_acceleration
+		
 		position += velocity * delta
 		position.x = clamp(position.x, 0, screen_size.x)
 
@@ -74,16 +80,22 @@ func move(delta: float) -> void:
 		speed = base_speed
 		velocity.y -= 1
 		if Input.is_action_pressed("ui_up"):
-			speed = base_speed * 1.5
+			current_flight_acceleration += flight_acceleration_factor
 			$Engine.set_pitch_scale(1.5)
 			#fuel_decreaser = 0.375
 		if Input.is_action_pressed("ui_down"):
-			speed = base_speed * 0.7
+			current_flight_acceleration -= flight_acceleration_factor
 			$Engine.set_pitch_scale(0.7)
 			#fuel_decreaser = 0.175
 			
+		if !Input.is_action_pressed("ui_up") && !Input.is_action_pressed("ui_down") && current_flight_acceleration > 1:
+			current_flight_acceleration -= flight_acceleration_factor
+		if !Input.is_action_pressed("ui_up") && !Input.is_action_pressed("ui_down") && current_flight_acceleration < 1:
+			current_flight_acceleration += flight_acceleration_factor
 		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
+			velocity = velocity.normalized() * speed * current_flight_acceleration
+		current_flight_acceleration = clamp(current_flight_acceleration, min_flight_acceleration, max_flight_acceleration)
+		print(current_flight_acceleration)
 			
 		position += velocity * delta
 
