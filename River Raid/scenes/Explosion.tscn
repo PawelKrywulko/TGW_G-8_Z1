@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://graphics/particles/explosion/tank_explosion5.png" type="Texture" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://graphics/particles/explosion/tank_explosion4.png" type="Texture" id=5]
 [ext_resource path="res://graphics/particles/explosion/tank_explosion12.png" type="Texture" id=6]
 [ext_resource path="res://graphics/particles/explosion/tank_explosion10.png" type="Texture" id=7]
+[ext_resource path="res://graphics/none.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "boom",
 "speed": 6.0

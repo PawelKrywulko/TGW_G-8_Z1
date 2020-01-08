@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Enemy/Boat.gd" type="Script" id=2]
 [ext_resource path="res://graphics/enemy/boat.png" type="Texture" id=3]
-
-[sub_resource type="CapsuleShape2D" id=1]
-height = 162.471
 
 [node name="Boat" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
@@ -14,9 +11,6 @@ points = 30
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
 position = Vector2( 88.6416, 2.50873 )

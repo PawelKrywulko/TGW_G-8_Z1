@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/maps/Premap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Enemy/Chopper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Enemy/Ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FuelTank.tscn" type="PackedScene" id=4]
 
 [node name="Level1" index="0" instance=ExtResource( 1 )]
 
@@ -24,3 +27,99 @@ polygon = PoolVector2Array( 811.793, 5760.52, 811.396, 5654.82, 801.465, 5629.39
 polygon = PoolVector2Array( 1107.95, 5759.05, 1109.84, 5651.24, 1119.3, 5628.54, 1157.74, 5624.76, 1158.37, 5506.85, 1166.57, 5486.05, 1206.27, 5480.37, 1213.21, 5440.02, 1273.08, 5428.04, 1439.47, 5431.19, 1450.18, 5344.18, 1493.04, 5337.25, 1501.23, 5293.87, 1539.04, 5286.3, 1549.13, 5245.95, 1587.57, 5239.64, 1597.03, 5196.14, 1630.43, 5191.1, 1632.95, 4981.14, 1596.4, 4967.9, 1592.62, 4933.85, 1588.2, 4889.72, 1585.68, 4789.47, 1549.13, 4775.72, 1536.52, 4738.52, 1536.52, 4442.81, 1559.21, 4427.05, 1588.2, 4423.9, 1588.83, 4294.65, 1598.92, 4284.56, 1634.21, 4278.88, 1633.58, 4251.77, 1657.53, 4234.12, 1689.67, 4233.49, 1680.4, 4212.23, 1681.06, 4152.5, 1706.27, 4137.24, 1730.15, 4135.91, 1729.49, 4108.7, 1749.39, 4090.78, 1777.26, 4087.46, 1776.59, 4018.44, 1748.07, 4013.79, 1727.5, 3969.99, 1706.27, 3969.32, 1691.01, 3957.38, 1685.04, 3910.92, 1685.04, 3529.99, 1695.66, 3516.72, 1731.48, 3511.41, 1740.77, 3468.93, 1777.92, 3462.29, 1776.59, 3336.19, 1805.12, 3320.26, 1824.36, 3317.61, 1837.63, 3275.13, 1873.45, 3269.16, 1877.08, 2881.63, 1834.22, 2879.11, 1826.66, 2834.34, 1785.69, 2832.45, 1778.13, 2783.9, 1778.76, 2680.5, 1772.46, 2674.19, 1757.33, 2672.93, 1740.94, 2662.84, 1727.71, 2630.06, 1728.34, 2481.38, 1708.8, 2480.12, 1693.04, 2471.93, 1679.18, 2440.4, 1680.44, 2281.52, 1703.76, 2266.38, 1727.08, 2261.97, 1728.34, 2088.58, 1752.92, 2074.08, 1778.76, 2069.67, 1785.04, 1982.82, 1823.36, 1973.24, 1828.15, 1954.67, 1825.16, 1858.83, 1806, 1856.44, 1789.24, 1846.85, 1779.66, 1785.76, 1780.25, 1583.3, 1737.74, 1582.76, 1730.56, 1541.43, 1730.56, 1473.75, 1709.6, 1473.15, 1692.24, 1461.77, 1683.26, 1394.09, 1678.47, 1375.52, 1660.51, 1375.52, 1655.12, 1366.53, 1643.14, 1365.34, 1636.56, 1306.64, 1629.97, 1280.88, 1611.41, 1277.29, 1597.04, 1270.1, 1587.46, 1217.39, 1585.07, 1189.24, 1565.31, 1184.44, 1550.34, 1174.26, 1535.37, 1141.32, 1536.57, 935.331, 1558.72, 922.154, 1583.27, 916.164, 1582.67, 744.258, 1604.23, 731.68, 1632.97, 725.091, 1637.76, 550.19, 1646.74, 538.809, 1680.27, 533.419, 1680.86, 419.075, 1660.51, 416.08, 1644.34, 402.902, 1633.56, 374.152, 1586.26, 375.35, 1561.72, 365.167, 1547.94, 357.979, 1544.35, 334.619, 1531.18, 319.645, 1517.41, 319.046, 1499.45, 310.061, 1485.08, 277.117, 1447.96, 283.706, 1436.58, 271.727, 1421.01, 272.326, 1404.85, 260.346, 1393.47, 227.402, 1372.51, 223.809, 1358.14, 213.626, 1346.77, 182.479, 1252.17, 187.271, 1244.98, 175.89, 1228.82, 175.292, 1214.45, 166.906, 1200.08, 130.368, 1182.12, 129.17, 1173.73, 118.988, 1164.15, 118.389, 1150.98, 81.8512, 1118.05, 71.6686, 1108.47, 0.390483, 1917.37, 1.58843, 1919.15, 5760.47 )
 
 [node name="Enemies" type="Node2D" parent="." index="5"]
+
+[node name="Chopper" parent="Enemies" index="0" instance=ExtResource( 2 )]
+position = Vector2( 723.521, 4953.22 )
+is_static = true
+
+[node name="Chopper2" parent="Enemies" index="1" instance=ExtResource( 2 )]
+position = Vector2( 1014.74, 3568.37 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="Chopper3" parent="Enemies" index="2" instance=ExtResource( 2 )]
+position = Vector2( 607.599, 2504.75 )
+is_static = true
+
+[node name="Chopper4" parent="Enemies" index="3" instance=ExtResource( 2 )]
+position = Vector2( 1520.65, 1461.41 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="Chopper5" parent="Enemies" index="4" instance=ExtResource( 2 )]
+position = Vector2( 734.221, 1043.74 )
+is_static = true
+
+[node name="Chopper6" parent="Enemies" index="5" instance=ExtResource( 2 )]
+position = Vector2( 806.297, 375.565 )
+is_static = true
+
+[node name="Chopper7" parent="Enemies" index="6" instance=ExtResource( 2 )]
+position = Vector2( 1043.96, 206.087 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="Chopper8" parent="Enemies" index="7" instance=ExtResource( 2 )]
+position = Vector2( 1232.32, 1633.71 )
+is_static = true
+
+[node name="Ship" parent="Enemies" index="8" instance=ExtResource( 3 )]
+position = Vector2( 1187.44, 4599.49 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="Ship2" parent="Enemies" index="9" instance=ExtResource( 3 )]
+position = Vector2( 968.394, 4235.7 )
+is_static = true
+
+[node name="Ship3" parent="Enemies" index="10" instance=ExtResource( 3 )]
+position = Vector2( 1375.79, 3733.51 )
+is_static = true
+
+[node name="Ship4" parent="Enemies" index="11" instance=ExtResource( 3 )]
+position = Vector2( 1712.8, 3008.85 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="Ship5" parent="Enemies" index="12" instance=ExtResource( 3 )]
+position = Vector2( 820.603, 2843.26 )
+is_static = true
+
+[node name="Ship6" parent="Enemies" index="13" instance=ExtResource( 3 )]
+position = Vector2( 1482.93, 2590.02 )
+is_static = true
+
+[node name="Ship7" parent="Enemies" index="14" instance=ExtResource( 3 )]
+position = Vector2( 1338.78, 2239.38 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="Ship8" parent="Enemies" index="15" instance=ExtResource( 3 )]
+position = Vector2( 1266.7, 714.081 )
+scale = Vector2( -1, 1 )
+is_static = true
+choose_direction = "left"
+
+[node name="FuelTank" parent="Enemies" index="16" instance=ExtResource( 4 )]
+position = Vector2( 797.474, 4685.51 )
+
+[node name="FuelTank2" parent="Enemies" index="17" instance=ExtResource( 4 )]
+position = Vector2( 1187.08, 3409.56 )
+
+[node name="FuelTank3" parent="Enemies" index="18" instance=ExtResource( 4 )]
+position = Vector2( 1432.53, 1864.78 )
+
+[node name="FuelTank4" parent="Enemies" index="19" instance=ExtResource( 4 )]
+position = Vector2( 1420.84, 1144.01 )
+
+[node name="FuelTank5" parent="Enemies" index="20" instance=ExtResource( 4 )]
+position = Vector2( 1025.39, 863.495 )
+
+[node name="FuelTank6" parent="Enemies" index="21" instance=ExtResource( 4 )]
+position = Vector2( 665.009, 530.384 )

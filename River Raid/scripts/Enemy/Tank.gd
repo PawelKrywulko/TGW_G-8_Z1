@@ -11,7 +11,8 @@ func on_ready() -> void:
 	points = 250
 
 func vehicle_action() -> void:
-	if $Area2D.get_overlapping_areas().size() == 0:
+	var areas = $Area2D.get_overlapping_areas()
+	if areas.size() == 0:
 		elapsed_time += get_process_delta_time()
 		if shot_cooldown < elapsed_time:
 			shot_cooldown = elapsed_time + firerate
@@ -19,7 +20,19 @@ func vehicle_action() -> void:
 				elapsed_time = 0
 			Shoot()
 	else:
-		.vehicle_action()
+		var one_move = true
+		for area in areas:
+			if(area.name.begins_with("Player")):
+				elapsed_time += get_process_delta_time()
+				if shot_cooldown < elapsed_time:
+					shot_cooldown = elapsed_time + firerate
+					if elapsed_time > 100:
+						elapsed_time = 0
+					Shoot()
+			else:
+				if one_move:
+					one_move = false
+					.vehicle_action()
 
 func Shoot() -> void:
 	var shell = shell_scene.instance()

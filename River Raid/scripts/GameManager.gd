@@ -2,6 +2,7 @@ extends Node2D
 
 signal ready_to_go
 signal reset
+signal game_reseted
 signal fade
 
 export (Array, int) var checkpoints
@@ -66,10 +67,11 @@ func reset_game():
 	!first_run && yield(get_tree().create_timer(2), "timeout")
 	first_run = false
 	emit_signal("reset")
+	
 	reset_point.y = starting_point.y - 5760 * bridge_destroyed
 	player.position.x = starting_point.x
 	player.position.y = reset_point.y + min_reset_position_y
-
+	
 	while true:
 		if can_process():
 			auto_move()
