@@ -83,6 +83,7 @@ func reset_game():
 
 func game_running():
 	yield(player, "out_of_lives")
+	ready_to_go = false
 	yield(get_tree().create_timer(2), "timeout")
 	#prepere to connect to end panel
 	#yield(endpanel,"gameover")
