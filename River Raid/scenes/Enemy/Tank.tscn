@@ -19,8 +19,8 @@ firerate = 1.0
 
 [node name="SpriteShadow" type="Sprite" parent="." index="0"]
 modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( -0.429276, -3.43422 )
-scale = Vector2( -0.3, 0.4 )
+position = Vector2( 0.675178, -3.592 )
+scale = Vector2( -0.35, 0.44 )
 texture = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="1"]

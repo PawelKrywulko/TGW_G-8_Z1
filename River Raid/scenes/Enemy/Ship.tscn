@@ -13,7 +13,7 @@ speed = 150
 
 [node name="SpriteShadow" type="Sprite" parent="." index="0"]
 modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( 0.581131, -3.68052 )
+position = Vector2( -0.387421, -10.4604 )
 scale = Vector2( 0.3, 0.5 )
 texture = ExtResource( 3 )
 

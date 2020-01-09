@@ -42,13 +42,12 @@ collide_with_bodies = false
 
 [node name="AnimatedSpriteShadow" type="AnimatedSprite" parent="." index="3"]
 modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( 0.599564, -3.2976 )
+position = Vector2( -0.449624, -10.7921 )
 rotation = -3.14159
 scale = Vector2( 0.07, -0.11 )
 frames = SubResource( 1 )
 animation = "Idle"
 frame = 1
-playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="4"]
 scale = Vector2( -0.07, 0.11 )

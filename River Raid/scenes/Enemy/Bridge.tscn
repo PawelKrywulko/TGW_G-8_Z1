@@ -24,7 +24,8 @@ texture = ExtResource( 2 )
 [node name="Shadow" type="Node2D" parent="."]
 editor/display_folded = true
 modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( -6.28506, -5.5867 )
+position = Vector2( -2.57492e-005, -11.8718 )
+scale = Vector2( 1.02, 1.02 )
 
 [node name="Bridge3" type="TileMap" parent="Shadow"]
 tile_set = ExtResource( 3 )
