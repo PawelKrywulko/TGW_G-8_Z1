@@ -70,19 +70,11 @@ func reset_game():
 	emit_signal("kill_enemies_behind")
 	reset_point.y = starting_point.y - 5760 * bridge_destroyed
 	player.position.x = starting_point.x
-	player.position.y = reset_point.y + min_reset_position_y
+	player.position.y = reset_point.y
 	$Player/Camera2D.align()
-	
-	while true:
-		if can_process():
-			auto_move()
-		yield(get_tree(),"idle_frame")
-		#print(player.position.y)
-		if player.position.y <= reset_point.y:
-			player.show()
-			ready_to_go = true
-			emit_signal("ready_to_go")
-			break
+	player.show()
+	ready_to_go = true
+	emit_signal("ready_to_go")
 
 func game_running():
 	yield(player, "out_of_lives")
