@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/Enemy/Jet.gd" type="Script" id=2]
 [ext_resource path="res://graphics/final_graphics/Mig21PFfamilyweb.png" type="Texture" id=3]
 
-[node name="Jet" index="0" instance=ExtResource( 1 )]
+[node name="Jet" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 script = ExtResource( 2 )
 points = 100
@@ -12,10 +12,16 @@ distance_to_player = 2000.0
 speed = 700
 exlosion_number = 5
 
-[node name="Sprite" parent="." index="0"]
+[node name="SpriteShadow" type="Sprite" parent="." index="0"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 0.270554, -3.11136 )
+scale = Vector2( -0.2, 0.25 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
 scale = Vector2( -0.2, 0.25 )
 z_index = 1
 texture = ExtResource( 3 )
 
-[node name="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" parent="." index="2"]
 polygon = PoolVector2Array( -59.8095, -17.5471, -47.9051, -17.6824, -22.6085, -3.88423, 19.3272, -4.83117, 26.9027, -4.15478, 32.0432, -0.772873, 46.7883, 1.25627, 55.0402, 6.39677, 47.4647, 10.5903, 20.9505, 11.6726, 16.8922, 15.0545, 20.5447, 16.5425, 7.69345, 17.8953, -8.26916, 17.8953, -44.7938, 13.0253, -48.7168, 10.9962, -48.8521, -1.71981 )

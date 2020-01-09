@@ -98,7 +98,6 @@ func move(delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed * current_flight_acceleration
 		current_flight_acceleration = clamp(current_flight_acceleration, min_flight_acceleration, max_flight_acceleration)
-		print(current_flight_acceleration)
 			
 		position += velocity * delta
 

@@ -11,6 +11,13 @@ __meta__ = {
 }
 explosion_scene = ExtResource( 2 )
 
+[node name="SpriteShadow" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 0.0460701, -1.10568 )
+rotation = -3.14159
+scale = Vector2( 0.1, -0.1 )
+texture = ExtResource( 3 )
+
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( -0.1, 0.1 )
 texture = ExtResource( 3 )

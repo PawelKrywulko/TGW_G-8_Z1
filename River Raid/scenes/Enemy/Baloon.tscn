@@ -10,15 +10,21 @@ z_index = 1
 script = ExtResource( 2 )
 points = 60
 
-[node name="Sprite" parent="." index="0"]
+[node name="SpriteShadow" type="Sprite" parent="." index="0"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( -0.340546, 11.5881 )
 scale = Vector2( 0.13, 0.12 )
 texture = ExtResource( 3 )
 
-[node name="CollisionPolygon2D" parent="." index="1"]
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.13, 0.12 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="2"]
 scale = Vector2( 0.13, 0.12 )
 polygon = PoolVector2Array( -43.4097, 482.297, -16.5564, 495.886, 35.2088, 489.739, 39.4147, 480.68, 40.0618, 426.973, 25.5029, 366.796, 31.3264, 352.237, 49.1207, 347.384, 53.6502, 327.002, 64.0033, 307.59, 244.682, 74.2901, 313.046, -33.0331, 341.714, -105.072, 351.271, -184.462, 342.45, -255.765, 313.781, -335.155, 273.351, -391.022, 188.081, -452.035, 103.545, -482.173, 46.2081, -492.465, -1.57275, -495.405, -61.8502, -490.994, -125.068, -479.233, -225.04, -428.512, -291.401, -370.35, -318.951, -329.501, -339.851, -270.601, -352.201, -186.051, -348.401, -140.451, -327.501, -68.2511, -272.401, 38.1487, -129.901, 221.498, -62.4514, 314.598, -55.8015, 343.098, -34.9015, 351.648, -29.2015, 366.848, -36.8015, 415.298, -44.4014, 425.748 )
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
 position = Vector2( 38.4497, -26.1026 )
 enabled = true
 cast_to = Vector2( 20, 0 )

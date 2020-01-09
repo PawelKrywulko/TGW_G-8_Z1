@@ -13,6 +13,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="SpriteShadow" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( -5.2558, -6.13178 )
+scale = Vector2( 0.5, 0.6 )
+texture = ExtResource( 2 )
+
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 2 )
