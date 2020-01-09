@@ -11,10 +11,11 @@ func on_ready() -> void:
 	points = 250
 
 func vehicle_action() -> void:
-	var areas = $Area2D.get_overlapping_areas()
-	for area in areas:
-		if area.name == "Bridge":
-			.vehicle_action()
+	if $Area2D != null:
+		var areas = $Area2D.get_overlapping_areas()
+		for area in areas:
+			if area.name == "Bridge":
+				.vehicle_action()
 
 func destroy_enemy() -> void:
 	.destroy_enemy()
