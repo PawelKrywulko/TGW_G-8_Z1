@@ -17,29 +17,23 @@ points = 250
 shell_scene = ExtResource( 3 )
 firerate = 1.0
 
-[node name="SpriteShadow" type="Sprite" parent="." index="0"]
-modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( 0.611725, -4.68988 )
-scale = Vector2( -0.3, 0.33 )
-texture = ExtResource( 4 )
-
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 scale = Vector2( -0.25, 0.3 )
 z_index = 1
 texture = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" parent="." index="2"]
+[node name="CollisionPolygon2D" parent="." index="1"]
 position = Vector2( -2.91989, 1.75194 )
 scale = Vector2( 0.25, 0.3 )
 polygon = PoolVector2Array( -102.192, -54.6449, 32.3578, -53.5642, 56.1337, -31.4094, 68.562, 13.9809, 128.002, 15.602, 166.908, 32.3531, 177.715, 47.4832, 166.908, 75.582, 105.847, 113.948, -169.197, 115.569, -240.524, 77.2031, -236.742, 24.2477, -230.257, 15.0616, -140.558, 14.5212, -128.67, -33.5709 )
 
-[node name="Spawner" type="Position2D" parent="." index="3"]
+[node name="Spawner" type="Position2D" parent="." index="2"]
 position = Vector2( 62.6567, -34.2111 )
 
-[node name="ShotSpot" type="Position2D" parent="." index="4"]
+[node name="ShotSpot" type="Position2D" parent="." index="3"]
 position = Vector2( 191.679, -0.0431156 )
 
-[node name="Area2D" type="Area2D" parent="." index="5"]
+[node name="Area2D" type="Area2D" parent="." index="4"]
 position = Vector2( 59.9922, 8.35239 )
 collision_layer = 3
 collision_mask = 2
@@ -48,6 +42,6 @@ collision_mask = 2
 position = Vector2( -0.0165405, -0.016037 )
 shape = SubResource( 1 )
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource( 5 )
 bus = "SFX"

@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.68447
 
-[node name="Tank" index="0" instance=ExtResource( 1 )]
+[node name="Tank" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 z_index = 1
 script = ExtResource( 2 )
@@ -17,29 +17,23 @@ points = 250
 shell_scene = ExtResource( 3 )
 firerate = 1.0
 
-[node name="SpriteShadow" type="Sprite" parent="." index="0"]
-modulate = Color( 0, 0, 0, 0.392157 )
-position = Vector2( 0.675178, -3.592 )
-scale = Vector2( -0.35, 0.44 )
-texture = ExtResource( 4 )
-
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 scale = Vector2( -0.3, 0.4 )
 z_index = 1
 texture = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" parent="." index="2"]
+[node name="CollisionPolygon2D" parent="." index="1"]
 position = Vector2( -7.03136, 1.29646 )
 scale = Vector2( 0.3, 0.4 )
 polygon = PoolVector2Array( -60.4719, -51.2988, 29.0058, -43.7727, 113.884, 3.05681, 128.1, 15.6004, 118.065, 36.9246, 74.9991, 61.1755, -134.897, 62.4299, -195.107, 30.2346, -205.56, 17.2729, -193.852, -4.46936, -173.364, -11.5774, -105.211, -9.06868, -99.7753, -31.6472, -86.8135, -46.2814 )
 
-[node name="Spawner" type="Position2D" parent="." index="3"]
+[node name="Spawner" type="Position2D" parent="." index="2"]
 position = Vector2( 66.7911, -13.8632 )
 
-[node name="ShotSpot" type="Position2D" parent="." index="4"]
+[node name="ShotSpot" type="Position2D" parent="." index="3"]
 position = Vector2( 192.376, -0.290781 )
 
-[node name="Area2D" type="Area2D" parent="." index="5"]
+[node name="Area2D" type="Area2D" parent="." index="4"]
 position = Vector2( 45.76, -0.155296 )
 collision_layer = 3
 collision_mask = 2
@@ -48,6 +42,6 @@ collision_mask = 2
 position = Vector2( 0.0420227, 0.198578 )
 shape = SubResource( 1 )
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource( 5 )
 bus = "SFX"
