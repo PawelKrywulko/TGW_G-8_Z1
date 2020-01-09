@@ -12,6 +12,9 @@ func _ready():
 	main_menu_button.connect("pressed", self, "main_menu")
 
 func play():
+	var anim := get_tree().get_root().get_node("GameManager/Player/AnimatedSprite")
+	anim.frame = 0
+	anim.stop()
 	get_tree().paused = false
 	queue_free()
 	

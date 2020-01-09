@@ -18,7 +18,7 @@ func _ready():
 
 func _on_score_changed(value):
 	score += value
-	if score > bonus_score:
+	if score >= bonus_score:
 		print("bonus_score_reached")
 		emit_signal("bonus_score_reached")
 		bonus_score += 10000

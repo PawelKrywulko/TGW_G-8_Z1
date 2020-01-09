@@ -91,7 +91,7 @@ position = Vector2( 1468.13, 1105.97 )
 distance_to_player = 800.0
 
 [node name="Tank" parent="Enemies" index="9" instance=ExtResource( 4 )]
-position = Vector2( 1444.47, 5707 )
+position = Vector2( 1380.31, 5707 )
 scale = Vector2( -1, 1 )
 distance_to_player = 1200.0
 choose_direction = "left"

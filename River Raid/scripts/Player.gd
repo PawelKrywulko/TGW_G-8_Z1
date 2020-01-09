@@ -94,7 +94,6 @@ func move(delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed * current_flight_acceleration
 		current_flight_acceleration = clamp(current_flight_acceleration, min_flight_acceleration, max_flight_acceleration)
-		print(current_flight_acceleration)
 			
 		position += velocity * delta
 
@@ -128,9 +127,7 @@ func _on_Player_area_entered(area) -> void:
 		print("refueling_started")
 		$FuelTimer.stop()
 		is_refueling = true
-	elif area.get_parent().name.begins_with("Tank") && !area.is_in_group("Explosion"):
-		return
-	elif area.get_parent().name.begins_with("Cannon"):
+	elif area.get_parent().name.begins_with("Cannon") && !area.is_in_group("Explosion"):
 		return
 	elif area_name == "Projectile":
 		return
