@@ -62,12 +62,12 @@ interact={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
 quality/2d/gles2_use_nvidia_rect_flicker_workaround=true
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
+quality/filters/anisotropic_filter_level=1
 quality/directional_shadow/size=256
 quality/directional_shadow/size.mobile=256
 quality/shadow_atlas/size=256
@@ -78,8 +78,7 @@ quality/reflections/high_quality_ggx=false
 quality/shading/force_vertex_shading.mobile=false
 quality/shading/force_lambert_over_burley.mobile=false
 quality/shading/force_blinn_over_ggx.mobile=false
-quality/depth/hdr=false
-quality/dynamic_fonts/use_oversampling=false
-quality/filters/anisotropic_filter_level=1
 quality/subsurface_scattering/quality=0
 quality/voxel_cone_tracing/high_quality=false
+quality/depth/hdr=false
+quality/dynamic_fonts/use_oversampling=false
