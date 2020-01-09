@@ -3,18 +3,18 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://graphics/final_graphics/Douglas F-4 Phantom II (wersja 1test).png" type="Texture" id=3]
-[ext_resource path="res://graphics/final_graphics/player_right/player_right_0.png" type="Texture" id=4]
-[ext_resource path="res://graphics/final_graphics/player_right/player_right_1.png" type="Texture" id=5]
-[ext_resource path="res://graphics/final_graphics/player_right/player_right_2.png" type="Texture" id=6]
-[ext_resource path="res://graphics/final_graphics/player_right/player_right_3.png" type="Texture" id=7]
-[ext_resource path="res://graphics/final_graphics/player_right/player_right_4.png" type="Texture" id=8]
-[ext_resource path="res://graphics/final_graphics/player_right/player_right_5.png" type="Texture" id=9]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_0.png" type="Texture" id=10]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_1.png" type="Texture" id=11]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_2.png" type="Texture" id=12]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_3.png" type="Texture" id=13]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_4.png" type="Texture" id=14]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_5.png" type="Texture" id=15]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_0.png" type="Texture" id=4]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_1.png" type="Texture" id=5]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_2.png" type="Texture" id=6]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_3.png" type="Texture" id=7]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_4.png" type="Texture" id=8]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_5.png" type="Texture" id=9]
+[ext_resource path="res://graphics/final_graphics/player_right/player_right_0.png" type="Texture" id=10]
+[ext_resource path="res://graphics/final_graphics/player_right/player_right_1.png" type="Texture" id=11]
+[ext_resource path="res://graphics/final_graphics/player_right/player_right_2.png" type="Texture" id=12]
+[ext_resource path="res://graphics/final_graphics/player_right/player_right_3.png" type="Texture" id=13]
+[ext_resource path="res://graphics/final_graphics/player_right/player_right_4.png" type="Texture" id=14]
+[ext_resource path="res://graphics/final_graphics/player_right/player_right_5.png" type="Texture" id=15]
 [ext_resource path="res://sounds/engine4.wav" type="AudioStream" id=16]
 [ext_resource path="res://sounds/explosion3.wav" type="AudioStream" id=17]
 [ext_resource path="res://sounds/refueling.wav" type="AudioStream" id=18]
@@ -26,12 +26,12 @@
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": false,
-"name": "turn_right",
+"name": "turn_left",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": false,
-"name": "turn_left",
+"name": "turn_right",
 "speed": 20.0
 } ]
 
@@ -43,8 +43,8 @@ __meta__ = {
 }
 Projectile = ExtResource( 2 )
 base_speed = 600.0
-refueling_speed = 3.0
-fuel_decreaser = 0.75
+refueling_speed = 5.0
+fuel_decreaser = 0.7
 exlosion_number = 4
 
 [node name="Sprite" type="Sprite" parent="."]
