@@ -66,6 +66,7 @@ z_index = 1
 texture = ExtResource( 10 )
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 11 )
 volume_db = -8.0
 autoplay = true

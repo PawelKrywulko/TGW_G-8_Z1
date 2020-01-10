@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/BootSplash.gd" type="Script" id=1]
 [ext_resource path="res://graphics/quad.png" type="Texture" id=2]
 [ext_resource path="res://graphics/startscreen/GDSLogo.png" type="Texture" id=3]
+[ext_resource path="res://sounds/cinematic-hit.wav" type="AudioStream" id=4]
 
 [node name="BootSplash" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -17,3 +18,9 @@ texture = ExtResource( 2 )
 [node name="Logo" type="Sprite" parent="."]
 position = Vector2( 960, 600 )
 texture = ExtResource( 3 )
+
+[node name="Bang" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+pitch_scale = 0.7
+autoplay = true
