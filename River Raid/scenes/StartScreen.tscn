@@ -7,7 +7,7 @@
 [ext_resource path="res://graphics/startscreen/mainmanubackground.png" type="Texture" id=5]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://graphics/startscreen/riverraidtitle.png" type="Texture" id=7]
-[ext_resource path="res://graphics/startscreen/vw.png" type="Texture" id=8]
+[ext_resource path="res://graphics/startscreen/vietnam.png" type="Texture" id=8]
 [ext_resource path="res://graphics/final_graphics/player_left/player_left_0.png" type="Texture" id=9]
 [ext_resource path="res://graphics/final_graphics/shanghai-pc-751.png" type="Texture" id=10]
 [ext_resource path="res://graphics/final_graphics/tank.png" type="Texture" id=11]
@@ -82,8 +82,18 @@ autowrap = true
 position = Vector2( 1024.66, 206.491 )
 texture = ExtResource( 7 )
 
-[node name="Title2" type="Sprite" parent="."]
-position = Vector2( 1678.57, 285.038 )
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1024.66, 206.491 )
+
+[node name="Title3" type="Sprite" parent="Node2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 515.021, 104.918 )
+rotation = -0.191986
+texture = ExtResource( 8 )
+
+[node name="Title2" type="Sprite" parent="Node2D"]
+modulate = Color( 0.796078, 0.0980392, 0.0980392, 1 )
+position = Vector2( 507.988, 106.676 )
 rotation = -0.191986
 texture = ExtResource( 8 )
 
