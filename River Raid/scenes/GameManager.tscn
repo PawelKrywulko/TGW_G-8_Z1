@@ -60,6 +60,7 @@ position = Vector2( 958.713, 710 )
 base_speed = 250.0
 
 [node name="AirCraft" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.87451 )
 position = Vector2( 1007.31, 950 )
 rotation = -0.15708
 scale = Vector2( 1, -1 )
