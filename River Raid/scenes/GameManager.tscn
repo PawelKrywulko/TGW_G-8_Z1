@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scenes/maps/Level4.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://graphics/final_graphics/uss-cvn-71-theodore-roosevelt-2006-aircraft-carrrier.png" type="Texture" id=10]
+[ext_resource path="res://sounds/GameMusic2.wav" type="AudioStream" id=11]
 
 [node name="GameManager" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -55,6 +57,19 @@ position = Vector2( 0, -27989 )
 [node name="Player" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 958.713, 710 )
+
+[node name="AirCraft" type="Sprite" parent="."]
+position = Vector2( 1007.31, 950 )
+rotation = -0.15708
+scale = Vector2( 1, -1 )
+z_index = 1
+texture = ExtResource( 10 )
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -8.0
+autoplay = true
+bus = "Music"
 [connection signal="ready_to_go" from="." to="Player" method="_on_ready_to_go"]
 [connection signal="reset" from="." to="Player" method="_on_GameManager_reset"]
 [connection signal="bonus_score_reached" from="HUD" to="Player" method="_on_HUD_bonus_score_reached"]
