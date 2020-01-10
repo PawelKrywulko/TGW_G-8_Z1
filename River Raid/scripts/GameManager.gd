@@ -47,6 +47,7 @@ func gameloop() -> void:
 	gameover()
 
 func start_game() -> void:
+	
 	fade_anim_played = false
 	player.hide()
 	while true:
@@ -133,4 +134,19 @@ func build_map():
 		current_map = map_to_add
 
 	current_map.position.y = previous_map_first.position.y - 5760
+
+	var rng = RandomNumberGenerator.new()
+	var random = 0
+	while true:
+		rng.randomize()
+		random = rng.randi_range(-1,1)
+		print(random)
+		if random == -1:
+			current_map.position.x = 1920
+			break
+		elif random == 1:
+			current_map.position.x = 0
+			break
+
+	current_map.scale.x *= random
 	$Levels.add_child(current_map)

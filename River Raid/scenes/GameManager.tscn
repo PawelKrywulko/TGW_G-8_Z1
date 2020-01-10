@@ -34,13 +34,12 @@ position = Vector2( 960, 738 )
 editor/display_folded = true
 
 [node name="Levels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Level0" parent="Levels" instance=ExtResource( 3 )]
 position = Vector2( 0, 810 )
 
 [node name="Level1" parent="Levels" instance=ExtResource( 4 )]
-position = Vector2( -1, -4949 )
+position = Vector2( 0, -4949 )
 
 [node name="Level2" parent="Levels" instance=ExtResource( 5 )]
 position = Vector2( 0, -10709 )
