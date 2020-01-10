@@ -47,7 +47,12 @@ position = Vector2( 941.886, 5691.6 )
 
 [node name="Tank" parent="Enemies" index="1" instance=ExtResource( 3 )]
 position = Vector2( 767.155, 5702.88 )
+points = 250
+is_static = false
 distance_to_player = 700.0
+speed = 100
+exlosion_number = 10
+shell_scene = null
 
 [node name="FuelTank" parent="Enemies" index="2" instance=ExtResource( 4 )]
 position = Vector2( 958.941, 5494.09 )
@@ -60,37 +65,51 @@ position = Vector2( 1317.68, 1645.75 )
 
 [node name="Ship" parent="Enemies" index="5" instance=ExtResource( 5 )]
 position = Vector2( 755.248, 4864.97 )
+is_static = false
 distance_to_player = 700.0
+exlosion_number = 10
 
 [node name="Ship2" parent="Enemies" index="6" instance=ExtResource( 5 )]
 position = Vector2( 1266.17, 4703.48 )
 scale = Vector2( -1, 1 )
+is_static = false
 distance_to_player = 700.0
 choose_direction = "left"
+exlosion_number = 10
 
 [node name="Ship3" parent="Enemies" index="7" instance=ExtResource( 5 )]
 position = Vector2( 970.071, 3981.43 )
 scale = Vector2( -1, 1 )
+is_static = false
 distance_to_player = 700.0
 choose_direction = "left"
+exlosion_number = 10
 
 [node name="Ship4" parent="Enemies" index="8" instance=ExtResource( 5 )]
 position = Vector2( 751.098, 3478.25 )
+is_static = false
 distance_to_player = 700.0
+exlosion_number = 10
 
 [node name="Ship5" parent="Enemies" index="9" instance=ExtResource( 5 )]
 position = Vector2( 1440.63, 1824.31 )
 scale = Vector2( -1, 1 )
+is_static = false
 distance_to_player = 700.0
 choose_direction = "left"
+exlosion_number = 10
 
 [node name="Ship6" parent="Enemies" index="10" instance=ExtResource( 5 )]
 position = Vector2( 364.401, 1605.34 )
+is_static = false
 distance_to_player = 700.0
+exlosion_number = 10
 
 [node name="Ship7" parent="Enemies" index="11" instance=ExtResource( 5 )]
 position = Vector2( 452.922, 1316.48 )
+is_static = false
 distance_to_player = 700.0
+exlosion_number = 10
 
 [node name="Cannon" parent="Enemies" index="12" instance=ExtResource( 6 )]
 position = Vector2( 287.125, 4546.7 )
@@ -103,19 +122,27 @@ choose_direction = "left"
 [node name="Baloon" parent="Enemies" index="14" instance=ExtResource( 7 )]
 position = Vector2( 1532.81, 3279.93 )
 scale = Vector2( -1, 1 )
+is_static = false
 distance_to_player = 800.0
 choose_direction = "left"
+speed = 100
+exlosion_number = 10
 
 [node name="Baloon2" parent="Enemies" index="15" instance=ExtResource( 7 )]
 position = Vector2( 340.107, 3228.69 )
+is_static = false
 distance_to_player = 800.0
+speed = 100
+exlosion_number = 10
 
 [node name="Jet" parent="Enemies" index="16" instance=ExtResource( 8 )]
 position = Vector2( 1835.65, 2119.84 )
 scale = Vector2( -1, 1 )
+is_static = false
 choose_direction = "left"
 speed = 600
 
 [node name="Jet2" parent="Enemies" index="17" instance=ExtResource( 8 )]
 position = Vector2( 60.5669, 144.429 )
+is_static = false
 speed = 600
