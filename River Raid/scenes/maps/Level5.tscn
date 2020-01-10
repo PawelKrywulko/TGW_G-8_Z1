@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/Enemy/Baloon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Enemy/Jet.tscn" type="PackedScene" id=8]
 
-[node name="Level5" groups=[
+[node name="Level5" index="0" groups=[
 "Level",
 ] instance=ExtResource( 1 )]
 
@@ -47,13 +47,14 @@ position = Vector2( 941.886, 5691.6 )
 
 [node name="Tank" parent="Enemies" index="1" instance=ExtResource( 3 )]
 position = Vector2( 767.155, 5702.88 )
+points = 250
 distance_to_player = 700.0
 
 [node name="FuelTank" parent="Enemies" index="2" instance=ExtResource( 4 )]
 position = Vector2( 958.941, 5494.09 )
 
 [node name="FuelTank2" parent="Enemies" index="3" instance=ExtResource( 4 )]
-position = Vector2( 218.161, 1818.14 )
+position = Vector2( 218.161, 1864.73 )
 
 [node name="FuelTank3" parent="Enemies" index="4" instance=ExtResource( 4 )]
 position = Vector2( 1317.68, 1645.75 )
@@ -111,11 +112,11 @@ position = Vector2( 340.107, 3228.69 )
 distance_to_player = 800.0
 
 [node name="Jet" parent="Enemies" index="16" instance=ExtResource( 8 )]
-position = Vector2( 1835.65, 2119.84 )
-scale = Vector2( -1, 1 )
-choose_direction = "left"
+position = Vector2( 964.416, 2096.55 )
 speed = 600
 
 [node name="Jet2" parent="Enemies" index="17" instance=ExtResource( 8 )]
-position = Vector2( 60.5669, 144.429 )
+position = Vector2( 1835.65, 163.065 )
+scale = Vector2( -1, 1 )
+choose_direction = "left"
 speed = 600
