@@ -25,7 +25,8 @@ func _on_score_changed(value):
 	score_panel.text = "SCORE: " + str(score)
 
 func _on_Player_lives_left(value):
-	lives_panel.text = "LIVES: " + str(value)
+	if value >= 0:
+		lives_panel.text = "LIVES: " + str(value)
 
 func _on_bridge_destroyed():
 	bridge += 1
