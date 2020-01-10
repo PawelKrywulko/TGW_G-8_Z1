@@ -166,9 +166,9 @@ func _on_player_destroyed() -> void:
 	ExplosionBuilder.explode(position, scaled_rect, exlosion_number)
 	lives -= 1
 	emit_signal("lives_left", lives)
-	if(lives > 0):
+	if(lives > -1):
 		emit_signal("player_destroyed")
-	elif(lives == 0):
+	elif(lives == -1):
 		emit_signal("out_of_lives")
 
 func wait_for_pressing_key() -> void:
@@ -194,7 +194,7 @@ func reset() -> void:
 	can_fly = false
 	is_any_button_pressed = false
 	fuel_amount = fuel_capacity
-	if lives == 0:
+	if lives == -1:
 		lives = base_lives
 
 func _on_GameManager_reset() -> void:
