@@ -83,7 +83,8 @@ position = Vector2( 1024.66, 206.491 )
 texture = ExtResource( 7 )
 
 [node name="Title2" type="Sprite" parent="."]
-position = Vector2( 1029.93, 264.508 )
+position = Vector2( 1678.57, 285.038 )
+rotation = -0.191986
 texture = ExtResource( 8 )
 
 [node name="PlaneShadow" type="Sprite" parent="."]
