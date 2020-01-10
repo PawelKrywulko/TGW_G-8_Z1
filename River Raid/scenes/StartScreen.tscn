@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://graphics/tileset/water.tres" type="TileSet" id=2]
@@ -7,15 +7,16 @@
 [ext_resource path="res://graphics/startscreen/mainmanubackground.png" type="Texture" id=5]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://graphics/startscreen/riverraidtitle.png" type="Texture" id=7]
-[ext_resource path="res://graphics/final_graphics/player_left/player_left_0.png" type="Texture" id=8]
-[ext_resource path="res://graphics/final_graphics/shanghai-pc-751.png" type="Texture" id=9]
-[ext_resource path="res://graphics/final_graphics/tank.png" type="Texture" id=10]
-[ext_resource path="res://graphics/final_graphics/helikopter.png" type="Texture" id=11]
-[ext_resource path="res://graphics/final_graphics/Mig21PFfamilyweb.png" type="Texture" id=12]
-[ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=13]
-[ext_resource path="res://scripts/OurButton.gd" type="Script" id=14]
-[ext_resource path="res://sounds/civil-war-field-loop.wav" type="AudioStream" id=15]
-[ext_resource path="res://sounds/startgame.wav" type="AudioStream" id=16]
+[ext_resource path="res://graphics/startscreen/vw.png" type="Texture" id=8]
+[ext_resource path="res://graphics/final_graphics/player_left/player_left_0.png" type="Texture" id=9]
+[ext_resource path="res://graphics/final_graphics/shanghai-pc-751.png" type="Texture" id=10]
+[ext_resource path="res://graphics/final_graphics/tank.png" type="Texture" id=11]
+[ext_resource path="res://graphics/final_graphics/helikopter.png" type="Texture" id=12]
+[ext_resource path="res://graphics/final_graphics/Mig21PFfamilyweb.png" type="Texture" id=13]
+[ext_resource path="res://graphics/startscreen/buttonBG.png" type="Texture" id=14]
+[ext_resource path="res://scripts/OurButton.gd" type="Script" id=15]
+[ext_resource path="res://sounds/civil-war-field-loop.wav" type="AudioStream" id=16]
+[ext_resource path="res://sounds/startgame.wav" type="AudioStream" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -54,11 +55,6 @@ tile_data = PoolIntArray( -327655, 3, 0, -262117, 0, 0, -131044, 1, 0, -65508, 7
 position = Vector2( 960, 540 )
 texture = ExtResource( 5 )
 
-[node name="BG2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1005.33, 563.743 )
-texture = ExtResource( 5 )
-
 [node name="StartText" type="Label" parent="."]
 visible = false
 anchor_top = 0.5
@@ -86,72 +82,77 @@ autowrap = true
 position = Vector2( 1024.66, 206.491 )
 texture = ExtResource( 7 )
 
+[node name="Title2" type="Sprite" parent="."]
+position = Vector2( 1029.93, 264.508 )
+texture = ExtResource( 8 )
+
 [node name="PlaneShadow" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 0.329412 )
 position = Vector2( 328.475, 732.033 )
 rotation = 0.261799
 scale = Vector2( 0.09, 0.06 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Plane" type="Sprite" parent="."]
 position = Vector2( 319.136, 724.207 )
 rotation = 0.261799
 scale = Vector2( 0.09, 0.06 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="ShipShadow" type="Sprite" parent="Enemies"]
 modulate = Color( 0, 0, 0, 0.329412 )
 position = Vector2( 1441.87, 733.588 )
 rotation = 0.261799
 scale = Vector2( -0.3, 0.5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Ship" type="Sprite" parent="Enemies"]
 position = Vector2( 1444.97, 742.012 )
 rotation = 0.261799
 scale = Vector2( -0.3, 0.5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="TankShadow" type="Sprite" parent="Enemies"]
 modulate = Color( 0, 0, 0, 0.329412 )
 position = Vector2( 1767.14, 700.065 )
 rotation = 0.261799
 scale = Vector2( 0.3, 0.35 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Tank" type="Sprite" parent="Enemies"]
 position = Vector2( 1768.97, 703.735 )
 rotation = 0.261799
 scale = Vector2( 0.3, 0.35 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="ChopperShadow" type="Sprite" parent="Enemies"]
 modulate = Color( 0, 0, 0, 0.329412 )
 position = Vector2( 1777.1, 131.125 )
 rotation = 0.261799
 scale = Vector2( -0.07, 0.11 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Chopper" type="Sprite" parent="Enemies"]
 position = Vector2( 1771.34, 125.528 )
 rotation = 0.261799
 scale = Vector2( -0.07, 0.11 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="JetShadow" type="Sprite" parent="Enemies"]
 modulate = Color( 0, 0, 0, 0.329412 )
 position = Vector2( 1336.18, 443.534 )
 rotation = 0.261799
 scale = Vector2( -0.2, 0.25 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="Jet" type="Sprite" parent="Enemies"]
 position = Vector2( 1328.6, 431.153 )
 rotation = 0.261799
 scale = Vector2( -0.2, 0.25 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="ButtonsPanel" type="Node" parent="."]
 pause_mode = 1
@@ -164,9 +165,9 @@ margin_top = 403.838
 margin_right = 1195.68
 margin_bottom = -266.962
 rect_pivot_offset = Vector2( 213, 48 )
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 14 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonStartGame"]
@@ -186,9 +187,9 @@ margin_top = 667.964
 margin_right = 1124.1
 margin_bottom = -2.83594
 rect_pivot_offset = Vector2( 213, 48 )
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 14 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonHighscore"]
@@ -208,9 +209,9 @@ margin_top = 533.4
 margin_right = 1161.34
 margin_bottom = -137.4
 rect_pivot_offset = Vector2( 213, 48 )
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 14 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonSettings"]
@@ -230,9 +231,9 @@ margin_top = 799.631
 margin_right = 1087.41
 margin_bottom = 128.831
 rect_pivot_offset = Vector2( 213, 48 )
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 14 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonCredits"]
@@ -252,9 +253,9 @@ margin_top = 931.298
 margin_right = 1052.87
 margin_bottom = 260.498
 rect_pivot_offset = Vector2( 213, 48 )
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 14 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 on_enter_size = Vector2( 1.1, 1.1 )
 
 [node name="Label" type="Label" parent="ButtonsPanel/ButtonQuit"]
@@ -269,13 +270,13 @@ align = 1
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -7.0
 autoplay = true
 bus = "Music"
 
 [node name="StartGameSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = -5.0
 pitch_scale = 0.8
 bus = "SFX"
