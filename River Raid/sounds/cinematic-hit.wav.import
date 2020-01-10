@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/cinematic-hit.wav-b91e4018dd03f250a01d49208799f868.sample"
 
 [deps]
 
 source_file="res://sounds/cinematic-hit.wav"
+dest_files=[ "res://.import/cinematic-hit.wav-b91e4018dd03f250a01d49208799f868.sample" ]
+
 [params]
 
 force/8_bit=false
