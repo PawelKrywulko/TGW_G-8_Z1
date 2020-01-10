@@ -10,7 +10,7 @@
 [ext_resource path="res://scenes/maps/Level5.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://graphics/final_graphics/uss-cvn-71-theodore-roosevelt-2006-aircraft-carrrier.png" type="Texture" id=10]
-[ext_resource path="res://sounds/war-behind-the-hills-v2.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/GameMusic.wav" type="AudioStream" id=11]
 
 [node name="GameManager" type="Node2D"]
 position = Vector2( -1, 0 )
